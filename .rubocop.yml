@@ -1,0 +1,83 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+  - 'vendor/**/*'
+  - 'db/**/*'
+  - 'bin/**/*'
+  - 'spec/**/*'
+  - 'node_modules/**/*'
+  DisplayCopNames: true
+
+# ブロックの開始後に複数行のdo endブロックに改行があるかどうかをチェック
+Layout/MultilineBlockLayout:
+  Exclude:
+  - 'spec/**/*_spec.rb'
+
+# ソースコードの行の長さをチェックする(デフォルト:80)
+Layout/LineLength:
+  Enabled: false
+
+# メソッドのABCサイズが設定された最大値を超えていないか
+Metrics/AbcSize:
+  Max: 25
+
+# ブロックの長さが最大値を超えているかどうか
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+  - 'Gemfile'
+  - 'config/**/*'
+  - 'spec/**/*_spec.rb'
+
+# クラスの長さが最大値を超えているか
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+
+# 循環的複雑度(メソッドを通る直線的に独立したパスの数)
+Metrics/CyclomaticComplexity:
+  Max: 30
+
+# メソッドの行数
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+
+# セッターやゲターにsetやgetがついてないか
+Naming/AccessorMethodName:
+  Exclude:
+  - 'app/controllers/**/*'
+
+# 日本語のコメント(英語以外のコメント)をチェック
+Style/AsciiComments:
+  Enabled: false
+
+# 1行に複数ブロックが含まれているかチェック
+Style/BlockDelimiters:
+  Exclude:
+  - 'spec/**/*_spec.rb'
+
+# クラス内のクラス等を定義する際の形式チェック
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# ドキュメントの無いpublic classを許可する
+Style/Documentation:
+  Enabled: false
+
+# 文字列をfreeze(immutable)にするか
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# if式が1行で収まるかチェック
+Style/IfUnlessModifier:
+  Enabled: false
+
+# whileやuntilが指定文字数以内に1行で収まっているか
+Style/WhileUntilModifier:
+  Enabled: false
+
+# gemfileの順番チェック
+Bundler/OrderedGems:
+  Enabled: false
