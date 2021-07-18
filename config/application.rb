@@ -31,5 +31,13 @@ module EmotionDragon
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.stylesheets false
+      g.javascript false
+      g.helper false
+      g.template_engine false
+      g.test_framework nil
+    end
   end
 end
