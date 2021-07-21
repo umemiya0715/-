@@ -12,14 +12,14 @@
       </form>
     </div>
     <div class="text-center">
-      <router-link :to="{ name: 'HowToPage' }">何この診断？</router-link>
+      <router-link to="/help">ドラゴン？</router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TopIndex",
+  name: "top",
   data() {
     return {
       title: "エモドラ"

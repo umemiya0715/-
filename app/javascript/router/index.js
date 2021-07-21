@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import TopPage from "../pages/top";
+import top from "../pages/top/index";
+import help from "../pages/help/index";
 
 Vue.use(Router)
 
@@ -10,8 +11,13 @@ const router = new Router({
   routes: [
     {
       path: "/",
-      component: TopPage,
-      name: "TopPage",
+      component: top,
+      name: "top",
+    },
+    {
+      path: "/help",
+      component: help,
+      name: "help",
     },
   ],
 })
