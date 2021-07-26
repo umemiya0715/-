@@ -5,24 +5,24 @@
     </div>
     <div class="text-center">
       <form class="grid grid-cols-1 gap-6 m-16">
-        <div class="mt-4">
+        <label class="block">
           <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@dragon">
-        </div>  
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+        </label>
       </form>
-      <router-link to="/result" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</router-link>
     </div>
     <div class="text-center">
-      <router-link to="/help">ドラゴン？</router-link>
+      <router-link to="/">トップページに戻る</router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "top",
+  name: "Analysis",
   data() {
     return {
-      title: "エモドラ"
+      title: "あなたの心は..."
     }
   }
 }
