@@ -2,7 +2,7 @@
   <footer>
     <div class='bg-gray-200'>
       <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-        <div class="text-gray-500 text-sm text-center font-light sm:text-left">
+        <div class="text-gray-500 text-sm text-center font-light sm:text-center">
           <router-link
             to="/term"
             class="ml-3"
