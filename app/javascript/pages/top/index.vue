@@ -19,7 +19,6 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import axios from 'axios'
 
 export default {
   name: "top",
@@ -34,29 +33,28 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'dragon', ['dragon']
+      'dragons', ['dragons']
     ),
     ...mapGetters(
-      'result', ['result']
+      'results', ['results']
     )
   },
   methods: {
     ...mapMutations(
-      'dragon', []
+      'dragons', ['fetchDragon']
     ),
     ...mapActions(
-      'dragon', []
+      'results', ['addResult']
     ),
     async startAnalysis() {
       const analyzingAccount = this.totallingTwitterdata
       const averageTroversion =　analyzingAccount.troversion.average
-      const avaragePolarity = analyzingAccount.polarity.average
+      const averagePolarity = analyzingAccount.polarity.average
       const averageMagnitude = analyzingAccount.magnitude.average
-      const result = [averageTroversion, avaragePolarity, avaragePolarity]
-      const dragon = result.diagnoseDragon
+      const result = [averageTroversion, averagePolarity, averagePolarity]
       this.addResult(result)
-      this.addDragon(dragon)
       try {
+        await this.fetchDragon()
         setTimeout(
           this.$router.push('/result'),
         3000)
@@ -65,6 +63,7 @@ export default {
         this.dialog = false
       }
     },
+  }
 
 </script>
 
