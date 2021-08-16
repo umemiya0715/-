@@ -1,4 +1,4 @@
-class Dragon < ActiveHash::Base
+class Dragons < ActiveHash::Base
   self.data = [
     { id: 1, name: 'ファフニール', image: '', explanation: '',  personality: '', advise: '' },
     { id: 2, name: 'ファフニール', image: '', explanation: '', personality: '', advise: '' },

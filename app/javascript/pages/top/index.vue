@@ -47,14 +47,11 @@ export default {
       'results', ['addResult']
     ),
     async startAnalysis() {
-      const analyzingAccount = this.totallingTwitterdata
-      const averageTroversion =　analyzingAccount.troversion.average
-      const averagePolarity = analyzingAccount.polarity.average
-      const averageMagnitude = analyzingAccount.magnitude.average
-      const result = [averageTroversion, averagePolarity, averagePolarity]
-      this.addResult(result)
+      const targetAccount = this.account
       try {
-        await this.fetchDragon()
+        await this.fetchAccountData(targetAccount)
+        await this.analyzeAccount(accountData)
+        await this.fetchDragon(this.dragonId)
         setTimeout(
           this.$router.push('/result'),
         3000)
@@ -64,7 +61,7 @@ export default {
       }
     },
   }
-
+}
 </script>
 
 <style scoped>

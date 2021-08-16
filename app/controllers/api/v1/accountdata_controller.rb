@@ -14,7 +14,7 @@ module Api
 
       def create
         @accountdata = Accountdata.new(accountdata_params)
-        @accountdata = @accountdata.fetchdata
+        @accountdata = @accountdata.collectData
         if @accountdata.save
           render json: @accountdata
         else

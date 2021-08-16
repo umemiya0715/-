@@ -8,13 +8,17 @@ export const getters = {
 
 export const mutations = {
   setAnalyzedData: (state, analyzedData) => {
-    state.analyzedData = analyzedData
+    const dataArray = []
+    dataArray.push(analyzedData.troversion)
+    dataArray.push(analyzedData.polarity)
+    dataArray.push(analyzedData.magnitude)
+    state.analyzedData = dataArray
   }
 }
 
 export const actions = {
-  fetchAnalyzedData ({ commit }, analyzedDataId) {
-    return this.$axios.$get(`https://language.googleapis.com/v1beta1/documents;analyzeEntities?ley?=????/${analyzedDataId}`)
+  analyzedAccount ({ commit }, analyzedData) {
+    return this.$axios.$post('/api/v1/analyzeddata', { analyzeddata: analyzedData })
       .then(res => commit('setAnalyzedData', res))
   }
 }

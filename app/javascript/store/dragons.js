@@ -13,8 +13,8 @@ export const mutations = {
 }
 
 export const actions = {
-  fetchDragon ({ commit }, dragonId) {
-    return this.$axios.$get(`/api/v1/dragons/${dragonId}`)
+  fetchDragon ({ commit }, id) {
+    return this.$axios.$get(`/api/v1/dragons/${id}`)
       .then(res => commit('setDragons', res))
   }
 }

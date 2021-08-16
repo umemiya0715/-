@@ -1,5 +1,5 @@
 export const state = () => ({
-  accountdata: []
+  accountData: []
 })
 
 export const getters = {
@@ -8,13 +8,16 @@ export const getters = {
 
 export const mutations = {
   setAccountData: (state, accountData) => {
-    state.accountData = accountData
+    const dataArray = []
+    dataArray.push(accountData.troversion)
+    dataArray.push(accountData.tweets)
+    state.accountData = dataArray
   }
 }
 
 export const actions = {
-  fetchAccountData ({ commit }, accounrDataId) {
-    return this.$axios.$get(`/api/v1/accountData/${accountDataId}`)
+  fetchAccountData ({ commit }, accountData) {
+    return this.$axios.$post('/api/v1/accountdata', { accountdata: accountData })
       .then(res => commit('setAccountData', res))
   }
 }

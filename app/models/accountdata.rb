@@ -1,12 +1,10 @@
 class AccountData < ApplicationRecord
-  def fetchData
+  def collectData
     @user = client.user
     @tweets = client.user_timeline(:count => 200, :tweet_mode => 'extented')
-    analysis = UserAnalyzeService.call(@user, @tweets)
-    @result = TweetsAnalyzeService.call(@user, @tweets, analysis)
-    name = @user.name
-    @screen_name = @user.screen_name
-    @share_tweet = TweetShareService.call(name, @result)
+    all_tweets_count = @user.statuses_count
+    follower_point = FollowerAnalyzeService.call(@user)
+    analysis = AccountAnalyzeService.call(@user, @tweets)
   end
 
   private

@@ -1,10 +1,9 @@
-class TweetsAnalyzeService
+class AccountAnalyzeService
   include Service
 
-  def initialize(user, tweets, analysis)
+  def initialize(user, tweets)
     @user = user
     @tweets = tweets
-    @analysis = analysis
   end
 
   def call
