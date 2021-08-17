@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api, format: 'json' do
+    namespace :v1 do
+      resources :accountdata, only: %i[index create show]
+      resources :analyzeddata, only: %i[index create show]
+      resources :dragons, only: %i[index show]
+    end
+  end
 end

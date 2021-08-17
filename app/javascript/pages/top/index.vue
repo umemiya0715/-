@@ -9,7 +9,7 @@
           <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@dragon">
         </div>
       </form>
-      <router-link @click='startAnalysis' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</router-link>
+      <button @click='startAnalysis' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
     </div>
     <div class="text-center">
       <router-link to="/help">ドラゴン？</router-link>
