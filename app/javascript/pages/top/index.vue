@@ -53,7 +53,7 @@ export default {
         await this.analyzeAccount(accountData)
         await this.fetchDragon(this.dragonId)
         setTimeout(
-          this.$router.push('/result'),
+          this.$router.push('/analysis'),
         3000)
       } catch (error) {
         alert('データの取得に失敗しました')

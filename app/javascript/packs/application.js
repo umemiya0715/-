@@ -11,6 +11,7 @@ require("channels")
 import Vue from 'vue'
 import App from '../app.vue'
 import router from '../router/router.js'
+import axios from '../plugins/axios'
 import '../css/tailwind.css'
 
 document.addEventListener('DOMContentLoaded', () => {
