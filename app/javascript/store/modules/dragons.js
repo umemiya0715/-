@@ -1,20 +1,29 @@
-export const state = () => ({
-  dragons: []
-})
+import axios from '../../plugins/axios'
 
-export const getters = {
+const state = {
+  dragons: []
+}
+
+const getters = {
   dragons: state => state.dragons
 }
 
-export const mutations = {
+const mutations = {
   setDragons: (state, dragons) => {
     state.dragons = dragons
   }
 }
 
-export const actions = {
+const actions = {
   fetchDragon ({ commit }, id) {
     return this.$axios.$get(`/api/v1/dragons/${id}`)
       .then(res => commit('setDragons', res))
   }
+}
+
+export default {
+  state,
+  getters,
+  mutations,
+  actions
 }

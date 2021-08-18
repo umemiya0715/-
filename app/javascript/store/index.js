@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 import accountdata from './modules/accountdata'
 import analyzeddata from './modules/analyzeddata'
 import dragons from './modules/dragons'

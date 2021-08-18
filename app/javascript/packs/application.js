@@ -11,10 +11,11 @@ require("channels")
 import Vue from 'vue'
 import App from '../app.vue'
 import router from '../router/router.js'
-import axios from '../plugins/axios'
-import store from '../store'
+import axios from '../plugins/axios.js'
+import store from '../store/index.js'
 import '../css/tailwind.css'
 
+Vue.config.productionTip = false
 Vue.prototype.$axios = axios
 
 document.addEventListener('DOMContentLoaded', () => {

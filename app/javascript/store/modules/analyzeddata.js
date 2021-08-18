@@ -1,12 +1,14 @@
-export const state = () => ({
-  analyzedData: []
-})
+import axios from '../../plugins/axios'
 
-export const getters = {
+const state = {
+  analyzedData: []
+}
+
+const getters = {
   analyzedData: state => state.analyzedData
 }
 
-export const mutations = {
+const mutations = {
   setAnalyzedData: (state, analyzedData) => {
     const dataArray = []
     dataArray.push(analyzedData.troversion)
@@ -16,9 +18,17 @@ export const mutations = {
   }
 }
 
-export const actions = {
+const actions = {
   analyzedAccount ({ commit }, analyzedData) {
     return this.$axios.$post('/api/v1/analyzeddata', { analyzeddata: analyzedData })
       .then(res => commit('setAnalyzedData', res))
   }
+}
+
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
 }
