@@ -1,7 +1,7 @@
 module Api
   module V1
     class AnalyzeddataController < ApplicationController
-      before_action :set_analyzedData, only: %i[show update destroy]
+      before_action :set_analyzedData, only: %i[show]
 
       def index
         @analyzedData = AnalyzedData.all

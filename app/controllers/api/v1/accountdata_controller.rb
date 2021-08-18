@@ -1,7 +1,7 @@
 module Api
   module V1
     class AccountdataController < ApplicationController
-      before_action :set_accountdata, only: %i[show update destroy]
+      before_action :set_accountdata, only: %i[show]
 
       def index
         @accountdata = Accountdata.all
