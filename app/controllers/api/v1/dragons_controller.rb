@@ -4,7 +4,7 @@ module Api
       before_action :set_dragon, only: %i[show]
 
       def index
-        render json: Area.All
+        render json: Dragon.All
       end
 
       def show

@@ -1,9 +1,6 @@
 <template>
   <div class="mt-8 bg-red-500 bg-opacity-50">
     <div class="text-center">
-      <h3>{{ title }}</h3>
-    </div>
-    <div class="text-center">
       <div class="bg-gray-100 rounded overflow-hidden shadow-md relative">
         <div class="m-4">
           <span class="font-bold">あなたの心は</span>
@@ -31,7 +28,7 @@ import { mapGetters, mapActions } from  'vuex'
 export default {
   data() {
     return {
-      title: "あなたの心は..."
+      dragon: "",
     }
   },
   computed: {

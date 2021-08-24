@@ -9,7 +9,7 @@
           <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@dragon">
         </div>
       </form>
-      <button @click='startAnalysis' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+      <button type="submit" @click="startAnalysis" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
     </div>
     <div class="text-center">
       <router-link to="/help">ドラゴン？</router-link>
@@ -24,11 +24,7 @@ export default {
   name: "top",
   data() {
     return {
-      analyzingAccount: [],
-      averageTroversion: [],
-      avaragePolarity: [],
-      averageMagnitude: [],
-      dragon: []
+      targetAccount: '',
     }
   },
   computed: {
@@ -36,28 +32,27 @@ export default {
       'dragons', ['dragons']
     ),
     ...mapGetters(
-      'results', ['results']
-    )
+      'accountData', ['accountData']
+    ),
   },
   methods: {
     ...mapMutations(
       'dragons', ['fetchDragon']
     ),
     ...mapActions(
-      'results', ['addResult']
+      'accountData', ['fetchAccountData']
     ),
     async startAnalysis() {
-      const targetAccount = this.account
       try {
-        await this.fetchAccountData(targetAccount)
-        await this.analyzeAccount(accountData)
-        await this.fetchDragon(this.dragonId)
-        setTimeout(
-          this.$router.push('/analysis'),
-        3000)
+        await this.fetchAccountData(this.targetAccount)
+        // await this.analyzeAccount(accountData)
+        // await this.fetchDragon(this.dragonId)
+        // setTimeout(
+        //  this.$router.push('/analysis'),
+        // 3000);
       } catch (error) {
         alert('データの取得に失敗しました')
-        this.dialog = false
+        console.log(error)
       }
     },
   }

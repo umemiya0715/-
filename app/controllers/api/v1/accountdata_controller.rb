@@ -1,35 +1,36 @@
 module Api
   module V1
-    class AccountdataController < ApplicationController
-      before_action :set_accountdata, only: %i[show]
+    class AccountDataController < ApplicationController
+      before_action :set_accountData, only: %i[show]
 
       def index
-        @accountdata = Accountdata.all
-        render json: @accountdata
+        @accountData = AccountData.all
+        render json: @accountData
       end
 
       def show
-        render json: @accountdata
+        render json: @accountData
       end
 
       def create
-        @accountdata = Accountdata.new(accountdata_params)
-        @accountdata = @accountdata.collectData
-        if @accountdata.save
-          render json: @accountdata
+        @accountData = AccountData.new(accountData_params)
+        byebug
+        @accountData = @accountData.collectData
+        if @accountData.save
+          render json: @accountData
         else
-          render json: @accountdata.errors, status: :bad_request
+          render json: @accountData.errors, status: :bad_request
         end
       end
 
       private
 
-      def set_accountdata
-        @accountdata = accountdata.find(params[:id])
+      def set_accountData
+        @accountData = accountData.find(params[:id])
       end
 
-      def accountdata_params
-        params.require(:accountdata).permit(:accountdata)
+      def accountData_params
+        params.require(:accountData).permit(:accountData)
       end
     end
   end

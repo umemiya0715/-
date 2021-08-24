@@ -4,7 +4,7 @@ class AccountData < ApplicationRecord
     @tweets = twitter_client.user_timeline(:count => 200, :tweet_mode => 'extented')
     all_tweets_count = @user.statuses_count
     follower_point = FollowerAnalyzeService.call(@user)
-    analysis = AccountAnalyzeService.call(@user, @tweets)
+    # analysis = AccountAnalyzeService.call(@user, @tweets)
   end
 
   private
