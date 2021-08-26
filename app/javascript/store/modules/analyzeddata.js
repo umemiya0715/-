@@ -1,4 +1,4 @@
-import axios from '../../plugins/axios'
+import axios from '../../plugins/axios.js';
 
 const state = {
   analyzedData: []
@@ -19,10 +19,13 @@ const mutations = {
 }
 
 const actions = {
-  analyzedAccount ({ commit }, analyzedData) {
-    return this.$axios.$post('/api/v1/analyzeddata', { analyzeddata: analyzedData })
-      .then(res => commit('setAnalyzedData', res))
-  }
+  analyzedAccount({ commit }, analyzedData){
+    axios.post('/api/v1/analyzeddata', { analyzeddata: analyzedData })
+    .then(res => {
+      commit('setAnalyzedData', res.data)
+    })
+    .catch(err => console.log(err.respoonse));
+  },
 }
 
 export default {

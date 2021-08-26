@@ -1,4 +1,4 @@
-import axios from '../../plugins/axios'
+import axios from '../../plugins/axios.js';
 
 const state = {
   dragons: []
@@ -16,9 +16,12 @@ const mutations = {
 
 const actions = {
   fetchDragon ({ commit }, id) {
-    return this.$axios.$get(`/api/v1/dragons/${id}`)
-      .then(res => commit('setDragons', res))
-  }
+    axios.get(`/api/v1/dragons/${id}`)
+    .then(res => {
+      commit('setDragons', res.data)
+    })
+    .catch(err => console.log(err.response));
+  },
 }
 
 export default {

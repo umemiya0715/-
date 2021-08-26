@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import accountdata from './modules/accountData'
-import analyzeddata from './modules/analyzedData'
+import accountData from './modules/accountData'
+import analyzedData from './modules/analyzedData'
 import dragons from './modules/dragons'
 
 Vue.use(Vuex)

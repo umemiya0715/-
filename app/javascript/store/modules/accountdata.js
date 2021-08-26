@@ -1,4 +1,4 @@
-import axios from '../../plugins/axios'
+import axios from '../../plugins/axios.js';
 
 export default {
   namespaced: true,
@@ -18,8 +18,11 @@ export default {
   },
   actions: {
     fetchAccountData ({ commit }, targetAccount) {
-      return this.$axios.$post('/api/v1/accountData', { accountData: targetAccount })
-        .then(res => commit('setAccountData', res))
-    }
+      axios.post('/api/v1/accountData', { accountData: targetAccount })
+        .then(res => {
+          commit('setAccountData', res.data)
+        })
+        .catch(err => console.log(err.response));
+    },
   }
 }
