@@ -1,5 +1,5 @@
-class AccountData < ApplicationRecord
-  def collectData
+class Accountdata < ApplicationRecord
+  def collectdata
     @user = twitter_client.user
     @tweets = twitter_client.user_timeline(:count => 200, :tweet_mode => 'extented')
     all_tweets_count = @user.statuses_count

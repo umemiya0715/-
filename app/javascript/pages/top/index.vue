@@ -32,7 +32,7 @@ export default {
       'dragons', ['dragons']
     ),
     ...mapGetters(
-      'accountData', ['accountData']
+      'accountdata', ['accountdata']
     ),
   },
   methods: {
@@ -40,11 +40,11 @@ export default {
       'dragons', ['fetchDragon']
     ),
     ...mapActions(
-      'accountData', ['fetchAccountData']
+      'accountdata', ['fetchAccountdata']
     ),
     async startAnalysis() {
       try {
-        await this.fetchAccountData(this.targetAccount)
+        await this.fetchAccountdata(this.targetAccount)
         // await this.analyzeAccount(accountData)
         // await this.fetchDragon(this.dragonId)
         // setTimeout(

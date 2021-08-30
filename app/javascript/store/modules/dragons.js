@@ -16,7 +16,7 @@ const mutations = {
 
 const actions = {
   fetchDragon ({ commit }, id) {
-    axios.get(`/api/v1/dragons/${id}`)
+    axios.get(`/v1/dragons/${id}`)
     .then(res => {
       commit('setDragons', res.data)
     })

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class DragonsController < ApplicationController
+    class dragonsController < ApplicationController
       before_action :set_dragon, only: %i[show]
 
       def index

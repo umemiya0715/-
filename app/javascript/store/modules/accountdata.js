@@ -3,24 +3,24 @@ import axios from '../../plugins/axios.js';
 export default {
   namespaced: true,
   state: {
-    accountData: []
+    accountdata: []
   },
   getters: {
-    accountData: state => state.accountData
+    accountdata: state => state.accountdata
   },
   mutations: {
-    setAccountData: (state, accountData) => {
+    setAccountdata: (state, accountdata) => {
       const dataArray = []
-      dataArray.push(accountData.troversion)
-      dataArray.push(accountData.tweets)
-      state.accountData = dataArray
+      dataArray.push(accountdata.troversion)
+      dataArray.push(accountdata.tweets)
+      state.accountdata = dataArray
     }
   },
   actions: {
-    fetchAccountData ({ commit }, targetAccount) {
-      axios.post('/api/v1/accountData', { accountData: targetAccount })
+    fetchAccountdata ({ commit }, targetAccount) {
+      axios.post('/v1/accountdata', { accountdata: targetAccount })
         .then(res => {
-          commit('setAccountData', res.data)
+          commit('setAccountdata', res.data)
         })
         .catch(err => console.log(err.response));
     },
