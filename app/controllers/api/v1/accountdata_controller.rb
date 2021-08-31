@@ -4,22 +4,17 @@ module Api
       before_action :set_accountdata, only: %i[show]
 
       def index
-        @accountdata = Accountdata.all
+        @user = client.user(accountdata)
+        @tweets = client.user_timeline(:count => 200, :tweet_mode => 'extended')
         render json: @accountdata
       end
 
       def show
+        @user = client.user(accountdata)
+        @tweets = client.user_timeline(:count => 200, :tweet_mode => 'extended')
+        # analysis = UserAnalysisService.call(@user, @tweets)
+        # @result = TweetAnalyzeService.call(@user, @tweets, analysis)
         render json: @accountdata
-      end
-
-      def create
-        @accountdata = Accountdata.new(accountdata_params)
-        @accountdata = @accountdata.collectdata
-        if @accountdata.save
-          render json: @accountdata
-        else
-          render json: @accountdata.errors, status: :bad_request
-        end
       end
 
       private
@@ -28,8 +23,13 @@ module Api
         @accountdata = accountdata.find(params[:id])
       end
 
-      def accountdata_params
-        params.require(:accountdata).permit(:accountdata)
+      def client
+        @client ||= Twitter::REST::Client.new do |config|
+          config.consumer_key = Rails.application.credentials.twitter[:consumer_key]
+          config.consumer_secret = Rails.application.credentials.twitter[:consumer_secret]
+          config.access_token = Rails.application.credentials.twitter[:access_token]
+          config.access_token_secret = Rails.application.credentials.twitter[:access_token_secret]
+        end
       end
     end
   end

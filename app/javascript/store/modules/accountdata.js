@@ -18,7 +18,7 @@ export default {
   },
   actions: {
     fetchAccountdata ({ commit }, targetAccount) {
-      axios.post('/v1/accountdata', { accountdata: targetAccount })
+     axios.get('/v1/accountdata', { accountdata: targetAccount })
         .then(res => {
           commit('setAccountdata', res.data)
         })

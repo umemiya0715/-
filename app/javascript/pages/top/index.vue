@@ -6,10 +6,10 @@
     <div class="text-center">
       <form class="grid grid-cols-1 gap-6 m-16">
         <div class="mt-4">
-          <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@dragon">
+          <input type="text" v-model="targetAccount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@dragon">
         </div>
       </form>
-      <button type="submit" @click="startAnalysis" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+      <button type="submit" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
     </div>
     <div class="text-center">
       <router-link to="/help">ドラゴン？</router-link>
@@ -42,9 +42,9 @@ export default {
     ...mapActions(
       'accountdata', ['fetchAccountdata']
     ),
-    async startAnalysis() {
+    async startAnalysis(targetAccount) {
       try {
-        await this.fetchAccountdata(this.targetAccount)
+        await this.fetchAccountdata(targetAccount)
         // await this.analyzeAccount(accountData)
         // await this.fetchDragon(this.dragonId)
         // setTimeout(

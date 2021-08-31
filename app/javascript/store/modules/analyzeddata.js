@@ -1,30 +1,30 @@
 import axios from '../../plugins/axios.js';
 
 const state = {
-  analyzedData: []
+  analyzeddata: []
 }
 
 const getters = {
-  analyzedData: state => state.analyzedData
+  analyzeddata: state => state.analyzeddata
 }
 
 const mutations = {
-  setAnalyzedData: (state, analyzedData) => {
+  setAnalyzeddata: (state, analyzeddata) => {
     const dataArray = []
-    dataArray.push(analyzedData.troversion)
-    dataArray.push(analyzedData.polarity)
-    dataArray.push(analyzedData.magnitude)
-    state.analyzedData = dataArray
+    dataArray.push(analyzeddata.troversion)
+    dataArray.push(analyzeddata.polarity)
+    dataArray.push(analyzeddata.magnitude)
+    state.analyzeddata = dataArray
   }
 }
 
 const actions = {
-  analyzedAccount({ commit }, analyzedData){
-    axios.post('/v1/analyzedData', { analyzeddata: analyzedData })
+  analyzedAccount({ commit }, analyzeddata){
+    axios.post('/v1/analyzeddata', { analyzeddata: analyzeddata })
     .then(res => {
-      commit('setAnalyzedData', res.data)
+      commit('setAnalyzeddata', res.data)
     })
-    .catch(err => console.log(err.respoonse));
+    .catch(err => console.log(err.response));
   },
 }
 

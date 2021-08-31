@@ -1,32 +1,34 @@
-class Api::v1::AnalyzedDataController < ApplicationController
-  before_action :set_analyzedData, only: %i[show]
+module api
+  module v1
+    AnalyzeddataController < ApplicationController
+      before_action :set_analyzeddata, only: %i[show]
 
-  def index
-    @analyzedData = AnalyzedData.all
-    render json: @analyzedData
-  end
+      def index
+        @analyzeddata = Analyzeddata.all
+        render json: @analyzeddata
+      end
 
-  def show
-    render json: @analyzedData
-  end
+      def show
+        render json: @analyzeddata
+      end
 
-  def create
-    @analyzedData = AnalyzedData.new(analyzedData_params)
-    @analyzedData = @analyzedData.emotionAnalyze
-    if @analyzedData.save
-      render json: @analyzedData
-    else
-      render json: @analyzedData.errors, status: :bad_request
+    def create
+      @analyzeddata = Analyzeddata.new(analyzeddata_params)
+      @analyzeddata = @analyzeddata.emotionAnalyze
+      if @analyzeddata.save
+        render json: @analyzeddata
+      else
+        render json: @analyzeddata.errors, status: :bad_request
+      end
     end
-  end
 
   private
 
-  def set_analyzedData
-    @analyzedData = analyzedData.find(params[:id])
+  def set_analyzeddata
+    @analyzeddata = analyzeddata.find(params[:id])
   end
 
-  def analyzedData_params
-    params.require(:analyzedData).permit(:analyzedData)
+  def analyzeddata_params
+    params.require(:analyzeddata).permit(:analyzeddata)
   end
 end
