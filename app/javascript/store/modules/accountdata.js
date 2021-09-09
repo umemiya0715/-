@@ -14,11 +14,14 @@ export default {
       dataArray.push(accountdata.troversion)
       dataArray.push(accountdata.tweets)
       state.accountdata = dataArray
+    },
+    addAccountdata (state, accountdata) {
+      state.accountdata.targetId = accountdata
     }
   },
   actions: {
-    fetchAccountdata ({ commit }, targetAccount) {
-     axios.get('/v1/accountdata', { accountdata: targetAccount })
+    fetchAccountdata ({ commit }, targetId) {
+      axios.post('/v1/accountdata', { accountdata: targetId } )
         .then(res => {
           commit('setAccountdata', res.data)
         })

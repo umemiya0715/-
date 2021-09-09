@@ -9,7 +9,7 @@
           <input type="text" v-model="targetAccount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@dragon">
         </div>
       </form>
-      <button type="submit" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+      <button @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
     </div>
     <div class="text-center">
       <router-link to="/help">ドラゴン？</router-link>
@@ -24,7 +24,7 @@ export default {
   name: "top",
   data() {
     return {
-      targetAccount: '',
+      targetAccount: "",
     }
   },
   computed: {
@@ -37,14 +37,19 @@ export default {
   },
   methods: {
     ...mapMutations(
+      'accountdata', ['addAccountdata']
+    ),
+    ...mapMutations(
       'dragons', ['fetchDragon']
     ),
     ...mapActions(
       'accountdata', ['fetchAccountdata']
     ),
     async startAnalysis(targetAccount) {
+      this.addAccountdata(targetAccount)
+      const targetId = this.targetAccount
       try {
-        await this.fetchAccountdata(targetAccount)
+        await this.fetchAccountdata(targetId)
         // await this.analyzeAccount(accountData)
         // await this.fetchDragon(this.dragonId)
         // setTimeout(
