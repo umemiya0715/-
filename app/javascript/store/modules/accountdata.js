@@ -10,10 +10,8 @@ export default {
   },
   mutations: {
     setAccountdata: (state, accountdata) => {
-      const dataArray = []
-      dataArray.push(accountdata.troversion)
-      dataArray.push(accountdata.tweets)
-      state.accountdata = dataArray
+      state.user = accountdata.user
+      state.tweets = accountdata.tweets
     },
     addAccountdata (state, accountdata) {
       state.targetId = accountdata

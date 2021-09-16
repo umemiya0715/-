@@ -16,12 +16,8 @@ module Api
         @accountdatum = Accountdatum.new(accountdatum_params)
         @user = client.user(@accountdatum.accountdata)
         @tweets = client.user_timeline(@user, :count => 50, :tweet_mode => 'extented')
-        @accountdata = @accountdatum.mergeData(@user, @tweets)
-        if @accountdatum.save
-          render json: @accountdata
-        else
-          render json: @accountdatum.errors, status: :bad_request
-        end
+        @accountdatum.mergeData(@user, @tweets)
+        render json: @accountdatum
       end
 
       private

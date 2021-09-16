@@ -1,9 +1,9 @@
 class Accountdatum < ApplicationRecord
   attribute :user, :string
-  attribute :tweet, :string
+  attribute :tweets, :string
 
   def mergeData(user, tweets)
     self.user = user
-    self.tweet = tweets
+    self.tweets = tweets
   end
 end
