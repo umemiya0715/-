@@ -14,7 +14,9 @@ module Api
 
       def create
         @accountdatum = Accountdatum.new(accountdatum_params)
-        @accountdata = @accountdatum.fetchTweets
+        @user = client.user(@accountdatum.accountdata)
+        @tweets = client.user_timeline(@user, :count => 50, :tweet_mode => 'extented')
+        @accountdata = @accountdatum.mergeData(@user, @tweets)
         if @accountdatum.save
           render json: @accountdata
         else
@@ -30,6 +32,15 @@ module Api
 
       def accountdatum_params
         params.require(:accountdatum).permit(:accountdata)
+      end
+
+      def client
+        @client ||= Twitter::REST::Client.new do |config|
+          config.consumer_key = Rails.application.credentials.twitter[:consumer_key]
+          config.consumer_secret = Rails.application.credentials.twitter[:consumer_secret]
+          config.access_token = Rails.application.credentials.twitter[:access_token]
+          config.access_token_secret = Rails.application.credentials.twitter[:access_token_secret]
+        end
       end
     end
   end

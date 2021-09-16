@@ -1,21 +1,9 @@
 class Accountdatum < ApplicationRecord
-  def fetchTweets
-    targetId = @accountdata
-    @user = client.user(targetId)
-    @tweets = client.user_timeline(:count => 200, :tweet_mode => 'extented')
-    # all_tweets_count = @user.statuses_count
-    # follower_point = FollowerAnalyzeService.call(@user)
-    # analysis = AccountAnalyzeService.call(@user, @tweets)
-  end
+  attribute :user, :string
+  attribute :tweet, :string
 
-  private
-
-  def client
-    @client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key = Rails.application.credentials.twitter[:consumer_key]
-      config.consumer_secret = Rails.application.credentials.twitter[:consumer_secret]
-      config.access_token = Rails.application.credentials.twitter[:access_token]
-      config.access_token_secret = Rails.application.credentials.twitter[:access_token_secret]
-    end
+  def mergeData(user, tweets)
+    self.user = user
+    self.tweet = tweets
   end
 end

@@ -16,7 +16,7 @@ export default {
       state.accountdata = dataArray
     },
     addAccountdata (state, accountdata) {
-      state.accountdata.targetId = accountdata
+      state.targetId = accountdata
     }
   },
   actions: {

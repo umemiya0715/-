@@ -52,9 +52,9 @@ export default {
         await this.fetchAccountdata(targetId)
         // await this.analyzeAccount(accountData)
         // await this.fetchDragon(this.dragonId)
-        // setTimeout(
-        //  this.$router.push('/analysis'),
-        // 3000);
+        setTimeout(
+          this.$router.push('/analysis'),
+        3000);
       } catch (error) {
         alert('データの取得に失敗しました')
         console.log(error)
