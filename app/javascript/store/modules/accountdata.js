@@ -13,9 +13,6 @@ export default {
       state.user = accountdata.user
       state.tweets = accountdata.tweets
     },
-    addAccountdata (state, accountdata) {
-      state.targetId = accountdata
-    }
   },
   actions: {
     fetchAccountdata ({ commit }, targetId) {

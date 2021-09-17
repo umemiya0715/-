@@ -37,20 +37,19 @@ export default {
   },
   methods: {
     ...mapMutations(
-      'accountdata', ['addAccountdata']
-    ),
-    ...mapMutations(
       'dragons', ['fetchDragon']
     ),
     ...mapActions(
       'accountdata', ['fetchAccountdata']
     ),
-    async startAnalysis(targetAccount) {
-      this.addAccountdata(targetAccount)
+    ...mapActions(
+      'analyzeddata', ['analyzeAccount']
+    ),
+    async startAnalysis() {
       const targetId = this.targetAccount
       try {
         await this.fetchAccountdata(targetId)
-        // await this.analyzeAccount(accountData)
+        await this.analyzeAccount(this.accountdata)
         // await this.fetchDragon(this.dragonId)
         setTimeout(
           this.$router.push('/analysis'),

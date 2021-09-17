@@ -19,8 +19,8 @@ const mutations = {
 }
 
 const actions = {
-  analyzedAccount({ commit }, analyzeddata){
-    axios.post('/v1/analyzeddata', { analyzeddata: analyzeddata })
+  analyzeAccount({ commit }, accountdata){
+    axios.post('/v1/analyzeddata', { analyzeddata: accountdata })
     .then(res => {
       commit('setAnalyzeddata', res.data)
     })
