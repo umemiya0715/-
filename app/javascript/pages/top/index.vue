@@ -29,15 +29,18 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'dragons', ['dragons']
-    ),
-    ...mapGetters(
       'accountdata', ['accountdata']
     ),
+    ...mapGetters(
+      'analyzeddata', ['analyzeddata']
+    )
   },
   methods: {
     ...mapMutations(
-      'dragons', ['fetchDragon']
+      'accountdata', ['setAccountdata']
+    ),
+    ...mapMutations(
+      'analyzeddata', ['setAnalyzeddata']
     ),
     ...mapActions(
       'accountdata', ['fetchAccountdata']
@@ -49,7 +52,8 @@ export default {
       const targetId = this.targetAccount
       try {
         await this.fetchAccountdata(targetId)
-        await this.analyzeAccount(this.accountdata)
+        const analyzeTarget = this.accountdata
+        await this.analyzeAccount(analyzeTarget)
         // await this.fetchDragon(this.dragonId)
         setTimeout(
           this.$router.push('/analysis'),

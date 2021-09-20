@@ -14,7 +14,7 @@ module Api
 
       def create
         @analyzeddatum = Analyzeddatum.new(analyzeddatum_params)
-        @analyzeddata = @analyzeddatum.emotionAnalyze
+        @analyzeddata = @analyzeddatum.analyzeTweets
         if @analyzeddata.save
           render json: @analyzeddata
         else

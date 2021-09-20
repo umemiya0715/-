@@ -5,13 +5,13 @@
         <div class="m-4">
           <span class="font-bold">あなたの心は</span>
           <span class="block text-gray-500 text-sm">
-          {{ dragon.name }}
-          <br/>
-          {{ dragon.explanation }}
-          <br/>
-          {{ dragon.personality }}
-          <br/>
-          {{ dragon.advise }}
+            ユーザー名:{{ accountdata.user }}
+            <br/>
+            {{ dragon.explanation }}
+            <br/>
+            {{ dragon.personality }}
+            <br/>
+            {{ dragon.advise }}
           </span>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'dragons', ['dragons']
+      'accountdata', ['accountdata']
     ),
   },
   methods: {

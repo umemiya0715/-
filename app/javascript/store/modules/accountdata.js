@@ -10,6 +10,7 @@ export default {
   },
   mutations: {
     setAccountdata: (state, accountdata) => {
+      state.accountdata = accountdata.accountdata
       state.user = accountdata.user
       state.tweets = accountdata.tweets
     },
