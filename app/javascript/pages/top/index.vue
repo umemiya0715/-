@@ -13,6 +13,7 @@
     </div>
     <div class="text-center">
       <router-link to="/help">HowTo</router-link>
+      <p>{{ account.user }}</p>
     </div>
   </div>
 </template>
@@ -25,11 +26,12 @@ export default {
   data() {
     return {
       targetAccount: "",
+      account: ""
     }
   },
   computed: {
     ...mapGetters(
-      'accountdata', ['accountdata']
+      'accountdata',['accountdata']
     ),
     ...mapGetters(
       'analyzeddata', ['analyzeddata']
@@ -52,12 +54,11 @@ export default {
       const targetId = this.targetAccount
       try {
         await this.fetchAccountdata(targetId)
-        const analyzeTarget = this.accountdata
-        await this.analyzeAccount(analyzeTarget)
+        // await this.analyzeAccount(this.accountdata)
         // await this.fetchDragon(this.dragonId)
-        setTimeout(
-          this.$router.push('/analysis'),
-        3000);
+        // setTimeout(
+        //  this.$router.push('/analysis'),
+        // 3000);
       } catch (error) {
         alert('データの取得に失敗しました')
         console.log(error)

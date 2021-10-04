@@ -6,18 +6,16 @@ export default {
     accountdata: []
   },
   getters: {
-    accountdata: state => state.accountdata
+    accountdata: state => state.accountdata,
   },
   mutations: {
     setAccountdata: (state, accountdata) => {
-      state.accountdata = accountdata.accountdata
-      state.user = accountdata.user
-      state.tweets = accountdata.tweets
+      state.accountdata = accountdata
     },
   },
   actions: {
     fetchAccountdata ({ commit }, targetId) {
-      axios.post('/v1/accountdata', { accountdata: targetId } )
+      axios.post('/v1/accountdata', { screen_name: targetId } )
         .then(res => {
           commit('setAccountdata', res.data)
         })

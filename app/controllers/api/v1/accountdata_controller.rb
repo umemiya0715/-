@@ -14,8 +14,8 @@ module Api
 
       def create
         @accountdatum = Accountdatum.new(accountdatum_params)
-        @user = client.user(@accountdatum.accountdata)
-        @tweets = client.user_timeline(@user, :count => 50, :tweet_mode => 'extented')
+        @user = client.user(@accountdatum.screen_name)
+        @tweets = client.user_timeline(@user, :count => 10, :tweet_mode => 'extented')
         @accountdatum.mergeData(@user, @tweets)
         render json: @accountdatum
       end
@@ -27,7 +27,7 @@ module Api
       end
 
       def accountdatum_params
-        params.require(:accountdatum).permit(:accountdata)
+        params.require(:accountdatum).permit(:screen_name)
       end
 
       def client

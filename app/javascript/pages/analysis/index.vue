@@ -5,7 +5,7 @@
         <div class="m-4">
           <span class="font-bold">あなたの心は</span>
           <span class="block text-gray-500 text-sm">
-            ユーザー名:{{ accountdata.user }}
+            ユーザー名:{{  }}
             <br/>
             {{ dragon.explanation }}
             <br/>

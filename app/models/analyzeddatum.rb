@@ -1,4 +1,7 @@
 class Analyzeddatum < ApplicationRecord
+  attribute :user, :string
+  attribute :tweets, :string
+
   def analyzeTweets
     require 'google/cloud/language'
 
