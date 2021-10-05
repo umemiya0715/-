@@ -1,4 +1,4 @@
-class Accountdatum < ApplicationRecord
+class Account < ApplicationRecord
   attribute :user, :string
   attribute :tweets, :string
   attribute :score, :float
@@ -6,6 +6,12 @@ class Accountdatum < ApplicationRecord
   attribute :troversion, :integer
 
   def mergeData(user, tweets)
+    sentimentAnalyze(user, tweets)
+    self.user = user
+    self.tweets = tweets
+  end
+
+  def sentimentAnalyze(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
       config.credentials = "/Users/umemiyashouta/Downloads/emotion-analysis-321715-19cecea1a816.json"
@@ -21,6 +27,5 @@ class Accountdatum < ApplicationRecord
     end
     self.score = resultScore.sum(0.0) / resultScore.size
     self.magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
-    byebug
   end
 end

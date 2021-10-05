@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'accountdata',['accountdata']
+      'accounts',['accounts']
     ),
     ...mapGetters(
       'analyzeddata', ['analyzeddata']
@@ -39,13 +39,13 @@ export default {
   },
   methods: {
     ...mapMutations(
-      'accountdata', ['setAccountdata']
+      'accounts', ['setAccount']
     ),
     ...mapMutations(
       'analyzeddata', ['setAnalyzeddata']
     ),
     ...mapActions(
-      'accountdata', ['fetchAccountdata']
+      'accounts', ['fetchAccount']
     ),
     ...mapActions(
       'analyzeddata', ['analyzeAccount']
@@ -53,7 +53,7 @@ export default {
     async startAnalysis() {
       const targetId = this.targetAccount
       try {
-        await this.fetchAccountdata(targetId)
+        await this.fetchAccount(targetId)
         // await this.analyzeAccount(this.accountdata)
         // await this.fetchDragon(this.dragonId)
         // setTimeout(
