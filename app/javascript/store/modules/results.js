@@ -1,6 +1,6 @@
 export const state = {
   results: []
-})
+}
 
 export const getters = {
   results: state => state.results

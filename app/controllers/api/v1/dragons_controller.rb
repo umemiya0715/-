@@ -1,14 +1,10 @@
 module Api
   module V1
-    class dragonsController < ApplicationController
+    class DragonsController < ApplicationController
       before_action :set_dragon, only: %i[show]
 
-      def index
-        render json: Dragon.All
-      end
-
       def show
-        render json: @dragon.name
+        render json: @dragon
       end
 
       private

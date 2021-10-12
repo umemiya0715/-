@@ -4,9 +4,11 @@ class Account < ApplicationRecord
   attribute :score, :float
   attribute :magnitude, :float
   attribute :troversion, :integer
+  attribute :dragonId, :integer
 
   def mergeData(user, tweets)
     sentimentAnalyze(user, tweets)
+    whichDragon(self.score, self.magnitude)
     self.user = user
     self.tweets = tweets
   end
@@ -27,5 +29,18 @@ class Account < ApplicationRecord
     end
     self.score = resultScore.sum(0.0) / resultScore.size
     self.magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
+  end
+
+  def whichDragon(score, magnitude)
+    if score > 0 and maginitude > 0
+      dragonId = 1
+    elsif score > 0 and maginitude < 0
+      dragonId = 2
+    elsif score < 0 and magnitude > 0
+      dragonId = 3
+    else
+      dragonId = 4
+    end
+    self.dragonId = dragonId
   end
 end

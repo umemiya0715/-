@@ -15,7 +15,7 @@ module Api
       def create
         @account = Account.new(account_params)
         @user = client.user(@account.screen_name)
-        @tweets = client.user_timeline(@user, :count => 5, :tweet_mode => 'extented')
+        @tweets = client.user_timeline(@user, :count => 3, :tweet_mode => 'extented')
         @account.mergeData(@user, @tweets)
         render json: @account
       end

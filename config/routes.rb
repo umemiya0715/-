@@ -5,9 +5,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :accounts, only: %i[index create show]
       resources :analyzeddata, only: %i[index create show]
-      resources :dragons, only: %i[index show]
+      resources :dragons, only: %i[show]
     end
   end
 
-  get '*path', to: 'home#index'
 end

@@ -9,7 +9,7 @@ const getters = {
 }
 
 const mutations = {
-  setDragons: (state, dragons) => {
+  setDragon: (state, dragons) => {
     state.dragons = dragons
   }
 }
@@ -18,7 +18,7 @@ const actions = {
   fetchDragon ({ commit }, id) {
     axios.get(`/v1/dragons/${id}`)
     .then(res => {
-      commit('setDragons', res.data)
+      commit('setDragon', res.data)
     })
     .catch(err => console.log(err.response));
   },

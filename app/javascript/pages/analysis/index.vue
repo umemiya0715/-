@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'accountdata', ['accountdata']
+      'accounts', ['account']
     ),
   },
   methods: {

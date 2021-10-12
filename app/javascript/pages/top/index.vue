@@ -10,23 +10,22 @@
         </div>
       </form>
       <button @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+      <button @click="showDragonId()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">ゴンゴン</button>
     </div>
     <div class="text-center">
-      <router-link to="/help">HowTo</router-link>
-      <p>{{ account.user }}</p>
+      <router-link to="/help">howto</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions, mapState } from 'vuex'
 
 export default {
   name: "top",
   data() {
     return {
       targetAccount: "",
-      account: ""
     }
   },
   computed: {
@@ -34,7 +33,10 @@ export default {
       'accounts',['accounts']
     ),
     ...mapGetters(
-      'analyzeddata', ['analyzeddata']
+      'accounts',['dragonId']
+    ),
+    ...mapGetters(
+      'dragons', ['dragons']
     )
   },
   methods: {
@@ -42,27 +44,27 @@ export default {
       'accounts', ['setAccount']
     ),
     ...mapMutations(
-      'analyzeddata', ['setAnalyzeddata']
+      'dragons', ['setDragon']
     ),
     ...mapActions(
       'accounts', ['fetchAccount']
     ),
     ...mapActions(
-      'analyzeddata', ['analyzeAccount']
+      'dragons', ['fetchDragon']
     ),
     async startAnalysis() {
       const targetId = this.targetAccount
       try {
         await this.fetchAccount(targetId)
-        // await this.analyzeAccount(this.accountdata)
-        // await this.fetchDragon(this.dragonId)
-        // setTimeout(
-        //  this.$router.push('/analysis'),
-        // 3000);
+        await this.fetchDragon(this.dragonId)
+        await this.$router.push('/result')
       } catch (error) {
         alert('データの取得に失敗しました')
-        console.log(error)
+        this.dialog = false
       }
+    },
+    showDragonId(){
+      console.log(typeof this.dragonId)
     },
   }
 }

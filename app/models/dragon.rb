@@ -1,8 +1,8 @@
-class Dragons < ActiveHash::Base
+class Dragon < ActiveHash::Base
   self.data = [
-    { id: 1, name: 'ファフニール', image: '', explanation: '',  personality: '', advise: '' },
+    { id: 1, name: 'ファフニール', image: '', explanation: '財宝大好き欲深かドラゴン',  personality: '', advise: '' },
     { id: 2, name: 'ファフニール', image: '', explanation: '', personality: '', advise: '' },
-    { id: 3, name: 'ウロボロス', image: '', explanation:'', personality: '', advise: '' },
+    { id: 3, name: 'ウロボロス', image: '', explanation:'自分の尻尾噛み噛み自傷', personality: '', advise: '' },
     { id: 4, name: 'ウロボロス', image: '', explanation: '', personality: '', advise: '' },
     { id: 5, name: 'ニーズヘッグ', image: '', explanation: '' , personality: '', advise: '' },
     { id: 6, name: 'ニーズヘッグ', image: '', explanation: '', personality: '', advise: '' },
