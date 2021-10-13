@@ -3,7 +3,7 @@
     <div class="text-center">
       <h3>{{ title }}</h3>
     </div>
-    <div class="text-center" v-if="dragons">
+    <div class="text-center" v-if="dragons.attributes">
       <h3>{{ dragons.attributes.name }}</h3>
       <h3>{{ dragons.attributes.explanation }}</h3>
       <h3>{{ accounts.dragonId }}</h3>

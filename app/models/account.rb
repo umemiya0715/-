@@ -32,9 +32,9 @@ class Account < ApplicationRecord
   end
 
   def whichDragon(score, magnitude)
-    if score > 0 and maginitude > 0
+    if score > 0 and magnitude > 0
       dragonId = 1
-    elsif score > 0 and maginitude < 0
+    elsif score > 0 and magnitude < 0
       dragonId = 2
     elsif score < 0 and magnitude > 0
       dragonId = 3

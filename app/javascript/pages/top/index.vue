@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions, mapState } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: "top",
