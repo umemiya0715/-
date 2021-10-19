@@ -11,11 +11,17 @@ require("channels")
 import Vue from 'vue'
 import App from '../app.vue'
 import router from '../router/router.js'
+import axios from '../plugins/axios.js'
+import store from '../store/index.js'
 import '../css/tailwind.css'
+
+Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     router,
+    store,
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)
