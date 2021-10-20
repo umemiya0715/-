@@ -21,7 +21,8 @@ class Account < ApplicationRecord
     resultScore = []
     resultMagnitude = []
     tweets.each do |tweet|
-      document = { type: :PLAIN_TEXT, content: tweet.text }
+      improvedTweet = tweet.text.gsub(/#.*$|[ 　]+|\n|http.*:\/\/t.co\/\w*$/,"")
+      document = { type: :PLAIN_TEXT, content: improvedTweet }
       response = client.analyze_sentiment(document: document)
       sentiment = response.document_sentiment
       resultScore.push(sentiment.score)
