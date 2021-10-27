@@ -10,7 +10,6 @@
         </div>
       </form>
       <button @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
-      <button @click="showDragonId()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">ゴンゴン</button>
     </div>
     <div class="text-center">
       <router-link to="/help">howto</router-link>
@@ -62,10 +61,7 @@ export default {
         alert('データの取得に失敗しました')
         this.dialog = false
       }
-    },
-    showDragonId(){
-      console.log(typeof this.dragonId)
-    },
+    }
   }
 }
 </script>
