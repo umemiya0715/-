@@ -1,12 +1,14 @@
 <template>
-  <div class="mt-8 bg-red-500 bg-opacity-50">
+  <div class=" bg-red-500 bg-opacity-50">
     <div class="text-center">
       <h3>{{ title }}</h3>
     </div>
-    <div class="flex justify-center" v-if="dragons.attributes">
+    <div class="text-center" v-if="dragons.attributes">
       <h3>{{ dragons.attributes.name }}</h3>
       <h3>{{ dragons.attributes.explanation }}</h3>
-      <img :src="dragon_image_src" width="300px">
+      <div class="flex justify-center">
+        <img :src="dragon_image_src" width="300px">
+      </div>
       <h3>{{ accounts.dragonId }}</h3>
     </div>
     <div class="text-center" v-if="dragons">
