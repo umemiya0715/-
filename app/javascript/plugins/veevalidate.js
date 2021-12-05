@@ -15,5 +15,5 @@ Vue.component('ValidationProvider', ValidationProvider)
 
 extend('required', {
   ...required,
-  message: 'スクリーンネームを入力してください'
+  message: 'ツイッターのIDを入れてね'
 });

@@ -1,20 +1,20 @@
 <template>
-  <div class=" bg-red-300 bg-gray-200">
-    <div class="text-center">
-      <h3>性格診断アプリ</h3>
+  <div class="bg-cover h-screen" :style="{ backgroundImage: 'url(' + image_src + ')' }">
+    <div class="text-red-500 text-center m-3　text-6xl">
+      <h1>性格診断アプリ</h1>
     </div>
-    <div class="grid grid-cols-1 m-8 text-center">
+    <div class="m-5 text-center">
       <ValidationObserver v-slot="{ invalid }">
         <div class="m-auto">
           <ValidationProvider v-slot="{ errors }" rules="required">
-            <input type="text" v-model="targetAccount" class="block mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600" placeholder="@example">
-            <span class="text-danger">{{ errors[0] }}</span>
+            <input type="text" v-model="targetAccount" class="mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600" placeholder="@example">
+            <span class="block text-red-500">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
         <button :disabled="invalid" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
       </ValidationObserver>
     </div>
-    <div class="text-center py-3">
+    <div class="text-center py-3 text-red-500">
       <router-link to="/help">howto</router-link>
     </div>
   </div>
@@ -39,7 +39,10 @@ export default {
     ),
     ...mapGetters(
       'dragons', ['dragons']
-    )
+    ),
+    image_src() {
+      return require("../../../assets/images/IMG_251" + this.randomnumber(3,6) +".jpeg")
+    }
   },
   methods: {
     ...mapMutations(
@@ -54,6 +57,9 @@ export default {
     ...mapActions(
       'dragons', ['fetchDragon']
     ),
+    randomnumber(min, max){
+      return Math.floor(Math.random() * (max + 1 - min)) + min
+    },
     async startAnalysis() {
       const targetId = this.targetAccount
       try {
