@@ -14,6 +14,7 @@ import router from '../router/router.js'
 import axios from '../plugins/axios.js'
 import store from '../store/index.js'
 import '../css/tailwind.css'
+import '../plugins/veevalidate'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios

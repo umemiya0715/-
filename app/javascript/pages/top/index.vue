@@ -1,18 +1,20 @@
 <template>
-  <div class="mt-8 bg-red-300 bg-gray-200">
-    <div class="text-center">
-      <h3>性格診断アプリ</h3>
+  <div class="bg-cover h-screen" :style="{ backgroundImage: 'url(' + image_src + ')' }">
+    <div class="text-red-500 text-center m-3　text-6xl">
+      <h1>性格診断アプリ</h1>
     </div>
-    <div class="text-center">
-      <form class="grid grid-cols-1 gap-6 m-16">
-        <div class="mt-4">
-          <input type="text" v-model="targetAccount" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="@example">
+    <div class="m-5 text-center">
+      <ValidationObserver v-slot="{ invalid }">
+        <div class="m-auto">
+          <ValidationProvider v-slot="{ errors }" rules="required">
+            <input type="text" v-model="targetAccount" class="mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600" placeholder="@example">
+            <span class="block text-red-500">{{ errors[0] }}</span>
+          </ValidationProvider>
         </div>
-      </form>
-      <button @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
-      <button @click="showDragonId()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">ゴンゴン</button>
+        <button :disabled="invalid" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+      </ValidationObserver>
     </div>
-    <div class="text-center">
+    <div class="text-center py-3 text-red-500">
       <router-link to="/help">howto</router-link>
     </div>
   </div>
@@ -37,7 +39,10 @@ export default {
     ),
     ...mapGetters(
       'dragons', ['dragons']
-    )
+    ),
+    image_src() {
+      return require("../../../assets/images/IMG_251" + this.randomNumber(3,6) +".jpeg")
+    }
   },
   methods: {
     ...mapMutations(
@@ -52,6 +57,9 @@ export default {
     ...mapActions(
       'dragons', ['fetchDragon']
     ),
+    randomNumber(min, max){
+      return Math.floor(Math.random() * (max + 1 - min)) + min
+    },
     async startAnalysis() {
       const targetId = this.targetAccount
       try {
@@ -62,10 +70,7 @@ export default {
         alert('データの取得に失敗しました')
         this.dialog = false
       }
-    },
-    showDragonId(){
-      console.log(typeof this.dragonId)
-    },
+    }
   }
 }
 </script>

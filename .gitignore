@@ -4,6 +4,17 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore firebase
+.firebase
+.firebaserc
+firebase.json
+
+# Ignore launch.json
+launch.json
+
+# Ignore vue.config.js
+vue.config.js
+
 # Ignore DS_Store
 .DS_Store
 
@@ -26,6 +37,7 @@
 !/storage/.keep
 
 /public/assets
+/app/assets/images
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
