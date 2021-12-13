@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     twitterShare(){
-      const shareURL = 'https://twitter.com/intent/tweet?text=' + 'あなたの心の中のドラゴンは○○でした！' + '%20%23ドラゴン%20%23Twitter診断'
+      const shareURL = 'https://twitter.com/intent/tweet?text=' + `あなたの心の中のドラゴンは${this.dragons.attributes.name}でした！` + `%0a%23ドラゴン%20%23Twitter診断%0a`
       // + '&url=' + 'https://www.mtggoldfish.com/'
       location.href = shareURL
     }

@@ -41,7 +41,7 @@ export default {
       'dragons', ['dragons']
     ),
     image_src() {
-      return require("../../../assets/images/IMG_251" + this.randomnumber(3,6) +".jpeg")
+      return require("../../../assets/images/IMG_251" + this.randomNumber(3,6) +".jpeg")
     }
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
     ...mapActions(
       'dragons', ['fetchDragon']
     ),
-    randomnumber(min, max){
+    randomNumber(min, max){
       return Math.floor(Math.random() * (max + 1 - min)) + min
     },
     async startAnalysis() {
