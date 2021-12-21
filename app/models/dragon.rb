@@ -1,7 +1,7 @@
 class Dragon < ActiveHash::Base
   self.data = [
     { id: 1, name: 'プリズマリ', image: 'IMG_2513.jpeg', explanation: '芸術系',  personality: '', advise: '' },
-    { id: 2, name: 'ロアホールド', image: 'IMG_2515.jpeg', explanation: '歴史系', personality: '', advise: '' },
+    { id: 2, name: 'ロアホールド', image: 'IMG_2515.png', explanation: '歴史系', personality: '', advise: '' },
     { id: 3, name: 'シルバークイル', image: 'IMG_2516.jpeg', explanation:'文学系', personality: '', advise: '' },
     { id: 4, name: 'クアンドリクス', image: 'IMG_2514.jpeg', explanation: '数学系', personality: '', advise: '' },
     { id: 5, name: 'ニーズヘッグ', image: '', explanation: '' , personality: '', advise: '' },

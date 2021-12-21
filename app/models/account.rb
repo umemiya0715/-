@@ -30,17 +30,26 @@ class Account < ApplicationRecord
     end
     self.score = resultScore.sum(0.0) / resultScore.size
     self.magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
+    self.troversion = ( 5 - tweets.count ) / 5
   end
 
   def whichDragon(score, magnitude)
-    if score > 0 and magnitude > 0
+    if score >= 0 and magnitude >= 0 and troversion >= 0.5
       dragonId = 1
-    elsif score > 0 and magnitude < 0
+    elsif score >= 0 and magnitude >= 0 and troversion < 0.5
       dragonId = 2
-    elsif score < 0 and magnitude > 0
+    elsif score >= 0 and magnitude < 0 and troversion >= 0.5
       dragonId = 3
-    else
+    elsif score >= 0 and magnitude < 0 and troversion < 0.5
       dragonId = 4
+    elsif score < 0 and magnitude >= 0 and troversion >= 0.5
+      dragonId = 5
+    elsif score < 0 and magnitude >= 0 and troversion < 0.5
+      dragonId = 6
+    elsif score < 0 and magnitude < 0 and troversion >= 0.5
+      dragonId = 7
+    elsif score < 0 and magnitude < 0 and troversion < 0.5
+      dragonId = 8
     end
     self.dragonId = dragonId
   end
