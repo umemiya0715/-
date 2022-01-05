@@ -1,7 +1,7 @@
 <template>
   <div class=" bg-red-500 bg-opacity-50">
     <div class="text-center">
-      <h3>{{ title }}</h3>
+      <h1>{{ title }}</h1>
     </div>
     <div class="text-center" v-if="dragons.attributes">
       <h3>{{ dragons.attributes.name }}</h3>

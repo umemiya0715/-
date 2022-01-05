@@ -34,21 +34,21 @@ class Account < ApplicationRecord
   end
 
   def whichDragon(score, magnitude)
-    if score >= 0 and magnitude >= 0 and troversion >= 0.5
+    if score >= 0 and magnitude >= 0.5 and troversion >= 0.2
       dragonId = 1
-    elsif score >= 0 and magnitude >= 0 and troversion < 0.5
+    elsif score >= 0 and magnitude >= 0.5 and troversion < 0.2
       dragonId = 2
-    elsif score >= 0 and magnitude < 0 and troversion >= 0.5
+    elsif score >= 0 and magnitude < 0.5 and troversion >= 0.2
       dragonId = 3
-    elsif score >= 0 and magnitude < 0 and troversion < 0.5
+    elsif score >= 0 and magnitude < 0.5 and troversion < 0.2
       dragonId = 4
-    elsif score < 0 and magnitude >= 0 and troversion >= 0.5
+    elsif score < 0 and magnitude >= 0.5 and troversion >= 0.2
       dragonId = 5
-    elsif score < 0 and magnitude >= 0 and troversion < 0.5
+    elsif score < 0 and magnitude >= 0.5 and troversion < 0.2
       dragonId = 6
-    elsif score < 0 and magnitude < 0 and troversion >= 0.5
+    elsif score < 0 and magnitude < 0.5 and troversion >= 0.2
       dragonId = 7
-    elsif score < 0 and magnitude < 0 and troversion < 0.5
+    elsif score < 0 and magnitude < 0.5 and troversion < 0.2
       dragonId = 8
     end
     self.dragonId = dragonId
