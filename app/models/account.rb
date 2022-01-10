@@ -3,12 +3,12 @@ class Account < ApplicationRecord
   attribute :tweets, :string
   attribute :score, :float
   attribute :magnitude, :float
-  attribute :troversion, :integer
+  attribute :troversion, :float
   attribute :dragonId, :integer
 
   def mergeData(user, tweets)
     sentimentAnalyze(user, tweets)
-    whichDragon(self.score, self.magnitude)
+    whichDragon(self.score, self.magnitude, self.troversion)
     self.user = user
     self.tweets = tweets
   end
@@ -30,17 +30,65 @@ class Account < ApplicationRecord
     end
     self.score = resultScore.sum(0.0) / resultScore.size
     self.magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
+    analyzeTroversion(user, tweets)
   end
 
-  def whichDragon(score, magnitude)
-    if score > 0 and magnitude > 0
+  def analyzeTroversion(user, tweets)
+    resultFavorites = []
+    resultRetweets = []
+    tweets.each do |tweet|
+      resultFavorites.push(tweet.favorite_count)
+      resultRetweets.push(tweet.retweet_count)
+    end
+    # ツイート頻度
+    firstTweetDifference = (Time.now - tweets.last.created_at) / ( 60 * 60 * 24)
+    tweetFrequency = tweets.count / firstTweetDifference.floor(2)
+    if tweetFrequency <= 2
+      userFrequency = tweetFrequency / 2 * 0.2
+    elsif
+      userFrequency = 0.2
+    end
+    # リプライ数
+    replyRate = ( 5 - tweets.count ) / 5 * 0.2
+    # いいね数
+    averageFavorites = resultFavorites.sum(0.0) / resultFavorites.size
+    if averageFavorites <= 100
+      userFavorites = averageFavorites / 100 * 0.2
+    elsif
+      userFavorites = 0.2
+    end
+    # フォロワー数
+    if user.followers_count <= 1000
+      userFollowers = user.followers_count / 1000 * 0.2
+    elsif
+      userFollowers = 0.2
+    end
+    # リツイート数
+    if resultRetweets.sum(0.0) <= 500
+      userRetweets = resultRetweets.sum(0.0) / 500 * 0.2
+    elsif
+      userRetweets = 0.2
+    end
+    self.troversion = userFrequency + replyRate + userFavorites + userFollowers + userRetweets
+  end
+
+  def whichDragon(score, magnitude, troversion)
+    if score >= 0 and magnitude >= 0.5 and troversion >= 0.2
       dragonId = 1
-    elsif score > 0 and magnitude < 0
+    elsif score >= 0 and magnitude >= 0.5 and troversion < 0.2
       dragonId = 2
-    elsif score < 0 and magnitude > 0
+    elsif score >= 0 and magnitude < 0.5 and troversion >= 0.2
       dragonId = 3
-    else
+    elsif score >= 0 and magnitude < 0.5 and troversion < 0.2
       dragonId = 4
+    elsif score < 0 and magnitude >= 0.5 and troversion >= 0.2
+      dragonId = 5
+    elsif score < 0 and magnitude >= 0.5 and troversion < 0.2
+      dragonId = 6
+    elsif score < 0 and magnitude < 0.5 and troversion >= 0.2
+      dragonId = 7
+    elsif score < 0 and magnitude < 0.5 and troversion < 0.2
+      dragonId = 8
     end
     self.dragonId = dragonId
   end

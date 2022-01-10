@@ -1,6 +1,6 @@
 <template>
   <div class="bg-cover h-screen" :style="{ backgroundImage: 'url(' + image_src + ')' }">
-    <div class="text-red-500 text-center m-3　text-6xl">
+    <div class="text-white text-center m-3　text-6xl">
       <h1>性格診断アプリ</h1>
     </div>
     <div class="m-5 text-center">
@@ -14,7 +14,7 @@
         <button :disabled="invalid" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
       </ValidationObserver>
     </div>
-    <div class="text-center py-3 text-red-500">
+    <div class="text-center py-3 text-white">
       <router-link to="/help">howto</router-link>
     </div>
   </div>
@@ -41,7 +41,7 @@ export default {
       'dragons', ['dragons']
     ),
     image_src() {
-      return require("../../../assets/images/IMG_251" + this.randomNumber(3,6) +".jpeg")
+      return require("../../../assets/images/topImage_" + this.randomNumber(1,4) +".png")
     }
   },
   methods: {
