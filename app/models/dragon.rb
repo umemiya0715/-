@@ -8,15 +8,15 @@ class Dragon < ActiveHash::Base
     { id: 2, name: 'イエロードラゴン', image: 'yellowDragon.png', explanation: 'おしゃれで見栄っ張りな王様',
     personality:
     'このドラゴンが心の中に住んでるあなたは、誰かに自分を認めてほしい気持ちが強いかも。<br>
-     色々とおしゃれして見た目を良くしようとしているけど、あまり結果には結びついてはいない様子<br>。
+     色々とおしゃれして見た目を良くしようとしているけど、あまり結果には結びついてはいない様子。<br>
     ', advise: '' },
     { id: 3, name: 'グリーンドラゴン', image: 'greenDragon.png', explanation: '悠然と構える長老',
     personality:
-    'このドラゴンが心の中に住んでるあなたは、'
-    , advise: '' },
+    'このドラゴンが心の中に住んでるあなたは、
+    ', advise: '' },
     { id: 4, name: 'ホワイトドラゴン', image: 'whiteDragon.png', explanation: '凍てつくほどクール',
     personality:
-    '',advise: '' },
+    '', advise: '' },
     { id: 5, name: 'グレードラゴン', image: 'grayDragon.png', explanation: '毒々しさMAX' ,
     personality:
     '', advise: '' },
