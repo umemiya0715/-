@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-gray-600 mt-5 mb-5 font-light">
+  <div class="container text-white mt-5 mb-5 font-light">
     <div class="mb-5">
       <div class='h3 text-center mb-5'>プライバシーポリシー</div>
         〇〇（以下，「当方」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）における、ユーザーの個人情報の取り扱いについて、以下の通りプライバシーポリシー(以下、「本ポリシー」といいます。)を定めます。

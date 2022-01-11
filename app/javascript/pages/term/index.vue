@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-gray-600 mt-5 mb-5 font-light">
+  <div class="container text-white mt-5 mb-5 font-light">
     <div class="mb-5">
       <div class='h3 text-center mb-5'>利用規約</div>
         この利用規約（以下，「本規約」といいます。）は，〇〇（以下，「当方」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。

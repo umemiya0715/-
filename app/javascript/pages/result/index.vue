@@ -1,19 +1,19 @@
 <template>
-  <div class=" bg-red-500 bg-opacity-50">
-    <div class="text-center">
+  <div class="contaner mx-auto">
+    <div class="text-white text-center">
       <h1>{{ title }}</h1>
     </div>
-    <div class="text-center" v-if="dragons.attributes">
+    <div class="text-center text-white" v-if="dragons.attributes">
       <h3>{{ dragons.attributes.name }}</h3>
-      <div class="flex justify-center">
-        <img :src="dragon_image_src" width="300px">
+      <div class="m-auto w-1/2">
+        <img :src="dragon_image_src">
       </div>
       <h3>{{ dragons.attributes.explanation }}</h3>
     </div>
     <div class="text-center">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="twitterShare" >Twitterでシェアする</button>
     </div>
-    <div class="text-center">
+    <div class="text-center text-white">
       <router-link to="/">トップページに戻る</router-link>
     </div>
   </div>

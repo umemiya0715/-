@@ -1,8 +1,8 @@
 <template>
   <footer>
-    <div class='bg-gray-200'>
-      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col flex-row">
-        <div class="text-gray-500 sm:text-blue-500 md:text-yellow-500 lg:text-green-500 xl:text-purple-500 text-sm text-center font-light">
+    <div class='bg-gray-200 h-1/8'>
+      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col">
+        <div class="text-gray-500 text-sm text-center font-light">
           <router-link
             to="/term"
             class="ml-3"
