@@ -45,7 +45,15 @@ export default {
     ),
     dragon_image_src() {
         return require("../../../assets/images/" + this.dragons.attributes.image)
-    }
+    },
+  },
+  mounted: function() {
+    const title = "タイトル"
+    const description = "説明文"
+    document.title = title
+    document.querySelector("meta[property='og:title']").setAttribute('content', title)
+    document.querySelector("meta[name='description']").setAttribute('content', description)
+    document.querySelector("meta[property='og:description']").setAttribute('content', description)
   }
 }
 </script>
