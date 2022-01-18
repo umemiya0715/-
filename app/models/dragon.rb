@@ -22,7 +22,7 @@ class Dragon < ActiveHash::Base
     '', advise: '' },
     { id: 6, name: 'ブルードラゴン', image: 'blueDragon.png', explanation: '怒らすと怖い海の主',
     personality:
-    '', advise: '' },
+    '紫芋', advise: '' },
     { id: 7, name: 'パープルドラゴン', image: 'purpleDragon.png', explanation: '気まぐれな構ってちゃん',
     personality:
     '', advise: '' },
