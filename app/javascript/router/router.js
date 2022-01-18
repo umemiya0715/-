@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import store from '../store';
 
 import Top from '../pages/top/index.vue';
 import Help from '../pages/help/index.vue';
