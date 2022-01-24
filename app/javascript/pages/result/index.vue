@@ -12,10 +12,16 @@
           <img :src="dragon_image_src">
         </div>
         <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-32">
+          <div class="text-2xl inline font-bold border-b-2 border-white">性格</div>
           <h3>{{ dragons.attributes.explanation }}</h3>
         </div>
         <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-32">
+          <div class="text-2xl inline font-bold border-b-4 border-white"></div>
           <h3>{{ dragons.attributes.personality }}</h3>
+        </div>
+        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-32">
+          <div class="text-2xl inline font-bold border-b-2 border-white">アドバイス</div>
+          <h3>{{ dragons.attributes.advice }}</h3>
         </div>
       </div>
     </div>

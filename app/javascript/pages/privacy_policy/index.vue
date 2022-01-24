@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto my-4 term-font px-10 lg:px-60 lg:py-20">
+  <div class="container mx-auto my-4 term-font text-white px-10 lg:px-60 lg:py-20">
     <div class="text-center text-4xl font-bold my-10">
       プライバシーポリシー
     </div>
