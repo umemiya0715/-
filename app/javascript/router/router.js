@@ -9,6 +9,7 @@ import Result from '../pages/result/index.vue';
 import Analysis from '../pages/analysis/index.vue';
 import Register from '../pages/register/index.vue';
 import Login from '../pages/login/index.vue';
+import NotFound from '../pages/shared/NotFound.vue';
 
 Vue.use(Router)
 
@@ -54,6 +55,12 @@ const router = new Router({
       path: "/login",
       component: Login,
       name: "Login",
+    },
+    {
+      name: "NotFound",
+      path: "*",
+      component: NotFound,
+      meta: { title: "お探しのページは見つかりませんでした" },
     },
   ],
 })
