@@ -1,23 +1,27 @@
 <template>
-  <footer>
-    <div class='bg-gray-200'>
-      <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col flex-row">
-        <div class="text-gray-500 sm:text-blue-500 md:text-yellow-500 lg:text-green-500 xl:text-purple-500 text-sm text-center font-light">
+  <footer class="bg-white w-full py-8">
+    <div class='max-w-screen-xl mx-auto px-4'>
+      <div class="max-w-screen-md mx-auto text-lg font-light flex justify-center">
+        <div class="my-2 px-4">
           <router-link
             to="/term"
-            class="ml-3"
+            class="text-gray-500 hover:text-gray-800"
           >
             利用規約
           </router-link>
+        </div>
+        <div class="my-2 px-4">
           <router-link
             to="/privacypolicy"
-            class="nav-link"
+            class="text-gray-500 hover:text-gray-800"
           >
             プライバシーポリシー
           </router-link>
+        </div>
+        <div class="my-2 px-4">
           <router-link
             to="/"
-            class="nav-link"
+            class="text-gray-500 hover:text-gray-800"
           >
             お問い合わせ
           </router-link>

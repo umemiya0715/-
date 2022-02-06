@@ -1,21 +1,25 @@
 <template>
-  <div class="bg-cover h-screen" :style="{ backgroundImage: 'url(' + image_src + ')' }">
-    <div class="text-white text-center m-3　text-6xl">
-      <h1>性格診断アプリ</h1>
+  <div class="bg-cover h-7/8">
+    <div class="flex justify-center m-16">
+      <img :src="top_logo_src" width="300px">
     </div>
-    <div class="m-5 text-center">
+    <div class="m-16 text-center">
       <ValidationObserver v-slot="{ invalid }">
-        <div class="m-auto">
+        <div class="justify-center">
           <ValidationProvider v-slot="{ errors }" rules="required">
-            <input type="text" v-model="targetAccount" class="mb-2 bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600" placeholder="@example">
+            <input type="text" v-model="targetAccount" class=" bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full" placeholder="@example">
             <span class="block text-red-500">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
-        <button :disabled="invalid" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">診断する</button>
+        <div class="m-16 justify-center">
+          <button :disabled="invalid" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg rounded w-36 justify-center">診断する</button>
+        </div>
+        <div class="m-16 justify-center">
+          <button class=" bg-red-500 hover:bg-red-700 font-bold py-4 px-8 text-lg text-white rounded w-36 items-center">
+          <router-link to="/help">使い方</router-link>
+          </button>
+        </div>
       </ValidationObserver>
-    </div>
-    <div class="text-center py-3 text-white">
-      <router-link to="/help">howto</router-link>
     </div>
   </div>
 </template>
@@ -40,8 +44,8 @@ export default {
     ...mapGetters(
       'dragons', ['dragons']
     ),
-    image_src() {
-      return require("../../../assets/images/topImage_" + this.randomNumber(1,4) +".png")
+    top_logo_src() {
+      return require("../../../assets/images/topLogo.png")
     }
   },
   methods: {
@@ -57,9 +61,6 @@ export default {
     ...mapActions(
       'dragons', ['fetchDragon']
     ),
-    randomNumber(min, max){
-      return Math.floor(Math.random() * (max + 1 - min)) + min
-    },
     async startAnalysis() {
       const targetId = this.targetAccount
       try {

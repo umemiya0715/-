@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8 bg-red-500 bg-opacity-50">
+  <div class="p-8 bg-opacity-50">
     <div class="text-center">
       <h3>{{ title }}</h3>
     </div>
