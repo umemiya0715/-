@@ -11,12 +11,12 @@
         <div class="m-auto p-4">
           <img :src="dragon_image_src">
         </div>
-        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-32">
+        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-16">
           <div class="text-2xl inline font-bold border-b-2 border-white">性格</div>
           <div class="m-4">{{ dragons.attributes.explanation }}</div>
           <div class="m-4">{{ dragons.attributes.personality }}</div>
         </div>
-        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-32">
+        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-16">
           <div class="text-2xl inline font-bold border-b-2 border-white">アドバイス</div>
           <div class="m-4">{{ dragons.attributes.advice }}</div>
         </div>
@@ -25,7 +25,7 @@
     <div class="text-center p-4">
       <button class="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-4 px-8 rounded" @click="twitterShare" >Twitterでシェアする</button>
     </div>
-    <div class="text-center text-white p-4 text-lg">
+    <div class="text-center text-white p-8 text-lg">
       <router-link to="/">トップページに戻る</router-link>
     </div>
   </div>
