@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- 基本 -->
-    <meta name="keywords" content="EmotionDragon, ドラゴン, 診断, twitter" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="EmotionDragon" />
-    <meta property="og:description" content="Twitterのツイートを感情分析することで、 そのアカウントを使う人がどんな人なのかを事前に知ることができる、 SNSリテラシー向上サービスです。" />
-    <meta property="og:site_name" content="EmotionDragon" />
-    <meta property="og:image" content="https://www.best-gifter.work/img/topImage_1.png" />
-
-    <!-- Twitter用の設定 -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://www.best-gifter.work/img/topImage1.png" />
-    <meta name="twitter:site" content="EmotionDragon" />
-
-    <title>EmotionDragon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= display_meta_tags(default_meta_tags)%>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

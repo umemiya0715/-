@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class='w-full text-gray-700 bg-gray-200 h-1/8'>
+    <div class='w-full text-gray-700 bg-gray-200 p-4'>
       <div class='flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8'>
         <div class='flex flex-row items-center justify-between p-1'>
           <h1>HR</h1>
