@@ -18,8 +18,8 @@ class Dragon < ActiveHash::Base
     { id: 4, name: 'ホワイトドラゴン', image: 'whiteDragon.png', explanation: '凍てつくほどクール',
     personality:
     'このドラゴンが心の中に住んでるあなたは、淡々と事を進める職人気質。
-    その冷静さは絶対零度が如く。'
-    , advice: 'ツイート内容は前向きだけど、感情の起伏は小さい模様。Twitter利用には消極的なようなので、もう少しアクティブな方が得られるものがあるかも。' },
+    その冷静さは絶対零度が如く。
+    ', advice: 'ツイート内容は前向きだけど、感情の起伏は小さい模様。Twitter利用には消極的なようなので、もう少しアクティブな方が得られるものがあるかも。' },
     { id: 5, name: 'グレードラゴン', image: 'grayDragon.png', explanation: '毒々しさMAX' ,
     personality:
     'このドラゴンが心の中に住んでるあなたは、ネガティブな感情を周囲に出し過ぎな傾向。

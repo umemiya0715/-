@@ -26,7 +26,6 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-
 export default {
   name: "top",
   data() {

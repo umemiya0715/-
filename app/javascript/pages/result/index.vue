@@ -43,9 +43,8 @@ export default {
   },
   methods: {
     twitterShare(){
-      const shareURL = 'https://twitter.com/intent/tweet?text=' + `あなたの心の中のドラゴンは${this.dragons.attributes.name}でした！` + `%0a%23ドラゴン%20%23Twitter診断%0a`
-      // + '&url=' + 'https://www.mtggoldfish.com/'
-      location.href = shareURL
+      const url = `https://dragon-twitter-analysis.herokuapp.com/dragons/${this.dragons.attributes.id}`;
+      return 'https://twitter.com/share?text=' + `あなたの心の中のドラゴンは${this.dragons.attributes.name}でした！` + `%0a%23ドラゴン%20%23Twitter診断%0a&url=${url}`;
     }
   },
   computed: {
@@ -57,8 +56,8 @@ export default {
     ),
     dragon_image_src() {
         return require("../../../assets/images/" + this.dragons.attributes.image)
-    }
-  }
+    },
+  },
 }
 </script>
 
