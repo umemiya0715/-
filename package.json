@@ -8,6 +8,7 @@
     "@rails/webpacker": "4.3.0",
     "autoprefixer": "9.8.6",
     "axios": "^0.21.1",
+    "node-sass": "^4.14.1",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.17",
     "turbolinks": "^5.2.0",
@@ -22,6 +23,9 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
+  },
+  "engines": {
+    "yarn": "1.22.10"
   },
   "scripts": {
     "dev-css": "tailwind build ./app/javascript/css/tailwind.css ./app/javascript/css/tailwindcss_dev.css"
