@@ -25,7 +25,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "engines": {
-    "yarn": "1.22.10"
+    "yarn": "1.22.17"
   },
   "scripts": {
     "dev-css": "tailwind build ./app/javascript/css/tailwind.css ./app/javascript/css/tailwindcss_dev.css"
