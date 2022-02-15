@@ -1,7 +1,7 @@
 <template>
   <div class="bg-cover h-7/8">
     <div class="flex justify-center m-16">
-      <img :src="top_logo_src" width="300px">
+      <img :src="top_logo_src" width="400px">
     </div>
     <div class="m-16 text-center">
       <ValidationObserver v-slot="{ invalid }">
