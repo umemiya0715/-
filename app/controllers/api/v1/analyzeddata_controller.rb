@@ -2,7 +2,6 @@ module Api
   module V1
     class AnalyzeddataController < ApplicationController
       before_action :set_analyzeddatum, only: %i[show]
-      after_action :set_csrf_token_header
 
       def index
         @analyzeddata = Analyzeddatum.all
