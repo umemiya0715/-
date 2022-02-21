@@ -2,6 +2,7 @@ module Api
   module V1
     class AccountsController < ApplicationController
       before_action :set_account, only: %i[show]
+      after_action :set_csrf_token_header
 
       def index
         @accounts = Account.all
