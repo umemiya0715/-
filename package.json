@@ -6,6 +6,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
+    "acorn": "^8.7.0",
     "autoprefixer": "9.8.6",
     "axios": "^0.21.1",
     "node-sass": "^7.0.1",
