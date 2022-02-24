@@ -16,7 +16,7 @@ class Account < ApplicationRecord
   def sentimentAnalyze(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
-      config.credentials = "/Users/umemiyashouta/Downloads/emotion-analysis-321715-19cecea1a816.json"
+      config.credentials = "/app/gcp_key.json"
     end
     resultScore = []
     resultMagnitude = []
