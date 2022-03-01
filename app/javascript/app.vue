@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     image_src() {
-      return require("../assets/images/topImage_" + this.randomNumber(1,4) +".png")
+      return require("../assets/images/topImage_" + this.randomNumber(1,3) +".png")
     }
   }
 }

@@ -16,7 +16,7 @@ class Account < ApplicationRecord
   def sentimentAnalyze(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
-      config.credentials = "/Users/umemiyashouta/Downloads/emotion-analysis-321715-19cecea1a816.json"
+      config.credentials = "/app/config/gcs_credentials.json"
     end
     resultScore = []
     resultMagnitude = []
@@ -73,21 +73,21 @@ class Account < ApplicationRecord
   end
 
   def whichDragon(score, magnitude, troversion)
-    if score >= 0 and magnitude >= 0.5 and troversion >= 0.2
+    if score >= 0 and magnitude >= 0.5 and troversion >= 0.3
       dragonId = 1
-    elsif score >= 0 and magnitude >= 0.5 and troversion < 0.2
+    elsif score >= 0 and magnitude >= 0.5 and troversion < 0.3
       dragonId = 2
-    elsif score >= 0 and magnitude < 0.5 and troversion >= 0.2
+    elsif score >= 0 and magnitude < 0.5 and troversion >= 0.3
       dragonId = 3
-    elsif score >= 0 and magnitude < 0.5 and troversion < 0.2
+    elsif score >= 0 and magnitude < 0.5 and troversion < 0.3
       dragonId = 4
-    elsif score < 0 and magnitude >= 0.5 and troversion >= 0.2
+    elsif score < 0 and magnitude >= 0.5 and troversion >= 0.3
       dragonId = 5
-    elsif score < 0 and magnitude >= 0.5 and troversion < 0.2
+    elsif score < 0 and magnitude >= 0.5 and troversion < 0.3
       dragonId = 6
-    elsif score < 0 and magnitude < 0.5 and troversion >= 0.2
+    elsif score < 0 and magnitude < 0.5 and troversion >= 0.3
       dragonId = 7
-    elsif score < 0 and magnitude < 0.5 and troversion < 0.2
+    elsif score < 0 and magnitude < 0.5 and troversion < 0.3
       dragonId = 8
     end
     self.dragonId = dragonId
