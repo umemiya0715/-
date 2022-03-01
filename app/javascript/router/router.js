@@ -63,6 +63,9 @@ const router = new Router({
       meta: { title: "お探しのページは見つかりませんでした" },
     },
   ],
+  scrollBehavior(to, from, savedPosition){
+    return { x: 0, y: 0}
+  },
 })
 
 export default router

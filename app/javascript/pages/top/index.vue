@@ -8,7 +8,7 @@
         <div class="justify-center">
           <ValidationProvider v-slot="{ errors }" rules="required">
             <input type="text" v-model="targetAccount" class=" bg-gray-100 p-2 rounded-lg border-2 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full" placeholder="@example">
-            <span class="block text-red-500">{{ errors[0] }}</span>
+            <span class="block text-white">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
         <div class="m-16 justify-center">
