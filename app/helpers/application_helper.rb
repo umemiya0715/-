@@ -6,7 +6,7 @@ module ApplicationHelper
       description: "あなたのTwitterの使い方をドラゴンが見直してくれるサービスです。",
       keywords: "ドラッター,Dratter,ドラゴン,twitter診断",
       charset: "UTF-8",
-      canonical: "http://dragon-twitter-analysis.herokuapp.com/"
+      # canonical: "http://dragon-twitter-analysis.herokuapp.com/"
       og: {
         site_name: :site,
         title: :title,
