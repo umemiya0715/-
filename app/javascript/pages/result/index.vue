@@ -51,9 +51,6 @@ export default {
     ...mapGetters(
       'dragons', ['dragons']
     ),
-    // ...mapGetters(
-      // 'accounts', ['accounts']
-    // ),
     ...mapGetters(
       'results', ['results']
     ),

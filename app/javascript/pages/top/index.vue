@@ -34,9 +34,6 @@ export default {
     }
   },
   computed: {
-    // ...mapGetters(
-      // 'accounts',['accounts']
-    // ),
      ...mapGetters(
       'results',['results']
     ),
@@ -48,18 +45,12 @@ export default {
     }
   },
   methods: {
-    // ...mapMutations(
-      // 'accounts', ['setAccount']
-    // ),
     ...mapMutations(
       'results', ['setResult']
     ),
     ...mapMutations(
       'dragons', ['setDragon']
     ),
-    // ...mapActions(
-      // 'accounts', ['fetchAccount']
-    // ),
     ...mapActions(
       'results', ['fetchResult']
     ),
