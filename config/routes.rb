@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api, format: 'json' do
     namespace :v1 do
       resources :accounts, only: %i[index create show]
-      resources :analyzeddata, only: %i[index create show]
+      resources :results, only: %i[index create show]
       resources :dragons, only: %i[show]
     end
   end

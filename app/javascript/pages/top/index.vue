@@ -34,11 +34,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(
-      'accounts',['accounts']
-    ),
-    ...mapGetters(
-      'accounts',['dragonId']
+    // ...mapGetters(
+      // 'accounts',['accounts']
+    // ),
+     ...mapGetters(
+      'results',['results']
     ),
     ...mapGetters(
       'dragons', ['dragons']
@@ -48,14 +48,20 @@ export default {
     }
   },
   methods: {
+    // ...mapMutations(
+      // 'accounts', ['setAccount']
+    // ),
     ...mapMutations(
-      'accounts', ['setAccount']
+      'results', ['setResult']
     ),
     ...mapMutations(
       'dragons', ['setDragon']
     ),
+    // ...mapActions(
+      // 'accounts', ['fetchAccount']
+    // ),
     ...mapActions(
-      'accounts', ['fetchAccount']
+      'results', ['fetchResult']
     ),
     ...mapActions(
       'dragons', ['fetchDragon']
@@ -63,8 +69,8 @@ export default {
     async startAnalysis() {
       const targetId = this.targetAccount
       try {
-        await this.fetchAccount(targetId)
-        await this.fetchDragon(this.dragonId)
+        await this.fetchResult(targetId)
+        await this.fetchDragon(this.results.dragon_id)
         await this.$router.push('/result')
       } catch (error) {
         alert('データの取得に失敗しました')

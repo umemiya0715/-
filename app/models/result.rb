@@ -1,11 +1,5 @@
-class Account < ApplicationRecord
-
-  def mergeData(user, tweets)
-    sentimentAnalyze(user, tweets)
-    whichDragon(score, magnitude, troversion)
-  end
-
-  def sentimentAnalyze(user, tweets)
+class Result < ApplicationRecord
+  def self.analyzeResult(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
         config.credentials = "/Users/umemiyashouta/Downloads/dragon-twitter-analysis.json"
@@ -20,12 +14,22 @@ class Account < ApplicationRecord
       resultScore.push(sentiment.score)
       resultMagnitude.push(sentiment.magnitude)
     end
+    user_id = user.id
     score = resultScore.sum(0.0) / resultScore.size
     magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
-    analyzeTroversion(user, tweets)
+    troversion = Result.analyzeTroversion(user, tweets)
+    dragon_id = Result.whichDragon(score, magnitude, troversion)
+
+    {
+      user_id: user_id,
+      dragon_id: dragon_id,
+      score: score,
+      magnitude: magnitude,
+      troversion: troversion
+    }
   end
 
-  def analyzeTroversion(user, tweets)
+  def self.analyzeTroversion(user, tweets)
     resultFavorites = []
     resultRetweets = []
     tweets.each do |tweet|
@@ -64,7 +68,7 @@ class Account < ApplicationRecord
     troversion = userFrequency + replyRate + userFavorites + userFollowers + userRetweets
   end
 
-  def whichDragon(score, magnitude, troversion)
+  def self.whichDragon(score, magnitude, troversion)
     if score >= 0 and magnitude >= 0.5 and troversion >= 0.3
       dragonId = 1
     elsif score >= 0 and magnitude >= 0.5 and troversion < 0.3
