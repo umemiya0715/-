@@ -48,4 +48,4 @@ gcs_credentials.json
 yarn-debug.log*
 .yarn-integrity
 
-/config/credentials/production.key
+/config/credentials
