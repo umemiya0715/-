@@ -18,7 +18,7 @@ module Api
         tweets = client.user_timeline(user, count: 5, exclude_replies: true, include_rts: false)
         analyzed_result = Result.analyzeResult(user, tweets)
         @result = Result.new(analyzed_result)
-        if @result.save
+        if @result.save!
           render json: @result, status: :created
         else
           render json: @result, status: :bad_request

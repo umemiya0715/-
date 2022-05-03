@@ -1,5 +1,5 @@
 class Result < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   def self.analyzeResult(user, tweets)
     require "google/cloud/language"
