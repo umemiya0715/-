@@ -1,22 +1,10 @@
-class Account < ApplicationRecord
-  attribute :user, :string
-  attribute :tweets, :string
-  attribute :score, :float
-  attribute :magnitude, :float
-  attribute :troversion, :float
-  attribute :dragonId, :integer
+class Result < ApplicationRecord
+  belongs_to :user
 
-  def mergeData(user, tweets)
-    sentimentAnalyze(user, tweets)
-    whichDragon(self.score, self.magnitude, self.troversion)
-    self.user = user
-    self.tweets = tweets
-  end
-
-  def sentimentAnalyze(user, tweets)
+  def self.analyzeResult(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
-      config.credentials = "/app/config/gcs_credentials.json"
+        config.credentials = "/Users/umemiyashouta/Downloads/dragon-twitter-analysis.json"
     end
     resultScore = []
     resultMagnitude = []
@@ -28,12 +16,22 @@ class Account < ApplicationRecord
       resultScore.push(sentiment.score)
       resultMagnitude.push(sentiment.magnitude)
     end
-    self.score = resultScore.sum(0.0) / resultScore.size
-    self.magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
-    analyzeTroversion(user, tweets)
+    user_id = user.id
+    score = resultScore.sum(0.0) / resultScore.size
+    magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
+    troversion = Result.analyzeTroversion(user, tweets)
+    dragon_id = Result.whichDragon(score, magnitude, troversion)
+
+    {
+      user_id: user_id,
+      dragon_id: dragon_id,
+      score: score,
+      magnitude: magnitude,
+      troversion: troversion
+    }
   end
 
-  def analyzeTroversion(user, tweets)
+  def self.analyzeTroversion(user, tweets)
     resultFavorites = []
     resultRetweets = []
     tweets.each do |tweet|
@@ -69,10 +67,10 @@ class Account < ApplicationRecord
     elsif
       userRetweets = 0.2
     end
-    self.troversion = userFrequency + replyRate + userFavorites + userFollowers + userRetweets
+    troversion = userFrequency + replyRate + userFavorites + userFollowers + userRetweets
   end
 
-  def whichDragon(score, magnitude, troversion)
+  def self.whichDragon(score, magnitude, troversion)
     if score >= 0 and magnitude >= 0.5 and troversion >= 0.3
       dragonId = 1
     elsif score >= 0 and magnitude >= 0.5 and troversion < 0.3
@@ -90,6 +88,5 @@ class Account < ApplicationRecord
     elsif score < 0 and magnitude < 0.5 and troversion < 0.3
       dragonId = 8
     end
-    self.dragonId = dragonId
   end
 end

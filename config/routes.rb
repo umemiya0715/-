@@ -3,9 +3,17 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     namespace :v1 do
+      post 'oauth/callback', to: 'oauths#callback'
+      get 'oauth/callback', to: 'oauths#callback'
+      get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
       resources :accounts, only: %i[index create show]
-      resources :analyzeddata, only: %i[index create show]
+      resources :results, only: %i[index create show]
       resources :dragons, only: %i[show]
+      resources :users, only: %i[:index, :edit, :update, :show, :destory] do
+        collection do
+          get 'me'
+        end
+      end
     end
   end
 

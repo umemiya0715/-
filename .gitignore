@@ -13,6 +13,9 @@ vue.config.js
 # Ignore DS_Store
 .DS_Store
 
+# Ignore GCS credentials.json
+gcs_credentials.json
+
 # Ignore bundler config.
 /.bundle
 /vendor/bundle
@@ -44,3 +47,5 @@ vue.config.js
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+/config/credentials/production.key

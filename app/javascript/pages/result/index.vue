@@ -52,7 +52,7 @@ export default {
       'dragons', ['dragons']
     ),
     ...mapGetters(
-      'accounts', ['accounts']
+      'results', ['results']
     ),
     dragon_image_src() {
         return require("../../../assets/images/" + this.dragons.attributes.image)
