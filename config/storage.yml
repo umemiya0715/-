@@ -18,14 +18,14 @@ google:
   service: GCS
   project: your_project
   credentials: {
-    type: "service_account"
-    project_id: "<%= Rails.application.credentials.gcs[:project_id] %>"
-    private_key_id: "<%= Rails.application.credentials.gcs[:private_key_id] %>"
-    private_key: "<%= Rails.application.credentials.gcs[:private_key] %>"
-    client_email: "<%= Rails.application.credentials.gcs[:client_email] %>"
-    auth_url: "https://accounts.google.com/o/oauth2/auth"
-    token_url: "https://oauth2.googleapis.com/token"
-    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+    type: "service_account",
+    project_id: "<%= Rails.application.credentials.gcs[:project_id] %>",
+    private_key_id: "<%= Rails.application.credentials.gcs[:private_key_id] %>",
+    private_key: "<%= Rails.application.credentials.gcs[:private_key] %>",
+    client_email: "<%= Rails.application.credentials.gcs[:client_email] %>",
+    auth_url: "https://accounts.google.com/o/oauth2/auth",
+    token_url: "https://oauth2.googleapis.com/token",
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
     client_x509_cert_url: "<%= Rails.application.credentials.gcs[:client_x509_cert_url] %>"
   }
   bucket: your_own_bucket
