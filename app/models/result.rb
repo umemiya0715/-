@@ -1,4 +1,6 @@
 class Result < ApplicationRecord
+  belongs_to :user
+
   def self.analyzeResult(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|

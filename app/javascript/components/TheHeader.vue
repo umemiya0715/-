@@ -20,12 +20,12 @@
           >
             ユーザー登録(予定)
           </router-link>
-          <router-link
-            to='/'
+          <a
+            src='/api/v1/oauth/twitter'
             class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
           >
-            ログイン(予定)
-          </router-link>
+            Twitterアカウントでログイン
+          </a>
         </nav>
       </div>
     </div>
