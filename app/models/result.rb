@@ -4,7 +4,11 @@ class Result < ApplicationRecord
   def self.analyzeResult(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
+      if Rails.env.production?
+        config.credentials = JSON.parse(ENV.fetch('GOOGLE_CREDENTIALS'))
+      else
         config.credentials = "/Users/umemiyashouta/Downloads/dragon-twitter-analysis.json"
+      end
     end
     resultScore = []
     resultMagnitude = []
