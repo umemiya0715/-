@@ -12,13 +12,13 @@ module Api
           return
         end
         if (@user = login_from(provider))
-          redirect_to me_home_path, notice: "#{provider.titleize}ログインしました。"
+          redirect_to root_path, notice: "#{provider.titleize}ログインしました。"
         else
           begin
             @user = create_from(provider)
             reset_session
             auto_login(@user)
-            redirect_to me_home_path, notice: "#{provider.titleize}ログインしました。"
+            redirect_to root_path, notice: "#{provider.titleize}ログインしました。"
           rescue StandardError
             redirect_to root_path, alert: "#{provider.titleize}ログインに失敗しました。"
           end
@@ -28,7 +28,7 @@ module Api
       private
 
       def auth_params
-        params.permit(:code, :provider, :denied)
+        params.permit(:code, :provider, :denied, :format, :oauth_token, :oauth_verifier)
       end
     end
   end

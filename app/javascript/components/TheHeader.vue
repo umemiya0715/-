@@ -21,7 +21,7 @@
             ユーザー登録(予定)
           </router-link>
           <a
-            src='/api/v1/oauth/twitter'
+            href='/api/v1/oauth/twitter'
             class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
           >
             Twitterアカウントでログイン
