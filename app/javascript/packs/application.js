@@ -17,6 +17,7 @@ import '../css/tailwind.css'
 import '../plugins/veevalidate'
 
 Vue.config.productionTip = false
+Vue.config.devtools = true
 Vue.prototype.$axios = axios
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -18,10 +18,11 @@ module Api
             @user = create_from(provider)
             reset_session
             auto_login(@user)
-            redirect_to root_path, notice: "#{provider.titleize}ログインしました。"
           rescue StandardError
             redirect_to root_path, alert: "#{provider.titleize}ログインに失敗しました。"
           end
+          cookies[:logged_in] = { value: 1, expires: 10.minute.from_now }
+          redirect_to root_path, notice: "#{provider.titleize}ログインしました。"
         end
       end
 

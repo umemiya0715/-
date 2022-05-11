@@ -9,6 +9,7 @@
     "acorn": "^8.7.0",
     "autoprefixer": "9.8.6",
     "axios": "^0.21.1",
+    "js-cookie": "^3.0.1",
     "node-sass": "^7.0.1",
     "postcss": "^8.3.11",
     "tailwindcss": "^2.2.17",

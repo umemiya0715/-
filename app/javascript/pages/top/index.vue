@@ -25,7 +25,9 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapGetters, mapMutations, mapActions } from 'vuex'
+
 export default {
   name: "top",
   data() {
@@ -40,9 +42,19 @@ export default {
     ...mapGetters(
       'dragons', ['dragons']
     ),
+    ...mapGetters(
+      'users', ['currentUser' , 'isAuthenticatedUser']
+    ),
     top_logo_src() {
       return require("../../../assets/images/topLogo.png")
     }
+  },
+  mounted() {
+    axios.get("/api/v1/users/me")
+    .then(res => {
+      this.user = res.data
+      this.$store.commit('users/setCurrentUser', res.data)
+    })
   },
   methods: {
     ...mapMutations(

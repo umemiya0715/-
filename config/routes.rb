@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post 'oauth/callback', to: 'oauths#callback'
       get 'oauth/callback', to: 'oauths#callback'
       get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
+      delete 'logout', to: 'user_sessions#destory'
       resources :accounts, only: %i[index create show]
       resources :results, only: %i[index create show]
       resources :dragons, only: %i[show]
