@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import VueGtag from 'vue-gtag';
 
 import Top from '../pages/top/index.vue';
 import Help from '../pages/help/index.vue';
@@ -68,4 +69,17 @@ const router = new Router({
   },
 })
 
+Vue.use(
+  VueGtag,
+  {
+    config: { id: 'G-KGY5NNL00D' },
+    appName: 'dratter',
+    pageTrackerScreenviewEnabled: true,
+  },
+  router
+);
+router.afterEach((to, from) => {
+  if (location.origin.includes('https://www.dragon-twitter-analysis.com'))
+  gtag('config', 'G-KGY5NNL00D', { 'page_path': to.path });
+})
 export default router
