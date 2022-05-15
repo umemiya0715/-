@@ -14,18 +14,19 @@
           </button>
         </div>
         <nav :class="isOpen ? 'block' : 'hidden'" class='flex-col flex-grow md:pb-0 md:flex md:justify-end md:flex-row'>
-          <router-link
-            to='/'
-            class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
-          >
-            ユーザー登録(予定)
-          </router-link>
           <a
-            src='/api/v1/oauth/twitter'
+            href='/api/v1/oauth/twitter' v-if="!currentUser"
             class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
           >
-            Twitterアカウントでログイン
+            Twitter認証して始める(ログイン)
           </a>
+          <div
+            to='/api/v1/logout' v-if="currentUser"
+            @click="logout"
+            class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
+          >
+            ログアウト
+          </div>
         </nav>
       </div>
     </div>
@@ -33,6 +34,9 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+import { mapGetters, mapActions } from "vuex"
+
 export default {
   name: 'TheHeader',
   data() {
@@ -41,9 +45,15 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({ currentUser: "users/currentUser"}),
     logo_src() {
       return require("../../assets/images/topLogo.png")
     }
+  },
+  methods: {
+    ...mapActions(
+      'users', ['logout']
+    ),
   }
 }
 </script>
