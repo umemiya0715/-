@@ -20,12 +20,12 @@
             </router-link>
           </li>
           <li class="my-2 px-4">
-            <router-link
-              to="/"
+            <a
+              href="https://twitter.com/Umesho0415"
               class="text-gray-500 hover:text-gray-800"
             >
               お問い合わせ
-            </router-link>
+            </a>
           </li>
         </ul>
         <div class="text-center text-gray-500 p-2 sm:pt-12 font-light flex items-center justify-center">
