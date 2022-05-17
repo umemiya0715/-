@@ -9,7 +9,7 @@ module ApplicationHelper
         title: :title,
         description: :description,
         type: "website",
-        url: '',
+        url: 'https://www.dragon-twitter-analysis.com/result',
         image: '',
         locale: "ja_JP"
       },

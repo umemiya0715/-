@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/dragons/:id', to: 'dragon_shares#show', constraints: { user_agent: /Twitterbot/ }
+  get '/', to: 'dragon_shares#show', constraints: { user_agent: /Twitterbot/ }
   get '*path', to: 'home#index'
 end

@@ -43,8 +43,8 @@ export default {
   },
   methods: {
     twitterShare(){
-      const url = `https://dragon-twitter-analysis.herokuapp.com`
-      window.open(`https://twitter.com/share?text=あなたの心の中のドラゴンは${this.dragons.attributes.name}でした！%0a%23ドラゴン%20%23Twitter診断%0a&url=${url}`, '_blank')
+      const url = `https://www.dragon-twitter-analysis.com/${this.dragons.attributes.dragon_id}`
+      window.open(`https://twitter.com/share?text=${this.results.user_id}さんの心の中のドラゴンは${this.dragons.attributes.name}でした！%0a%23ドラッター%20%23Dratter%0a&url=${url}`, '_blank')
     }
   },
   computed: {
