@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     twitterShare(){
-      const url = `https://www.dragon-twitter-analysis.com/${this.dragons.attributes.dragon_id}`
+      const url = `https://www.dragon-twitter-analysis.com/${this.dragons.attributes.id}`
       window.open(`https://twitter.com/share?text=${this.results.user_id}さんの心の中のドラゴンは${this.dragons.attributes.name}でした！%0a%23ドラッター%20%23Dratter%0a&url=${url}`, '_blank')
     }
   },
