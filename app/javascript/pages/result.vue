@@ -55,7 +55,7 @@ export default {
       'results', ['results']
     ),
     dragon_image_src() {
-        return require("../../assets/images/" + this.dragons.attributes.image)
+        return require("../../../public/images/" + this.dragons.attributes.image)
     },
   },
 }

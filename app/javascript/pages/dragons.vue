@@ -48,7 +48,7 @@ export default {
       'results', ['results']
     ),
     dragon_image_src() {
-        return require("../../assets/images/" + this.dragon.attributes.image)
+        return require("../../../public/images/" + this.dragon.attributes.image)
     },
     currentPath() {
       return this.$route.path
