@@ -47,7 +47,7 @@ export default {
   computed: {
     ...mapGetters({ currentUser: "users/currentUser"}),
     logo_src() {
-      return require("../../assets/images/topLogo.png")
+      return require("../../../public/images/topLogo.png")
     }
   },
   methods: {

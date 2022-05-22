@@ -2,14 +2,12 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import VueGtag from 'vue-gtag';
 
-import Top from '../pages/top/index.vue';
-import Help from '../pages/help/index.vue';
-import Term from '../pages/term/index.vue';
-import PrivacyPolicy from '../pages/privacy_policy/index.vue';
-import Result from '../pages/result/index.vue';
-import Analysis from '../pages/analysis/index.vue';
-import Register from '../pages/register/index.vue';
-import Login from '../pages/login/index.vue';
+import Top from '../pages/top.vue';
+import Help from '../pages/help.vue';
+import Term from '../pages/term.vue';
+import PrivacyPolicy from '../pages/privacy_policy.vue';
+import Result from '../pages/result.vue';
+import Dragons from '../pages/dragons';
 import NotFound from '../pages/shared/NotFound.vue';
 
 Vue.use(Router)
@@ -43,19 +41,9 @@ const router = new Router({
       name: "Result",
     },
     {
-      path: "/analysis",
-      component: Analysis,
-      name: "Analysis",
-    },
-    {
-      path: "/register",
-      component: Register,
-      name: "Register",
-    },
-    {
-      path: "/login",
-      component: Login,
-      name: "Login",
+      path: "/dragons/:id",
+      component: Dragons,
+      name: "Dragons",
     },
     {
       name: "NotFound",

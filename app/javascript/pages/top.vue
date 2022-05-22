@@ -57,7 +57,7 @@ export default {
       'users', ['currentUser' , 'isAuthenticatedUser']
     ),
     top_logo_src() {
-      return require("../../../assets/images/topLogo.png")
+      return require("../../../public/images/topLogo.png")
     }
   },
   mounted() {
