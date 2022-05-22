@@ -23,7 +23,9 @@
       </div>
     </div>
     <div class="text-center p-4">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-4 px-8 rounded" @click="twitterShare" >Twitterでシェアする</button>
+      <button class="bg-twitterBlue hover:bg-blue-700 text-white text-lg font-bold py-4 px-4 rounded" @click="twitterShare" >
+        <i class="px-2 ri-twitter-fill"></i>Twitterでシェアする
+      </button>
     </div>
     <div class="text-center text-white p-8 text-lg">
       <router-link to="/">トップページに戻る</router-link>

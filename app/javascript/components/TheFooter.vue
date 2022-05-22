@@ -24,7 +24,7 @@
               href="https://twitter.com/Umesho0415"
               class="text-gray-500 hover:text-gray-800"
             >
-              お問い合わせ
+              <i class="ri-twitter-fill"></i>
             </a>
           </li>
         </ul>
