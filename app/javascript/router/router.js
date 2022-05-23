@@ -5,7 +5,7 @@ import VueGtag from 'vue-gtag';
 import Top from '../pages/top.vue';
 import Help from '../pages/help.vue';
 import Term from '../pages/term.vue';
-import PrivacyPolicy from '../pages/privacy_policy.vue';
+import PrivacyPolicy from '../pages/privacyPolicy.vue';
 import Result from '../pages/result.vue';
 import Dragons from '../pages/dragons';
 import NotFound from '../pages/shared/NotFound.vue';

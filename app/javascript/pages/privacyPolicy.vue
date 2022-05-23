@@ -4,7 +4,7 @@
       プライバシーポリシー
     </div>
     <div class="grid grid-rows-1">
-      <p>ドラッター（以下，「当事務局」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
+      <p>ドラッター（以下，「本サービス提供者」といいます。）は，本ウェブサイト上で提供するサービス（以下,「本サービス」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
 
       <div class="text-2xl font-bold mt-10 mb-5">第1条（取得する情報）</div>
       <p>本サービスはユーザーから以下の情報を取得します。</p>
@@ -41,10 +41,13 @@
       </ol>
 
       <div class="text-2xl font-bold mt-10 mb-5">第4条（アクセス解析ツール）</div>
-      <p>本サービスは、ユーザーのアクセス解析のために、「Googleアナリティクス」を利用しています。</p>
-      <p>Googleアナリティクスは、トラフィックデータの収集のためにCookieを使用しています。トラフィックデータは匿名で収集されており、個人を特定するものではありません。Cookieを無効にすれば、これらの情報の収集を拒否することができます。詳しくはお使いのブラウザの設定をご確認ください。</p>
-      <p>Googleアナリティクスについて、詳しくは以下からご確認ください。</p>
-      <p>https://marketingplatform.google.com/about/analytics/terms/jp/</p>
+      <p>本サービスは、ユーザーのアクセス解析のために、「Googleアナリティクス」を利用しています。Googleアナリティクスは、トラフィックデータの収集のためにCookieを使用しています。トラフィックデータは匿名で収集されており、個人を特定するものではありません。Cookieを無効にすれば、これらの情報の収集を拒否することができます。詳しくはお使いのブラウザの設定をご確認ください。Googleアナリティクスについて、詳しくは以下からご確認ください。</p>
+      <ul class="ml-5 list-disc">
+        <li><a class="border-b-2 border-white hover:opacity-50"
+        href="https://marketingplatform.google.com/about/analytics/terms/jp/">Googleアナリティクスサービス利用規約</a></li>
+        <li><a class="border-b-2 border-white hover:opacity-50"
+        href="https://policies.google.com/technologies/ads?hl=ja">Googleポリシーと規約</a></li>
+      </ul>
 
       <div class="text-2xl font-bold mt-10 mb-5">第5条（プライバシーポリシーの変更）</div>
       <p>本サービスは、必要に応じて、このプライバシーポリシーの内容を変更します。</p>
