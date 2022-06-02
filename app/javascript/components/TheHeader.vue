@@ -1,33 +1,27 @@
 <template>
   <header>
-    <div class='w-full text-gray-500 bg-gray-100 p-4'>
-      <div class='flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8'>
-        <div class='flex flex-row items-center justify-between p-1'>
+    <div class='w-full text-gray-500 bg-gray-100 p-6 fixed top-0'>
+      <div class='max-w-screen-xl px-4 py-6 mx-auto md:px-6 lg:px-8'>
+        <div class='flex flex-row justify-between p-1'>
           <router-link to="/">
             <img :src="logo_src" width="100px">
           </router-link>
-          <button @click='isOpen = !isOpen' class='md:hidden rounded-lg focus:outline-none focus:shadow-outline'>
-            <svg class='h-6 w-6 fill-current' viewBox='0 0 24 24'>
-              <path v-show='!isOpen' d='M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z' />
-              <path v-show='isOpen' d='M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z' />
-            </svg>
-          </button>
+          <nav class='text-right md:pb-0 md:flex md:flex-row'>
+            <a
+              href='/api/v1/oauth/twitter' v-if="!currentUser"
+              class='block text-2xl text-right hover:text-white hover:bg-gray-600 rounded'
+            >
+              Twitter認証によるユーザー登録
+            </a>
+            <div
+              to='/api/v1/logout' v-if="currentUser"
+              @click="logout"
+              class='block text-2xl text-right hover:text-white hover:bg-gray-600 rounded'
+            >
+              ログアウト
+            </div>
+          </nav>
         </div>
-        <nav :class="isOpen ? 'block' : 'hidden'" class='flex-col flex-grow md:pb-0 md:flex md:justify-end md:flex-row'>
-          <a
-            href='/api/v1/oauth/twitter' v-if="!currentUser"
-            class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
-          >
-            Twitter認証して始める(ログイン)
-          </a>
-          <div
-            to='/api/v1/logout' v-if="currentUser"
-            @click="logout"
-            class='block px-8 py-2 my-4 hover:text-white hover:bg-gray-600 rounded'
-          >
-            ログアウト
-          </div>
-        </nav>
       </div>
     </div>
   </header>

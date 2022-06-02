@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="text-center px-4 pb-8">
+    <div class="text-center px-4 pb-12">
       <button class=" bg-red-500 hover:bg-red-700 font-bold py-4 px-8 text-2xl text-white rounded w-52 items-center">診断してみる</button>
     </div>
   </div>
