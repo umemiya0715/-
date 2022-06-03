@@ -120,6 +120,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.callback_url = Settings.sorcery[:callback_url]
   config.twitter.user_info_mapping = {
     twitter_id: "id",
+    screen_name: "screen_name",
     name: "name",
     image: "profile_image_url_https"
   }

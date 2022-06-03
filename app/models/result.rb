@@ -1,6 +1,13 @@
 class Result < ApplicationRecord
   belongs_to :user, optional: true
 
+  validates :user_id, presence: true
+  validates :dragon_id, presence: true
+  validates :score, presence: true
+  validates :magnitude, presence: true
+  validates :troversion, presence: true
+  validates :target_account, presence: true
+
   def self.analyzeResult(user, tweets)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
@@ -21,6 +28,7 @@ class Result < ApplicationRecord
       resultMagnitude.push(sentiment.magnitude)
     end
     user_id = user.id
+    target_account = user.name
     score = resultScore.sum(0.0) / resultScore.size
     magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
     troversion = Result.analyzeTroversion(user, tweets)
@@ -31,7 +39,8 @@ class Result < ApplicationRecord
       dragon_id: dragon_id,
       score: score,
       magnitude: magnitude,
-      troversion: troversion
+      troversion: troversion,
+      target_account: target_account
     }
   end
 
