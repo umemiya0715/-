@@ -1,8 +1,8 @@
 <template>
   <footer>
     <div class="bg-gray-100 w-full py-4">
-      <div class='max-w-screen-xl mx-auto px-4'>
-        <ul class="max-w-screen-md mx-auto text-lg font-light flex justify-center">
+      <div class='max-w-screen-xl mx-auto p-4'>
+        <ul class="max-w-screen-md mx-auto text-2xl font-light flex justify-center">
           <li class="my-2 px-4">
             <router-link
               to="/term"
@@ -20,15 +20,15 @@
             </router-link>
           </li>
           <li class="my-2 px-4">
-            <router-link
-              to="/"
+            <a
+              href="https://twitter.com/Umesho0415"
               class="text-gray-500 hover:text-gray-800"
             >
-              お問い合わせ
-            </router-link>
+              <i class="ri-twitter-fill"></i>
+            </a>
           </li>
         </ul>
-        <div class="text-center text-gray-500 p-2 sm:pt-12 font-light flex items-center justify-center">
+        <div class="text-center text-gray-500 p-2 text-2xl font-light flex items-center justify-center">
           ©2022 Dratter
         </div>
       </div>

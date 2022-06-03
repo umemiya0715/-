@@ -1,29 +1,29 @@
 <template>
   <div class="text-center">
-    <div class="grid grid-cols-12 gap-10 md:p-20">
-      <div class="col-start-1 col-span-12 mt-20 md:mt-0">
-        <div class="text-2xl inline p-5 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
+    <div class="grid grid-cols-12 gap-10 md:pt-20">
+      <div class="col-start-2 col-span-10 mt-20 md:mt-0">
+        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
-      <div class="text-center text-white col-start-1 col-span-12 p-10 mx-auto" v-if="dragons.attributes">
-        <div class="text-2xl font-bold p-4">
+      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="dragons.attributes">
+        <div class="text-6xl font-bold">
           <h3>{{ dragon.attributes.name }}</h3>
         </div>
-        <div class="m-auto p-4">
+        <div class="m-auto">
           <img :src="dragon_image_src">
         </div>
-        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-16">
-          <div class="text-2xl inline font-bold border-b-2 border-white">性格</div>
-          <div class="m-4">{{ dragon.attributes.explanation }}</div>
-          <div class="m-4">{{ dragon.attributes.personality }}</div>
+        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-16">
+          <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
+          <div class="text-3xl m-4">{{ dragon.attributes.explanation }}</div>
+          <div class="text-2xl m-4">{{ dragon.attributes.personality }}</div>
         </div>
-        <div class="text-lg p-4 m-4 border-2 border-white rounded-md font-bold mx-16">
-          <div class="text-2xl inline font-bold border-b-2 border-white">アドバイス</div>
-          <div class="m-4">{{ dragon.attributes.advice }}</div>
+        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-16">
+          <div class="text-3xl inline font-bold border-b-2 border-white">アドバイス</div>
+          <div class="text-2xl m-4">{{ dragon.attributes.advice }}</div>
         </div>
       </div>
     </div>
-    <div class="text-center p-4">
-      <button class=" bg-red-500 hover:bg-red-700 font-bold py-4 px-4 text-lg text-white rounded w-48 items-center">診断してみる</button>
+    <div class="text-center px-4 pb-12">
+      <button class=" bg-red-500 hover:bg-red-700 font-bold py-4 px-8 text-2xl text-white rounded w-52 items-center">診断してみる</button>
     </div>
   </div>
 </template>
@@ -33,7 +33,7 @@ import axios from 'axios';
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "result",
+  name: "dragon",
   data() {
     return {
       title: "あなたの心に潜むドラゴンは…",
@@ -43,9 +43,6 @@ export default {
   computed: {
     ...mapGetters(
       'dragons', ['dragons']
-    ),
-    ...mapGetters(
-      'results', ['results']
     ),
     dragon_image_src() {
         return require("../../../public/images/" + this.dragon.attributes.image)

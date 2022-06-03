@@ -15,6 +15,7 @@ import axios from '../plugins/axios.js'
 import store from '../store/index.js'
 import '../css/tailwind.css'
 import '../plugins/veevalidate'
+import 'remixicon/fonts/remixicon.css'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

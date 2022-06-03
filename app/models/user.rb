@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   validates :twitter_id, presence: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 50 }
+  validates :screen_name, presence: true
   validates :role, presence: true
 end

@@ -6,7 +6,7 @@
       </div>
       <div class="text-center text-white col-start-1 col-span-12 p-10 mx-auto">
         <div class="row-auto text-white">
-          <div class="text-xl sm:text-md md:text-4xl px-3 pt-2">
+          <div class="text-xl text-left sm:text-md md:text-4xl px-3 pt-2">
             <p>最近のTwitterの運用方法について振り返ることができるアプリです。
             <br>使い方は簡単！　
             <br>トップページの入力画面に診断したいアカウントのIDを入力。

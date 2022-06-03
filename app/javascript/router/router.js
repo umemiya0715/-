@@ -5,9 +5,10 @@ import VueGtag from 'vue-gtag';
 import Top from '../pages/top.vue';
 import Help from '../pages/help.vue';
 import Term from '../pages/term.vue';
-import PrivacyPolicy from '../pages/privacy_policy.vue';
+import PrivacyPolicy from '../pages/privacyPolicy.vue';
 import Result from '../pages/result.vue';
 import Dragons from '../pages/dragons';
+import Users from '../pages/users';
 import NotFound from '../pages/shared/NotFound.vue';
 
 Vue.use(Router)
@@ -44,6 +45,11 @@ const router = new Router({
       path: "/dragons/:id",
       component: Dragons,
       name: "Dragons",
+    },
+    {
+      path: "/users/:id",
+      component: Users,
+      name: "Users",
     },
     {
       name: "NotFound",

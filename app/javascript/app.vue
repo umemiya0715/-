@@ -1,5 +1,5 @@
 <template>
-  <div class='d-flex flex-column min-vh-100 bg-cover bg-repeat' :style="{ backgroundImage: 'url(' + image_src + ')' }">
+  <div class='d-flex flex-column min-vh-100 bg-cover bg-fixed pt-32' :style="{ backgroundImage: 'url(' + image_src + ')' }">
     <TheHeader class='mb-auto' />
       <router-view />
     <TheFooter class='mt-auto' />
@@ -16,13 +16,10 @@ export default {
     TheFooter,
   },
   methods: {
-    randomNumber(min, max){
-      return Math.floor(Math.random() * (max + 1 - min)) + min
-    },
   },
   computed: {
     image_src() {
-      return require("../../public/images/topImage_" + this.randomNumber(1,3) +".png")
+      return require("../../public/images/topImage.png")
     }
   }
 }
