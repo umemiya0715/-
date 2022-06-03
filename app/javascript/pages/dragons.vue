@@ -33,7 +33,7 @@ import axios from 'axios';
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "result",
+  name: "dragon",
   data() {
     return {
       title: "あなたの心に潜むドラゴンは…",
@@ -43,9 +43,6 @@ export default {
   computed: {
     ...mapGetters(
       'dragons', ['dragons']
-    ),
-    ...mapGetters(
-      'results', ['results']
     ),
     dragon_image_src() {
         return require("../../../public/images/" + this.dragon.attributes.image)
