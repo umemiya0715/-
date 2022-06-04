@@ -24,6 +24,12 @@
             >
               ログアウト
             </button>
+            <button
+              v-if="currentUser" @click="deleteUser"
+              class='block text-2xl text-right hover:text-white hover:bg-gray-600 rounded'
+            >
+              ユーザー削除
+            </button>
           </nav>
         </div>
       </div>
@@ -55,7 +61,7 @@ export default {
   },
   methods: {
     ...mapMutations(
-      'users', ['logoutUser']
+      'users', ['logoutUser', 'deleteCurrentUser']
     ),
     async logout() {
       try {
@@ -63,6 +69,13 @@ export default {
         Cookies.remove('vuex');
         await this.$router.push('/')
       } catch (error) {
+      }
+    },
+    async deleteUser() {
+      try {
+        await this.$store.dispatch("users/deleteCurrentUser")
+        await this.$router.push('/')
+      } catch(error){
       }
     }
   }

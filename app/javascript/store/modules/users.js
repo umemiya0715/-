@@ -26,6 +26,10 @@ const actions = {
     await axios.delete("/v1/logout")
     commit("setCurrentUser", null)
   },
+  async deleteCurrentUser({ commit }) {
+    await axios.delete("/v1/user_settings")
+    commit("setCurrentUser", null)
+  }
 }
 
 export default {
