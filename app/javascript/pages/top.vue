@@ -34,7 +34,7 @@
 
 <script>
 import axios from 'axios'
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import Spinner from 'vue-spinner-component/src/Spinner.vue';
 
 export default {
@@ -70,24 +70,12 @@ export default {
     })
   },
   methods: {
-    ...mapMutations(
-      'results', ['setResult']
-    ),
-    ...mapMutations(
-      'dragons', ['setDragon']
-    ),
-    ...mapActions(
-      'results', ['fetchResult']
-    ),
-    ...mapActions(
-      'dragons', ['fetchDragon']
-    ),
     async startAnalysis() {
       const targetId = this.targetAccount
       this.isLoading = true
       try {
-        await this.fetchResult(targetId)
-        await this.fetchDragon(this.results.dragon_id)
+        await this.$store.dispatch('results/fetchResult', targetId)
+        await this.$store.dispatch('dragons/fetchDragon', this.results.dragon_id)
         this.isLoading = false
         await this.$router.push('/result')
       } catch (error) {

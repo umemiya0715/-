@@ -16,10 +16,7 @@ module Api
 
       def update; end
 
-      def destroy
-        user = User.find_by(params[:twiiter_id])
-        render json: user
-      end
+      def destroy; end
     end
   end
 end

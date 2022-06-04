@@ -8,17 +8,28 @@
           </router-link>
           <nav class='text-right md:pb-0 md:flex md:flex-row'>
             <a
-              href='/api/v1/oauth/twitter'
+              href='/api/v1/oauth/twitter' v-if="!currentUser"
               class='block text-2xl text-right hover:text-white hover:bg-gray-600 rounded'
             >
               Twitter認証によるユーザー登録
             </a>
-            <!-- <router-link :to="`/users/${this.currentUser.twitter_id}`">
+            <router-link v-if="currentUser" :to="`/users/${this.currentUser.screen_name}`">
               <img
-                v-if="currentUser"
                 :src="user_avatar_src" class='mx-auto object-cover border-2 rounded-full h-16 w-16'
               >
-            </router-link> -->
+            </router-link>
+            <button
+              v-if="currentUser" @click="logout"
+              class='block text-2xl text-right hover:text-white hover:bg-gray-600 rounded'
+            >
+              ログアウト
+            </button>
+            <button
+              v-if="currentUser" @click="deleteUser"
+              class='block text-2xl text-right hover:text-white hover:bg-gray-600 rounded'
+            >
+              ユーザー削除
+            </button>
           </nav>
         </div>
       </div>
@@ -28,7 +39,7 @@
 
 <script>
 import Cookies from 'js-cookie'
-import { mapGetters, mapActions } from "vuex"
+import { mapGetters　} from "vuex"
 
 export default {
   name: 'TheHeader',
@@ -38,7 +49,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ currentUser: "users/currentUser"}),
+    ...mapGetters(
+      'users', ['currentUser' , 'isAuthenticatedUser']
+    ),
     logo_src() {
       return require("../../../public/images/topLogo.png")
     },
@@ -47,9 +60,23 @@ export default {
     }
   },
   methods: {
-    ...mapActions(
-      'users', ['logout']
-    ),
+    async logout() {
+      try {
+        await this.$store.dispatch('users/logoutUser')
+        Cookies.remove('vuex');
+        await this.$router.push('/')
+      } catch (err) {
+        err => console.log(err.response)
+      }
+    },
+    async deleteUser() {
+      try {
+        await this.$store.dispatch('users/deleteCurrentUser')
+        await this.$router.push('/')
+      } catch(err){
+        err => console.log(err.response)
+      }
+    }
   }
 }
 </script>

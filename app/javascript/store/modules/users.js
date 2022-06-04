@@ -22,9 +22,20 @@ const actions = {
         commit("setCurrentUser", res.data)
     })
   },
-  logout({ commit }) {
-    commit("setCurrentUser", null )
+  async updateCurrentUser({ commit }){
+    await axios.patch("/v1/user_settings")
+    .then(res => {
+      commit("setCurrentUser", res.data, { root: true})
+    })
   },
+  async logoutUser({ commit }) {
+    await axios.delete("/v1/logout")
+    commit("setCurrentUser", null)
+  },
+  async deleteCurrentUser({ commit }) {
+    await axios.delete("/v1/user_settings")
+    commit("setCurrentUser", null)
+  }
 }
 
 export default {
