@@ -39,7 +39,7 @@
 
 <script>
 import Cookies from 'js-cookie'
-import { mapGetters, mapMutations } from "vuex"
+import { mapGetters　} from "vuex"
 
 export default {
   name: 'TheHeader',
@@ -60,22 +60,21 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(
-      'users', ['logoutUser', 'deleteCurrentUser']
-    ),
     async logout() {
       try {
-        await this.$store.dispatch("users/logoutUser")
+        await this.$store.dispatch('users/logoutUser')
         Cookies.remove('vuex');
         await this.$router.push('/')
-      } catch (error) {
+      } catch (err) {
+        err => console.log(err.response)
       }
     },
     async deleteUser() {
       try {
-        await this.$store.dispatch("users/deleteCurrentUser")
+        await this.$store.dispatch('users/deleteCurrentUser')
         await this.$router.push('/')
-      } catch(error){
+      } catch(err){
+        err => console.log(err.response)
       }
     }
   }

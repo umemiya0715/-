@@ -5,7 +5,7 @@
         <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
       <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto">
-        <UserProfileCard :user="currentUser"/>
+        <UserProfileCard :user="currentUser" @update-Settings="updateUserSettings" />
       </div>
     </div>
   </div>
@@ -31,9 +31,6 @@ export default {
     ...mapGetters(
       'users', ['currentUser']
     ),
-    // dragon_image_src() {
-    //     return require("../../../public/images/" + this.dragon.attributes.image)
-    // },
     currentPath() {
       return this.$route.path
     },
@@ -51,6 +48,12 @@ export default {
      const res = await axios.get(`/api/v1/users/${this.$route.params.twitter_id}`)
      this.user = res.data
     },
+    async updateUserSettings() {
+      await axios.patch("/api/v1/user_settings")
+      .then(res => {
+        this.$store.commit("users/setCurrentUser", res.data )
+      })
+    }
   }
 }
 </script>
