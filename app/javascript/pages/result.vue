@@ -37,7 +37,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "result",
+  name: "Result",
   data() {
     return {
       title: "あなたの心に潜むドラゴンは…"

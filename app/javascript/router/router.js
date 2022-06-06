@@ -2,13 +2,13 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import VueGtag from 'vue-gtag';
 
-import Top from '../pages/top.vue';
-import Help from '../pages/help.vue';
-import Term from '../pages/term.vue';
-import PrivacyPolicy from '../pages/privacyPolicy.vue';
-import Result from '../pages/result.vue';
-import Dragons from '../pages/dragons';
-import Users from '../pages/users';
+import Top from '../pages/Top.vue';
+import Help from '../pages/Help.vue';
+import Term from '../pages/Term.vue';
+import PrivacyPolicy from '../pages/PrivacyPolicy.vue';
+import Result from '../pages/Result.vue';
+import Dragon from '../pages/Dragon.vue';
+import User from '../pages/User.vue';
 import NotFound from '../pages/shared/NotFound.vue';
 
 Vue.use(Router)
@@ -43,13 +43,13 @@ const router = new Router({
     },
     {
       path: "/dragons/:id",
-      component: Dragons,
-      name: "Dragons",
+      component: Dragon,
+      name: "Dragon",
     },
     {
       path: "/users/:id",
-      component: Users,
-      name: "Users",
+      component: User,
+      name: "User",
     },
     {
       name: "NotFound",

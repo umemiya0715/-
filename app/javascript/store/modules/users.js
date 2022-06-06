@@ -29,7 +29,7 @@ const actions = {
     })
   },
   async logoutUser({ commit }) {
-    await axios.delete("/v1/logout")
+    await axios.delete("../../api/v1/logout")
     commit("setCurrentUser", null)
   },
   async deleteCurrentUser({ commit }) {

@@ -4,8 +4,8 @@ module Api
       before_action :set_dragon, only: %i[show]
 
       def show
-        user = Dragon.find_by(id: params[:id])
-        render json: user
+        dragon = Dragon.find_by(id: params[:id])
+        render json: dragon
       end
 
       private

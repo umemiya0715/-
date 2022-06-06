@@ -5,7 +5,7 @@
         <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
       <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto">
-        <UserProfileCard :user="currentUser" @update-Settings="updateUserSettings" />
+        <UserProfileCard :user="currentUser" @update-Settings="updateUserSettings" @logout="deleteUser" />
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@ import { mapGetters } from 'vuex'
 import UserProfileCard from '../components/UserProfileCard';
 
 export default {
-  name: "user",
+  name: "User",
   components: {
     UserProfileCard,
   },
@@ -51,9 +51,18 @@ export default {
     async updateUserSettings() {
       await axios.patch("/api/v1/user_settings")
       .then(res => {
-        this.$store.commit("users/setCurrentUser", res.data )
+        this.$store.commit("users/setCurrentUser", res.data)
       })
-    }
+    },
+   async deleteUser() {
+      try {
+        await axios.delete("/api/v1/user_settings")
+        await this.$router.push('/')
+      } catch(err){
+        this.$store.commit("users/setCurrentUser", null)
+        err => console.log(err.response)
+      }
+    },
   }
 }
 </script>

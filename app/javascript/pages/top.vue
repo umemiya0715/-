@@ -38,7 +38,7 @@ import { mapGetters } from 'vuex'
 import Spinner from 'vue-spinner-component/src/Spinner.vue';
 
 export default {
-  name: "top",
+  name: "Top",
   data() {
     return {
       targetAccount: "",
