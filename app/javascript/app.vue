@@ -1,5 +1,5 @@
 <template>
-  <div class='d-flex flex-column min-vh-100 bg-cover bg-fixed pt-32' :style="{ backgroundImage: 'url(' + image_src + ')' }">
+  <div class='d-flex flex-column min-vh-100 bg-cover bg-fixed pt-24' :style="{ backgroundImage: 'url(' + image_src + ')' }">
     <TheHeader class='mb-auto' />
       <router-view />
     <TheFooter class='mt-auto' />

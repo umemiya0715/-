@@ -1,5 +1,4 @@
 <template>
-<!-- component -->
   <div class="w-full max-w-md mx-auto bg-white shadow-md rounded-md px-6 py-4 my-6">
     <div class="sm:flex justify-left">
       <div class="flex items-center">
@@ -14,8 +13,7 @@
       <button class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="updateUserSettings">ユーザー情報を更新する</button>
     </div>
     <div class="mt-3">
-      <h4 class="text-gray-600 text-sm"></h4>
-      <span class="mt-2 text-xl font-medium text-gray-800"></span>
+      <button class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="logoutUser">退会する</button>
     </div>
     <div class="mt-4">
       <h4 class="text-sm text-gray-600"></h4>
@@ -46,6 +44,9 @@ export default {
     updateUserSettings() {
       this.$emit("update-Settings");
     },
+    logoutUser() {
+      this.$emit("logout")
+    }
   }
 }
 </script>
