@@ -1,10 +1,10 @@
 <template>
-  <div class="text-center">
+  <div class="text-center min-h-screen">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
+        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
-      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto">
+      <div class="items-center col-start-2 col-span-10">
         <UserProfileCard :user="currentUser" @update-Settings="updateUserSettings" @logout="deleteUser" />
       </div>
     </div>
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      title: "あなたの心に潜むドラゴンは…",
+      title: "マイページ",
       user: {},
     };
   },
