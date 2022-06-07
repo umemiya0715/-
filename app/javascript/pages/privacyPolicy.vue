@@ -56,7 +56,7 @@
       <p class="text-3xl mb-5 text-left">本サービスは、必要に応じて、このプライバシーポリシーの内容を変更します。</p>
 
       <div class="text-4xl font-bold mt-20 mb-10">第6条（お問い合わせ）</div>
-      <p class="text-3xl mb-5 text-left">お問い合わせの際は、公式アカウントのメッセージにて承ります。</p>
+      <p class="text-3xl mb-5 text-left">お問い合わせの際は、管理者アカウント(@Umesho0415)へのメッセージにて承ります。</p>
 
       <div class="text-3xl my-10 text-center">以上</div>
       <div class="text-3xl my-10 container text-center term-font  hover:opacity-50">
