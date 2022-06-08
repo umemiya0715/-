@@ -26,6 +26,11 @@
               マイページ
             </router-link>
           </button>
+          <button @click="closeMenu" class="p-2 lg:px-4 text-2xl text-gray-500 text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300">
+            <router-link to="/previous">
+              過去の診断結果
+            </router-link>
+          </button>
           <button @click="logout" class="p-2 lg:px-4 text-2xl text-gray-500 text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300">
             ログアウト
           </button>
