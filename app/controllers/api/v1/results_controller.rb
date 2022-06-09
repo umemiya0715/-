@@ -13,12 +13,15 @@ module Api
       end
 
       def create
-        user_id = result_params['user_id']
-        user = client.user(user_id)
-        tweets = client.user_timeline(user, count: 5, exclude_replies: true, include_rts: false)
-        analyzed_result = Result.analyzeResult(user, tweets)
+        target_id = result_params['target_account']
+        target = client.user(target_id)
+        tweets = client.user_timeline(target, count: 5, exclude_replies: true, include_rts: false)
+        user = result_params['user_id']
+        analyzed_result = Result.analyzeResult(target, tweets, user)
         @result = Result.new(analyzed_result)
-        if @result.save!
+        if @result.user_id == 0 then
+          render json: @result
+        elsif @result.save then
           render json: @result, status: :created
         else
           render json: @result, status: :bad_request
@@ -32,7 +35,7 @@ module Api
       end
 
       def result_params
-        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion)
+        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion, :target_account)
       end
 
     end
