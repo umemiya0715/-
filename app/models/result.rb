@@ -1,14 +1,14 @@
 class Result < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :user_id, presence: true
-  validates :dragon_id, presence: true
-  validates :score, presence: true
-  validates :magnitude, presence: true
-  validates :troversion, presence: true
-  validates :target_account, presence: true
+  # validates :user_id, presence: true
+  # validates :dragon_id, presence: true
+  # validates :score, presence: true
+  # validates :magnitude, presence: true
+  # validates :troversion, presence: true
+  # validates :target_account, presence: true
 
-  def self.analyzeResult(user, tweets)
+  def self.analyzeResult(target, tweets, user)
     require "google/cloud/language"
     client = Google::Cloud::Language.language_service do |config|
       if Rails.env.production?
@@ -27,11 +27,11 @@ class Result < ApplicationRecord
       resultScore.push(sentiment.score)
       resultMagnitude.push(sentiment.magnitude)
     end
-    user_id = user.id
-    target_account = user.name
+    user_id = user
+    target_account = target.name
     score = resultScore.sum(0.0) / resultScore.size
     magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
-    troversion = Result.analyzeTroversion(user, tweets)
+    troversion = Result.analyzeTroversion(target, tweets)
     dragon_id = Result.whichDragon(score, magnitude, troversion)
 
     {
@@ -44,7 +44,7 @@ class Result < ApplicationRecord
     }
   end
 
-  def self.analyzeTroversion(user, tweets)
+  def self.analyzeTroversion(target, tweets)
     resultFavorites = []
     resultRetweets = []
     tweets.each do |tweet|
@@ -69,8 +69,8 @@ class Result < ApplicationRecord
       userFavorites = 0.2
     end
     # フォロワー数
-    if user.followers_count <= 1000
-      userFollowers = user.followers_count / 1000 * 0.2
+    if target.followers_count <= 1000
+      userFollowers = target.followers_count / 1000 * 0.2
     elsif
       userFollowers = 0.2
     end

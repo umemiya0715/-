@@ -42,7 +42,8 @@ export default {
   data() {
     return {
       targetAccount: "",
-      isLoading: false
+      isLoading: false,
+      user_id: "",
     }
   },
   components: {
@@ -71,10 +72,14 @@ export default {
   },
   methods: {
     async startAnalysis() {
-      const targetId = this.targetAccount
+      const target_account = this.targetAccount
+      const user_id = (this.currentUser !== null) ? this.currentUser.twitter_id : 0
       this.isLoading = true
       try {
-        await this.$store.dispatch('results/fetchResult', targetId)
+        await this.$store.dispatch('results/fetchResult', {
+          target_account: target_account,
+          user_id: user_id
+        })
         await this.$store.dispatch('dragons/fetchDragon', this.results.dragon_id)
         this.isLoading = false
         await this.$router.push('/result')

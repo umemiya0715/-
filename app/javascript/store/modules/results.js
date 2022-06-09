@@ -18,8 +18,11 @@ const mutations = {
 }
 
 const actions = {
-  async fetchResult ({ commit }, targetId) {
-    await axios.post('/v1/results', { user_id: targetId } )
+  async fetchResult ({ commit }, analyzeData) {
+    await axios.post('/v1/results', {
+      target_account: analyzeData.target_account,
+      user_id: analyzeData.user_id
+    })
       .then(res => {
         commit('setResult', res.data)
       })
