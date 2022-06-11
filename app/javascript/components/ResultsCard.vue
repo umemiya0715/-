@@ -2,51 +2,39 @@
   <div class="w-full mx-auto bg-white shadow-md rounded-md px-6 py-4 my-12">
     <div class="sm:flex justify-left py-4">
       <div class="flex items-center">
-        <img class="h-20 w-20 rounded-full" :src="user.image" alt="">
+        <!-- <img class="h-20 w-20 rounded-full" :src="dragon_image_src" alt=""> -->
         <div class="ml-4 text-left">
-          <h3 class="text-3xl text-gray-800 font-medium">{{ user.name }}</h3>
-          <h3 class="text-3xl text-gray-600">@{{ user.screen_name }}</h3>
+          <h3 class="text-3xl text-gray-800 font-medium">{{ result.target_account }}</h3>
+          <h3 class="text-3xl text-gray-800 font-medium">{{ result.dragon.name }}</h3>
+          <h3 class="text-3xl text-gray-600">@{{ result.dragon.explanation }}</h3>
         </div>
      </div>
-    </div>
-    <div class="text-2xl pt-4 border-t-2">次のボタンを押すとTwitterの最新プロフィールに更新されます</div>
-    <div class="flex flex-row justify-center items-center my-4">
-      <button class=" bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="updateUserSettings">
-        <i class="ri-restart-line mx-2"></i>ユーザー情報を更新する
-      </button>
-    </div>
-    <div class="flex flex-row justify-center items-center text-2xl pt-4 border-t-2">
-      <input type="checkbox" v-model="checkbox" class="mr-2">退会する場合は全ての情報が削除されます。
-    </div>
-    <div class="my-4">
-      <button class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="logoutUser" :disabled="!checkbox">退会する</button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: "ResultsCard",
   data() {
-    return {
-      checkbox: false
+    return{
     }
   },
   props: {
-    user: {
-      type: Object,
-      required: true
-    },
   },
   computed: {
+    ...mapGetters(
+      'results', ['results']
+    ),
+    dragon_image_src() {
+      const result = this.results[0]
+        return require("../../../public/images/"  + result.dragon.image)
+    },
   },
   methods: {
-    updateUserSettings() {
-      this.$emit("update-Settings");
-    },
-    logoutUser() {
-      this.$emit("logout")
-    }
+
   }
 }
 </script>

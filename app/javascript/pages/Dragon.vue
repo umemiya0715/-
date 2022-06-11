@@ -4,21 +4,21 @@
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
         <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
-      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="dragon.attributes">
+      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="dragon">
         <div class="text-6xl font-bold">
-          <h3>{{ dragon.attributes.name }}</h3>
+          <h3>{{ dragon.name }}</h3>
         </div>
         <div class="m-auto">
           <img :src="dragon_image_src">
         </div>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
-          <div class="text-3xl m-4">{{ dragon.attributes.explanation }}</div>
-          <div class="text-2xl m-4 text-left">{{ dragon.attributes.personality }}</div>
+          <div class="text-3xl m-4">{{ dragon.explanation }}</div>
+          <div class="text-2xl m-4 text-left">{{ dragon.personality }}</div>
         </div>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">アドバイス</div>
-          <div class="text-2xl m-4 text-left">{{ dragon.attributes.advice }}</div>
+          <div class="text-2xl m-4 text-left">{{ dragon.advice }}</div>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ export default {
       'dragons', ['dragons']
     ),
     dragon_image_src() {
-        return require("../../../public/images/" + this.dragon.attributes.image)
+        return require("../../../public/images/" + this.dragon.image)
     },
     currentPath() {
       return this.$route.path

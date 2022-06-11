@@ -1,12 +1,13 @@
 class Result < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :dragon
 
-  # validates :user_id, presence: true
-  # validates :dragon_id, presence: true
-  # validates :score, presence: true
-  # validates :magnitude, presence: true
-  # validates :troversion, presence: true
-  # validates :target_account, presence: true
+  validates :user_id, presence: true
+  validates :dragon_id, presence: true
+  validates :score, presence: true
+  validates :magnitude, presence: true
+  validates :troversion, presence: true
+  validates :target_account, presence: true
 
   def self.analyzeResult(target, tweets, user)
     require "google/cloud/language"
