@@ -5,15 +5,16 @@
         <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
       <div class="items-center col-start-2 col-span-10">
-        <!-- <ResultsCard v-for="result in results" v-bind:key="result.id" /> -->
+        <!-- <ResultCard v-for="result in results" v-bind:key="result.id" :result="results"></ResultCard> -->
         <div v-for="result in results" v-bind:key="result.id" class="w-full mx-auto bg-white shadow-md rounded-md px-6 py-4 my-12">
           <div class="sm:flex justify-left py-4">
             <div class="flex items-center">
-              <img class="h-20 w-20 rounded-full" :src="'../images/'  + result.dragon.image" alt="">
+              <img class="h-24 w-24 rounded-full" :src="'../images/'  + result.dragon.image" alt="">
               <div class="ml-4 text-left">
                 <h3 class="text-3xl text-gray-800 font-medium">{{ result.target_account }}</h3>
                 <h3 class="text-3xl text-gray-800 font-medium">{{ result.dragon.name }}</h3>
-                <h3 class="text-3xl text-gray-600">{{ result.dragon.explanation }}</h3>
+                <h3 class="text-3xl text-gray-800">{{ result.dragon.explanation }}</h3>
+                <h3 class="text-2xl text-gray-400">診断を行った日-{{ format(result.created_at) }}</h3>
               </div>
             </div>
           </div>
@@ -26,25 +27,27 @@
 <script>
 import axios from 'axios';
 import { mapGetters } from 'vuex'
-// import ResultsCard from '../components/ResultsCard';
+import dayjs from 'dayjs';
+// import ResultCard from '../components/ResultCard';
 
 export default {
   name: "PreviousResults",
   components: {
-    // ResultsCard,
+    // ResultCard,
   },
   data() {
     return {
       title: "過去の診断結果",
+      results: {}
     };
   },
   computed: {
     ...mapGetters(
       'users', ['currentUser']
     ),
-    ...mapGetters(
-      'results', ['results']
-    ),
+    // ...mapGetters(
+    //   'results', ['results']
+    // ),
     dragon_image_src() {
       const result = this.results[0]
         return require("../../../public/images/"  + result.dragon.image)
@@ -58,8 +61,12 @@ export default {
       await axios.get(`/api/v1/results/${this.currentUser.twitter_id}/previous_results`)
       .then(res => {
         this.results = res.data
-        this.$store.commit('results/setResult', res.data)
+        // this.$store.commit('results/setResult', res.data)
       })
+    },
+    format(date) {
+      let created_at = dayjs(date).format('YYYY-MM-DD');
+      return created_at;
     },
   }
 }

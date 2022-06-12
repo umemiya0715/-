@@ -13,6 +13,8 @@ import App from '../app.vue'
 import router from '../router/router.js'
 import axios from '../plugins/axios.js'
 import store from '../store/index.js'
+import 'dayjs/locale/ja'
+import dayjs from 'dayjs'
 import '../css/tailwind.css'
 import '../plugins/veevalidate'
 import 'remixicon/fonts/remixicon.css'
@@ -20,6 +22,9 @@ import 'remixicon/fonts/remixicon.css'
 Vue.config.productionTip = false
 Vue.config.devtools = true
 Vue.prototype.$axios = axios
+
+dayjs.locale('ja')
+Vue.prototype.$dayjs = dayjs
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
