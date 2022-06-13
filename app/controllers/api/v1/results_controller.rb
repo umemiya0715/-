@@ -3,13 +3,16 @@ module Api
     class ResultsController < ApplicationController
       before_action :set_result, only: %i[show]
 
+      def previous_results
+        @results = Result.where(user_id: params[:id]).order(created_at: :desc)
+        render json: @results, include: [:dragon], status: 200
+      end
+
       def index
-        @results = Result.all
-        render json: @results
       end
 
       def show
-        render json: @result
+        render json: @result, include: [:dragon], status: 200
       end
 
       def create
@@ -31,7 +34,7 @@ module Api
       private
 
       def set_result
-        @result = account.find(params[:id])
+        @result = Result.find_by(id: params[:id])
       end
 
       def result_params

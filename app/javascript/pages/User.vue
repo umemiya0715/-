@@ -52,16 +52,24 @@ export default {
       await axios.patch("/api/v1/user_settings")
       .then(res => {
         this.$store.commit("users/setCurrentUser", res.data)
+        this.$store.dispatch('flash/fetchFlash', {
+          type: 'info',
+          message: 'ユーザー情報を更新しました。'
+        })
       })
     },
    async deleteUser() {
-      try {
-        await axios.delete("/api/v1/user_settings")
-        await this.$router.push('/')
-      } catch(err){
-        this.$store.commit("users/setCurrentUser", null)
-        err => console.log(err.response)
-      }
+      await axios.delete("/api/v1/user_settings")
+      .then(
+        this.$router.push('/'),
+        this.$store.commit("users/setCurrentUser", null),
+        this.$store.dispatch('flash/fetchFlash', {
+          type: 'alert',
+          message: '退会しました。'
+      }))
+      .catch((err) => {
+        console.log(err.response)
+      })
     },
   }
 }

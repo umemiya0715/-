@@ -8,8 +8,12 @@ Rails.application.routes.draw do
       get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
       delete 'logout', to: 'user_sessions#destroy'
       resources :accounts, only: %i[index create show]
-      resources :results, only: %i[index create show]
-      resources :dragons, only: %i[show]
+      resources :results, only: %i[index create show] do
+        member do
+          get 'previous_results'
+        end
+      end
+      resources :dragons, only: %i[show index]
       resources :users, only: %i[index edit update show destroy] do
         collection do
           get 'me'

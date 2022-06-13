@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 import results from './modules/results'
 import dragons from './modules/dragons'
 import users from './modules/users'
+import flash from './modules/flash'
 
 Vue.use(Vuex)
 
@@ -13,7 +14,8 @@ export default new Vuex.Store({
   modules: {
     results,
     dragons,
-    users
+    users,
+    flash
   },
   plugins: [
     createPersistedState({

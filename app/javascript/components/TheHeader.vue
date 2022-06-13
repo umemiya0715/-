@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class='w-full text-gray-500 bg-gray-100 p-2 fixed top-0'>
+    <nav class='w-full text-gray-500 bg-gray-100 py-4 fixed top-0'>
       <div class='px-12 mx-auto items-center'>
         <div class="flex justify-between items-center">
         <router-link to="/" class='flex justify-center items-center'>
@@ -9,7 +9,7 @@
         <div>
           <a
             href='/api/v1/oauth/twitter' v-if="!currentUser"
-            class='p-2 lg:px-4 md:mx-2 text-xl text-gray-500 text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300'
+            class='px-2 lg:px-4 md:mx-2 text-2xl text-gray-500 text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300'
           >
             Twitter認証によるユーザー登録
           </a>
@@ -66,13 +66,16 @@ export default {
   },
   methods: {
     async logout() {
-      try {
-        await this.$store.dispatch('users/logoutUser')
-        Cookies.remove('vuex');
-        await this.$router.push('/')
-      } catch (err) {
-        err => console.log(err.response)
-      }
+      await this.$store.dispatch('users/logoutUser')
+      .then(
+        this.$router.push,('/'),
+        this.$store.dispatch('flash/fetchFlash', {
+          type: 'alert',
+          message: 'ログアウトしました。'
+        }))
+      .catch ((err) => {
+        console.log(err.response)
+      })
     },
     closeMenu(){
       this.isOpen = false;
