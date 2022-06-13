@@ -10,6 +10,7 @@ import Result from '../pages/Result.vue';
 import Dragon from '../pages/Dragon.vue';
 import User from '../pages/User.vue';
 import PreviousResults from '../pages/PreviousResults.vue';
+import PreviousShow from '../pages/PreviousShow.vue';
 import NotFound from '../pages/shared/NotFound.vue';
 
 Vue.use(Router)
@@ -56,6 +57,11 @@ const router = new Router({
       path: "/previous",
       component: PreviousResults,
       name: "PreviousResults",
+    },
+    {
+      path: "/previous/:id",
+      component: PreviousShow,
+      name: "PreviousShow",
     },
     {
       name: "NotFound",

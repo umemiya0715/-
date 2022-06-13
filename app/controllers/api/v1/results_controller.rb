@@ -12,7 +12,7 @@ module Api
       end
 
       def show
-        render json: @result
+        render json: @result, include: [:dragon], status: 200
       end
 
       def create
@@ -34,7 +34,7 @@ module Api
       private
 
       def set_result
-        @result = Result.find(params[:id])
+        @result = Result.find_by(id: params[:id])
       end
 
       def result_params

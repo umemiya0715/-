@@ -2,13 +2,14 @@
   <div class="w-full mx-auto bg-white shadow-md rounded-md px-6 py-4 my-12">
     <div class="sm:flex justify-left py-4">
       <div class="flex items-center">
-        <!-- <img class="h-20 w-20 rounded-full" :src="dragon_image_src" alt=""> -->
+        <img class="h-24 w-24 rounded-full" :src="'../images/' + result.dragon.image" alt="">
         <div class="ml-4 text-left">
           <h3 class="text-3xl text-gray-800 font-medium">{{ result.target_account }}</h3>
           <h3 class="text-3xl text-gray-800 font-medium">{{ result.dragon.name }}</h3>
-          <h3 class="text-3xl text-gray-600">@{{ result.dragon.explanation }}</h3>
+          <h3 class="text-3xl text-gray-800">{{ result.dragon.explanation }}</h3>
+          <h3 class="text-2xl text-gray-400">診断を行った日-{{ result.created_at }}</h3>
         </div>
-     </div>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +24,10 @@ export default {
     }
   },
   props: {
+    result: {
+      type: Array,
+      required: true
+    },
   },
   computed: {
     ...mapGetters(

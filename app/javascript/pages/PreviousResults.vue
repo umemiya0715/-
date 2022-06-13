@@ -7,17 +7,19 @@
       <div class="items-center col-start-2 col-span-10">
         <!-- <ResultCard v-for="result in results" v-bind:key="result.id" :result="results"></ResultCard> -->
         <div v-for="result in results" v-bind:key="result.id" class="w-full mx-auto bg-white shadow-md rounded-md px-6 py-4 my-12">
-          <div class="sm:flex justify-left py-4">
-            <div class="flex items-center">
-              <img class="h-24 w-24 rounded-full" :src="'../images/'  + result.dragon.image" alt="">
-              <div class="ml-4 text-left">
-                <h3 class="text-3xl text-gray-800 font-medium">{{ result.target_account }}</h3>
-                <h3 class="text-3xl text-gray-800 font-medium">{{ result.dragon.name }}</h3>
-                <h3 class="text-3xl text-gray-800">{{ result.dragon.explanation }}</h3>
-                <h3 class="text-2xl text-gray-400">診断を行った日-{{ format(result.created_at) }}</h3>
+          <router-link :to="`/previous/${result.id}`">
+            <div class="sm:flex justify-left py-4">
+              <div class="flex items-center">
+                <img class="h-24 w-24" :src="'../images/'  + result.dragon.image" alt="">
+                <div class="ml-4 text-left">
+                  <h3 class="text-3xl text-gray-800 font-medium">{{ result.target_account }}</h3>
+                  <h3 class="text-3xl text-gray-800 font-medium">{{ result.dragon.name }}</h3>
+                  <h3 class="text-3xl text-gray-800">{{ result.dragon.explanation }}</h3>
+                  <h3 class="text-2xl text-gray-400">診断を行った日-{{ format(result.created_at) }}</h3>
+                </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>

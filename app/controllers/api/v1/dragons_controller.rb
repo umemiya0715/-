@@ -9,8 +9,6 @@ module Api
       end
 
       def index
-        dragons = Dragon.all
-        render json: dragons
       end
 
       private

@@ -9,7 +9,7 @@
           <div class="justify-center pb-16">
             <ValidationProvider v-slot="{ errors }" rules="required">
               <input type="text" v-model="targetAccount" class=" h-20 bg-gray-100 text-4xl p-2 rounded-lg border-4 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full" placeholder="idを入力">
-              <span class="block text-white">{{ errors[0] }}</span>
+              <span class="block text-2xl text-white">{{ errors[0] }}</span>
             </ValidationProvider>
           </div>
         <div class="my-32 justify-center">
