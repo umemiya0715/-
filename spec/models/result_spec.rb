@@ -8,8 +8,6 @@ RSpec.describe Result, type: :model do
   end
 
   describe 'validations' do
-    before { create(:user) }
-
     it 'target_account: presence' do
       is_expected.to validate_presence_of(:target_account)
     end
