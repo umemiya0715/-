@@ -4,21 +4,21 @@
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
         <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ results.target_account }}さんの心のドラゴンは…</div>
       </div>
-      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="dragons">
+      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="results">
         <div class="text-6xl font-bold">
-          <h3>{{ dragons.name }}</h3>
+          <h3>{{ results.dragon.name }}</h3>
         </div>
         <div class="m-auto">
           <img :src="dragon_image_src">
         </div>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
-          <div class="text-3xl m-4">{{ dragons.explanation }}</div>
-          <div class="text-2xl m-4 text-left">{{ dragons.personality }}</div>
+          <div class="text-3xl m-4">{{ results.dragon.explanation }}</div>
+          <div class="text-2xl m-4 text-left">{{ results.dragon.personality }}</div>
         </div>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">アドバイス</div>
-          <div class="text-2xl m-4 text-left">{{ dragons.advice }}</div>
+          <div class="text-2xl m-4 text-left">{{ results.dragon.advice }}</div>
         </div>
       </div>
     </div>
@@ -46,18 +46,15 @@ export default {
   methods: {
     twitterShare(){
       const url = `https://www.dragon-twitter-analysis.com/dragons/${this.dragons.id}`
-      window.open(`https://twitter.com/share?text=${this.results.target_account}さんの心の中のドラゴンは${this.dragons.name}でした！%0a%23ドラッター%20%23Dratter%0a&url=${url}`, '_blank')
+      window.open(`https://twitter.com/share?text=${this.results.target_account}さんの心の中のドラゴンは${this.results.dragon.name}でした！%0a%23ドラッター%20%23Dratter%0a&url=${url}`, '_blank')
     }
   },
   computed: {
     ...mapGetters(
-      'dragons', ['dragons']
-    ),
-    ...mapGetters(
       'results', ['results']
     ),
     dragon_image_src() {
-        return require("../../../public/images/" + this.dragons.image)
+        return require("../../../public/images/" + this.results.dragon.image)
     },
   },
 }
