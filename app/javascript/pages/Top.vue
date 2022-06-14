@@ -80,7 +80,6 @@ export default {
           target_account: target_account,
           user_id: user_id
         })
-        await this.$store.dispatch('dragons/fetchDragon', this.results.dragon_id)
         this.isLoading = false
         await this.$router.push('/result')
       } catch (error) {

@@ -67,15 +67,16 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('users/logoutUser')
-      .then(
-        this.$router.push,('/'),
+      try {
+        this.$router.push('/'),
         this.$store.dispatch('flash/fetchFlash', {
           type: 'alert',
           message: 'ログアウトしました。'
-        }))
-      .catch ((err) => {
+        })
+      }
+      catch (err) {
         console.log(err.response)
-      })
+      }
     },
     closeMenu(){
       this.isOpen = false;
