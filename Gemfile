@@ -51,6 +51,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'webdrivers'
 end
 
 gem 'twitter'
