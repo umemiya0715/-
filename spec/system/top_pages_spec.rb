@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "TopPages", type: :system do
+RSpec.describe 'TopPages', type: :system do
   context 'トップページにアクセス' do
     before { visit root_path }
     it '診断ボタンが表示されていること' do

@@ -69,6 +69,7 @@ RSpec.configure do |config|
   # skip NAmespace to use FactoryBot
   config.include FactoryBot::Syntax::Methods
   config.include TestSessionsHelper
+  config.include JsonAPIHelper, type: :request
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
