@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   end
 
   get '/dragons/:id', to: 'dragon_shares#show', constraints: { user_agent: /Twitterbot/ }
+  get '/login_as/:user_id', to: 'test_sessions#login_as' unless Rails.env.production?
   get '*path', to: 'home#index'
 end
