@@ -9,8 +9,8 @@ module ApplicationHelper
         title: :title,
         description: :description,
         type: "website",
-        url: 'https://www.dragon-twitter-analysis.com/result',
-        image: '',
+        url: 'https://www.dragon-twitter-analysis.com',
+        image: 'https://www.dragon-twitter-analysis.com/img/ogpImage.png',
         locale: "ja_JP"
       },
       twitter: {
