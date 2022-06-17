@@ -10,7 +10,7 @@ module ApplicationHelper
         description: :description,
         type: "website",
         url: 'https://www.dragon-twitter-analysis.com',
-        image: 'https://www.dragon-twitter-analysis.com/img/ogpImage.png',
+        image: 'https://www.dragon-twitter-analysis.com/images/ogpImage.png',
         locale: "ja_JP"
       },
       twitter: {
