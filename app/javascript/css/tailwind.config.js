@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        twitterBlue: '#1da1f2'
+        twitterBlue: '#1da1f2',
+        navGray: '#b3b3b3'
       }
     },
   },
