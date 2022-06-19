@@ -28,7 +28,7 @@ export default {
       'flash',['flash']
     ),
     image_src() {
-      return require("../../public/images/topImage.png")
+      return require("../../public/images/topImage.jpg")
     }
   }
 }
