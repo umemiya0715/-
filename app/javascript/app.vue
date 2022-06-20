@@ -1,5 +1,5 @@
 <template>
-  <div class='d-flex flex-column min-h-screen bg-cover bg-fixed bg-center pt-28' :style="{ backgroundImage: 'url(' + image_src + ')' }">
+  <div class='d-flex flex-column min-h-screen bg-cover bg-fixed bg-center pt-24' :style="{ backgroundImage: 'url(' + image_src + ')' }">
     <TheHeader class='mb-auto' />
       <transition>
         <TheFlash v-if="flash.message" />
