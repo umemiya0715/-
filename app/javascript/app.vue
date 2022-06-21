@@ -1,10 +1,12 @@
 <template>
-  <div class='d-flex flex-column min-h-screen bg-cover bg-fixed bg-center pt-28' :style="{ backgroundImage: 'url(' + image_src + ')' }">
+  <div class='d-flex flex-column min-h-screen bg-cover bg-fixed bg-center pt-24' :style="{ backgroundImage: 'url(' + image_src + ')' }">
     <TheHeader class='mb-auto' />
       <transition>
         <TheFlash v-if="flash.message" />
       </transition>
-      <router-view />
+      <transition mode="out-in">
+        <router-view />
+      </transition>
     <TheFooter class='mt-auto' />
   </div>
 </template>
@@ -41,6 +43,12 @@ export default {
 }
 .fade-enter,
 .fade-leave-to {
+  opacity: 0;
+}
+.v-enter-active, .v-leave-active {
+  transition: opacity .5s;
+}
+.v-enter, .v-leave-to {
   opacity: 0;
 }
 </style>

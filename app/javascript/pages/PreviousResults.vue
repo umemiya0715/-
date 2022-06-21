@@ -6,9 +6,9 @@
       </div>
       <div class="items-center col-start-2 col-span-10">
         <!-- <ResultCard v-for="result in results" v-bind:key="result.id" :result="results"></ResultCard> -->
-        <div v-for="result in results" v-bind:key="result.id" class="w-full mx-auto bg-white shadow-md rounded-md px-6 py-4 my-12">
+        <div v-for="result in results" v-bind:key="result.id" class="w-full mx-auto bg-white hover:bg-gray-200 shadow-md rounded-md my-12">
           <router-link :to="`/previous/${result.id}`">
-            <div class="sm:flex justify-left py-4">
+            <div class="sm:flex justify-left px-4 py-6">
               <div class="flex items-center">
                 <img class="h-24 w-24" :src="'../images/'  + result.dragon.image" alt="">
                 <div class="ml-4 text-left">

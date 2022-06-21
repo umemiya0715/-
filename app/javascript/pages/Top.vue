@@ -16,8 +16,8 @@
           <button :disabled="invalid" v-show="!isLoading" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-8 px-8 text-4xl rounded w-64 inline-flex items-center justify-center">
             診断する
           </button>
-          <button :disabled="invalid" v-show="isLoading" class="bg-red-500 hover:bg-red-700 text-white font-bold py-8 px-4 text-4xl rounded w-64 inline-flex items-center justify-center">
-            <spinner :size="30" color="#ffffff" class="mr-2"></spinner>
+          <button :disabled="invalid" v-show="isLoading" class="bg-red-500 hover:bg-red-700 text-white font-bold py-8 px-12 text-4xl rounded w-64 inline-flex justify-between">
+            <spinner :size="30" color="#ffffff" class=""></spinner>
             <div class="text-center">診断中</div>
           </button>
         </div>

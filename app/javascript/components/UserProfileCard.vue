@@ -19,7 +19,8 @@
       <input type="checkbox" v-model="checkbox" class="mr-2">退会する場合は全ての情報が削除されます。
     </div>
     <div class="my-4">
-      <button class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="logoutUser" :disabled="!checkbox">退会する</button>
+      <button v-if="checkbox" class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded" @click="logoutUser" :disabled="!checkbox" >退会する</button>
+      <button v-if="!checkbox" class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded cursor-not-allowed opacity-50" @click="logoutUser" :disabled="!checkbox" >退会する</button>
     </div>
   </div>
 </template>
