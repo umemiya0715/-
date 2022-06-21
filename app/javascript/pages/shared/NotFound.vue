@@ -5,7 +5,7 @@
     </h1>
     <div class="mt-10 mb-10">
       <div class="row-auto text-white">
-        <div class="text-xl sm:text-md md:text-4xl px-3 pt-2">
+        <div class="text-2xl sm:text-md md:text-4xl px-3 pt-2">
           <p>お探しのページが見つかりませんでした。</p>
           <p>
             一時的にアクセスができない状況にあるか
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="m-16 justify-center">
-      <button class=" bg-red-500 hover:bg-red-700 font-bold py-2 px-4 text-lg text-white rounded w-56 items-center">
+      <button class="  bg-red-500 hover:bg-red-700 font-bold p-4 text-2xl text-white rounded w-72 items-center">
       <router-link to="/">トップページに戻る</router-link>
       </button>
     </div>

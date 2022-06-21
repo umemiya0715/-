@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="m-16 justify-center">
-      <button class=" bg-red-500 hover:bg-red-700 font-bold p-8 text-2xl text-white rounded w-72 items-center">
+      <button class=" bg-red-500 hover:bg-red-700 font-bold p-4 text-2xl text-white rounded w-72 items-center">
         <router-link to="/">トップページに戻る</router-link>
       </button>
     </div>

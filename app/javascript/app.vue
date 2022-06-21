@@ -4,7 +4,9 @@
       <transition>
         <TheFlash v-if="flash.message" />
       </transition>
-      <router-view />
+      <transition mode="out-in">
+        <router-view />
+      </transition>
     <TheFooter class='mt-auto' />
   </div>
 </template>
@@ -41,6 +43,12 @@ export default {
 }
 .fade-enter,
 .fade-leave-to {
+  opacity: 0;
+}
+.v-enter-active, .v-leave-active {
+  transition: opacity .5s;
+}
+.v-enter, .v-leave-to {
   opacity: 0;
 }
 </style>
