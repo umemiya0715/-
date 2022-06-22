@@ -7,25 +7,19 @@ SNSリテラシー向上サービスです。<br>
 
 ## 使用技術
 バックエンド
-<li>
-  <ul>Ruby(2.7.2)</ul>
-  <ul>Rails(6.0.4.6)</ul>
-</li>
+ - Ruby(2.7.2)
+ - Rails(6.0.4.6)
 
 フロントエンド
-<li>
-  <ul>HTML</ul>
-  <ul>CSS</ul>
-  <ul>TailwindCSS(2.2.17)</ul>
-  <ul>JavaScript</ul>
-  <ul>Vue.js(2.6.14)</ul>
-</li>
+ - HTML
+ - CSS
+ - TailwindCSS(2.2.17)
+ - JavaScript
+ - Vue.js(2.6.14)
 
 インフラ
-<li>
-  <ul>heroku</ul>
-  <ul>MySQL</ul>
-</li>
+ - heroku
+ - MySQL
 
 ## 登場人物
 ツイートの感情分析をして自分と他人の心を知る人
