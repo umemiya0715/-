@@ -5,7 +5,6 @@
         <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
       </div>
       <div class="items-center col-start-2 col-span-10">
-        <!-- <ResultCard v-for="result in results" v-bind:key="result.id" :result="results"></ResultCard> -->
         <div v-for="result in results" v-bind:key="result.id" class="w-full mx-auto bg-white hover:bg-gray-200 shadow-md rounded-md my-12">
           <router-link :to="`/previous/${result.id}`">
             <div class="sm:flex justify-left px-4 py-6">
@@ -30,12 +29,10 @@
 import axios from 'axios';
 import { mapGetters } from 'vuex'
 import dayjs from 'dayjs';
-// import ResultCard from '../components/ResultCard';
 
 export default {
   name: "PreviousResults",
   components: {
-    // ResultCard,
   },
   data() {
     return {
@@ -47,9 +44,6 @@ export default {
     ...mapGetters(
       'users', ['currentUser']
     ),
-    // ...mapGetters(
-    //   'results', ['results']
-    // ),
     dragon_image_src() {
       const result = this.results[0]
         return require("../../../public/images/"  + result.dragon.image)
@@ -63,7 +57,6 @@ export default {
       await axios.get(`/api/v1/results/${this.currentUser.twitter_id}/previous_results`)
       .then(res => {
         this.results = res.data
-        // this.$store.commit('results/setResult', res.data)
       })
     },
     format(date) {

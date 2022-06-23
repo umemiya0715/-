@@ -20,6 +20,10 @@
           <div class="text-3xl inline font-bold border-b-2 border-white">アドバイス</div>
           <div class="text-2xl m-4 text-left">{{ result.dragon.advice }}</div>
         </div>
+        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
+          <div class="text-3xl inline font-bold border-b-2 border-white">相性のいいドラゴン</div>
+          <div class="text-2xl m-4 text-left">{{ result.dragon.affinity }}</div>
+        </div>
       </div>
     </div>
     <div class="text-center px-4 pb-12">
@@ -60,7 +64,6 @@ export default {
     async fetchResult() {
       const res = await axios.get(`/api/v1/results/${this.$route.params.id}`)
       this.result = res.data
-      console.log(this.result.dragon)
     }
   }
 }

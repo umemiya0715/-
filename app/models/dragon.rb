@@ -6,5 +6,6 @@ class Dragon < ApplicationRecord
   validates :explanation, presence: true
   validates :personality, presence: true
   validates :advice, presence: true
+  validates :affinity, presence: true
 
 end
