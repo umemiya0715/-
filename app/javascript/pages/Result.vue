@@ -20,6 +20,10 @@
           <div class="text-3xl inline font-bold border-b-2 border-white">アドバイス</div>
           <div class="text-2xl m-4 text-left">{{ results.dragon.advice }}</div>
         </div>
+        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
+          <div class="text-3xl inline font-bold border-b-2 border-white">相性のいいドラゴン</div>
+          <div class="text-2xl m-4 text-left">{{ results.dragon.affinity }}</div>
+        </div>
       </div>
     </div>
     <div class="text-center p-4">

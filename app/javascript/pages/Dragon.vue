@@ -1,11 +1,8 @@
 <template>
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
-      <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
-      </div>
       <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="dragon">
-        <div class="text-6xl font-bold">
+        <div class="text-6xl font-bold border-b-8 border-white">
           <h3>{{ dragon.name }}</h3>
         </div>
         <div class="m-auto">
