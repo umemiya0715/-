@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <div class="grid grid-cols-12 gap-10 md:pt-20">
+    <div class="grid grid-cols-12 gap-10 pt-20">
       <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="dragon">
         <div class="text-6xl font-bold border-b-8 border-white">
           <h3>{{ dragon.name }}</h3>
@@ -16,6 +16,10 @@
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">アドバイス</div>
           <div class="text-2xl m-4 text-left">{{ dragon.advice }}</div>
+        </div>
+        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
+          <div class="text-3xl inline font-bold border-b-2 border-white">相性のいいドラゴン</div>
+          <div class="text-2xl m-4 text-left">{{ dragon.affinity }}</div>
         </div>
       </div>
     </div>
