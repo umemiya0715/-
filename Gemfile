@@ -61,5 +61,6 @@ gem 'meta-tags'
 gem 'sorcery'
 gem 'config'
 gem 'active_model_serializers'
+gem 'administrate'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
