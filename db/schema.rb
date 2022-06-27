@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_23_092034) do
+ActiveRecord::Schema.define(version: 2022_06_26_055034) do
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_06_23_092034) do
     t.string "twitter_id", null: false
     t.string "name", null: false
     t.string "image"
-    t.string "role", default: "1", null: false
+    t.integer "role", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "screen_name", null: false
