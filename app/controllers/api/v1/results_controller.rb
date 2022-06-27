@@ -4,7 +4,7 @@ module Api
       before_action :set_result, only: %i[show]
 
       def previous_results
-        @results = Result.where(user_id: params[:id]).order(created_at: :desc)
+        @results = Result.includes(:dragon).where(user_id: params[:id]).order(created_at: :desc)
         render json: @results, include: [:dragon], status: 200
       end
 

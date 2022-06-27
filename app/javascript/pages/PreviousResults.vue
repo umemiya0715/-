@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     async fetchResults() {
-      await axios.get(`/api/v1/results/${this.currentUser.twitter_id}/previous_results`)
+      await axios.get(`/api/v1/results/${this.currentUser.id}/previous_results`)
       .then(res => {
         this.results = res.data
       })

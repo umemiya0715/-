@@ -73,7 +73,7 @@ export default {
   methods: {
     async startAnalysis() {
       const target_account = this.targetAccount
-      const user_id = (this.currentUser !== null) ? this.currentUser.twitter_id : 0
+      const user_id = (this.currentUser !== null) ? this.currentUser.id : 0
       this.isLoading = true
       try {
         await this.$store.dispatch('results/fetchResult', {
