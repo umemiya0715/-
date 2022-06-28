@@ -66,7 +66,6 @@ export default {
   mounted() {
     axios.get("/api/v1/users/me")
     .then(res => {
-      this.user = res.data
       this.$store.commit('users/setCurrentUser', res.data)
     })
   },
