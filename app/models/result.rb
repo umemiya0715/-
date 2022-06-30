@@ -52,7 +52,7 @@ class Result < ApplicationRecord
       resultFavorites.push(tweet.favorite_count)
       resultRetweets.push(tweet.retweet_count)
     end
-    replyCounts = 20 - tweets.count
+    replyCounts = 16 - tweets.count
     # ツイート頻度
     firstTweetDifference = (Time.now - tweets.last.created_at) / ( 60 * 60 * 24)
     tweetFrequency = tweets.count / firstTweetDifference.floor(2)
@@ -62,8 +62,8 @@ class Result < ApplicationRecord
       userFrequency = 0.2
     end
     # リプライ数
-    if replyCounts < 10
-      replyRate = replyCounts * 2 / 20 * 0.2
+    if replyCounts < 8
+      replyRate = replyCounts * 2 / 16 * 0.2
     elsif
       replyRate = 0.2
     end
@@ -90,21 +90,21 @@ class Result < ApplicationRecord
   end
 
   def self.whichDragon(score, magnitude, troversion)
-    if score >= 0 and magnitude >= 0.5 and troversion >= 0.5
+    if score >= 0.13 and magnitude >= 0.57 and troversion >= 0.37
       dragonId = 1
-    elsif score >= 0 and magnitude >= 0.5 and troversion < 0.5
+    elsif score >= 0.13 and magnitude >= 0.57 and troversion < 0.37
       dragonId = 2
-    elsif score >= 0 and magnitude < 0.5 and troversion >= 0.5
+    elsif score >= 0.13 and magnitude < 0.57 and troversion >= 0.37
       dragonId = 3
-    elsif score >= 0 and magnitude < 0.5 and troversion < 0.5
+    elsif score >= 0.13 and magnitude < 0.57 and troversion < 0.37
       dragonId = 4
-    elsif score < 0 and magnitude >= 0.5 and troversion >= 0.5
+    elsif score < 0.13 and magnitude >= 0.57 and troversion >= 0.37
       dragonId = 5
-    elsif score < 0 and magnitude >= 0.5 and troversion < 0.5
+    elsif score < 0.13 and magnitude >= 0.57 and troversion < 0.37
       dragonId = 6
-    elsif score < 0 and magnitude < 0.5 and troversion >= 0.5
+    elsif score < 0.13 and magnitude < 0.57 and troversion >= 0.37
       dragonId = 7
-    elsif score < 0 and magnitude < 0.5 and troversion < 0.5
+    elsif score < 0.13 and magnitude < 0.57 and troversion < 0.37
       dragonId = 8
     end
   end

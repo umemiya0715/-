@@ -18,7 +18,7 @@ module Api
       def create
         target_id = result_params['target_account']
         target = client.user(target_id)
-        tweets = client.user_timeline(target, count: 20, exclude_replies: true, include_rts: false)
+        tweets = client.user_timeline(target, count: 16, exclude_replies: true, include_rts: false)
         user = result_params['user_id']
         analyzed_result = Result.analyzeResult(target, tweets, user)
         @result = Result.new(analyzed_result)
