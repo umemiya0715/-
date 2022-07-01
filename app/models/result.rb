@@ -52,20 +52,25 @@ class Result < ApplicationRecord
       resultFavorites.push(tweet.favorite_count)
       resultRetweets.push(tweet.retweet_count)
     end
+    replyCounts = 16 - tweets.count
     # ツイート頻度
     firstTweetDifference = (Time.now - tweets.last.created_at) / ( 60 * 60 * 24)
     tweetFrequency = tweets.count / firstTweetDifference.floor(2)
-    if tweetFrequency <= 2
-      userFrequency = tweetFrequency / 2 * 0.2
+    if tweetFrequency <= 3
+      userFrequency = tweetFrequency / 3 * 0.2
     elsif
       userFrequency = 0.2
     end
     # リプライ数
-    replyRate = ( 5 - tweets.count ) / 5 * 0.2
+    if replyCounts < 8
+      replyRate = replyCounts * 2 / 16 * 0.2
+    elsif
+      replyRate = 0.2
+    end
     # いいね数
     averageFavorites = resultFavorites.sum(0.0) / resultFavorites.size
-    if averageFavorites <= 100
-      userFavorites = averageFavorites / 100 * 0.2
+    if averageFavorites <= ( target.followers_count * 0.05 )
+      userFavorites = averageFavorites / ( target.followers_count * 0.05 ) * 0.2
     elsif
       userFavorites = 0.2
     end
@@ -76,8 +81,8 @@ class Result < ApplicationRecord
       userFollowers = 0.2
     end
     # リツイート数
-    if resultRetweets.sum(0.0) <= 500
-      userRetweets = resultRetweets.sum(0.0) / 500 * 0.2
+    if resultRetweets.max <= 100
+      userRetweets = resultRetweets.max / 100 * 0.2
     elsif
       userRetweets = 0.2
     end
@@ -85,21 +90,21 @@ class Result < ApplicationRecord
   end
 
   def self.whichDragon(score, magnitude, troversion)
-    if score >= 0 and magnitude >= 0.5 and troversion >= 0.3
+    if score >= 0.13 and magnitude >= 0.57 and troversion >= 0.37
       dragonId = 1
-    elsif score >= 0 and magnitude >= 0.5 and troversion < 0.3
+    elsif score >= 0.13 and magnitude >= 0.57 and troversion < 0.37
       dragonId = 2
-    elsif score >= 0 and magnitude < 0.5 and troversion >= 0.3
+    elsif score >= 0.13 and magnitude < 0.57 and troversion >= 0.37
       dragonId = 3
-    elsif score >= 0 and magnitude < 0.5 and troversion < 0.3
+    elsif score >= 0.13 and magnitude < 0.57 and troversion < 0.37
       dragonId = 4
-    elsif score < 0 and magnitude >= 0.5 and troversion >= 0.3
+    elsif score < 0.13 and magnitude >= 0.57 and troversion >= 0.37
       dragonId = 5
-    elsif score < 0 and magnitude >= 0.5 and troversion < 0.3
+    elsif score < 0.13 and magnitude >= 0.57 and troversion < 0.37
       dragonId = 6
-    elsif score < 0 and magnitude < 0.5 and troversion >= 0.3
+    elsif score < 0.13 and magnitude < 0.57 and troversion >= 0.37
       dragonId = 7
-    elsif score < 0 and magnitude < 0.5 and troversion < 0.3
+    elsif score < 0.13 and magnitude < 0.57 and troversion < 0.37
       dragonId = 8
     end
   end

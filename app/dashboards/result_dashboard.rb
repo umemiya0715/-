@@ -29,6 +29,8 @@ class ResultDashboard < Administrate::BaseDashboard
     dragon
     id
     score
+    magnitude
+    troversion
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

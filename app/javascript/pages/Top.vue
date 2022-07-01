@@ -74,19 +74,25 @@ export default {
       const target_account = this.targetAccount
       const user_id = (this.currentUser !== null) ? this.currentUser.id : 0
       this.isLoading = true
-      try {
-        await this.$store.dispatch('results/fetchResult', {
-          target_account: target_account,
-          user_id: user_id
+      await axios.post('/api/v1/results', {
+        target_account: target_account,
+        user_id: user_id
+      })
+        .then(res => {
+          this.$store.commit("results/setResult", res.data),
+          this.isLoading = false,
+          this.$router.push('/result')
         })
-        this.isLoading = false
-        await this.$router.push('/result')
-      } catch (error) {
-        alert('データの取得に失敗しました')
-        this.dialog = false
-      }
-    }
-  }
+        .catch(error => {
+          console.log(error.response)
+          this.isLoading = false
+          this.$store.dispatch('flash/fetchFlash', {
+            type: 'alert',
+            message: error.response.data.error.title
+          })
+        })
+    },
+  },
 }
 </script>
 

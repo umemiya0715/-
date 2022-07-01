@@ -23,7 +23,12 @@ const actions = {
       .then(res => {
         commit('setResult', res.data)
       })
-      .catch(err => console.log(err.response));
+      .catch(err => {
+        return err.response.status
+        // switch (err.response.status) {
+        //   case 500:
+        // }
+      });
   },
 }
 
