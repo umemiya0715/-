@@ -11,6 +11,7 @@
         <div class="m-auto">
           <img :src="dragon_image_src">
         </div>
+        <TheChart />
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
           <div class="text-3xl m-4">{{ results.dragon.explanation }}</div>
@@ -39,9 +40,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import TheChart from '../components/TheCharts.vue'
 
 export default {
   name: "Result",
+  components: { TheChart },
   data() {
     return {
       title: "あなたの心に潜むドラゴンは…"
