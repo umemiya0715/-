@@ -11,7 +11,7 @@
         <div class="m-auto">
           <img :src="dragon_image_src">
         </div>
-        <TheChart class="bg-white"/>
+        <TheChart :style="chartStyles"/>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
           <div class="text-3xl m-4">{{ results.dragon.explanation }}</div>
@@ -65,6 +65,12 @@ export default {
     dragon_image_src() {
         return require("../../../public/images/" + this.results.dragon.image)
     },
+    chartStyles() {
+      return {
+        height: '450px',
+        position: 'relative'
+      }
+    }
   },
 }
 </script>

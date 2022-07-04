@@ -30,8 +30,8 @@ class Result < ApplicationRecord
     end
     user_id = user
     target_account = target.name
-    score = resultScore.sum(0.0) / resultScore.size
-    magnitude = resultMagnitude.sum(0.0) / resultMagnitude.size
+    score = ( resultScore.sum(0.0) / resultScore.size ).floor(2)
+    magnitude = ( resultMagnitude.sum(0.0) / resultMagnitude.size ).floor(2)
     troversion = Result.analyzeTroversion(target, tweets)
     dragon_id = Result.whichDragon(score, magnitude, troversion)
 
@@ -86,7 +86,7 @@ class Result < ApplicationRecord
     elsif
       userRetweets = 0.2
     end
-    troversion = userFrequency + replyRate + userFavorites + userFollowers + userRetweets
+    troversion = ( userFrequency + replyRate + userFavorites + userFollowers + userRetweets ).floor(2)
   end
 
   def self.whichDragon(score, magnitude, troversion)
