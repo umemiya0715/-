@@ -1,16 +1,15 @@
 <template>
-    <radar
-      :chart-options="chartOptions"
-      :chart-data="chartData"
-      :adjustedScore="adjustedScore"
-      :adjustedMagnitude="adjustedMagnitude"
-      :adjustedTroversion="adjustedTroversion"
-    />
+  <radar
+    :chart-options="chartOptions"
+    :chart-data="chartData"
+    :adjustedScore="adjustedScore"
+    :adjustedMagnitude="adjustedMagnitude"
+    :adjustedTroversion="adjustedTroversion"
+  />
 </template>
 
 <script>
 import { Radar } from 'vue-chartjs/legacy'
-import { mapGetters } from 'vuex'
 import {
   Chart as ChartJS,
   Title,
@@ -31,9 +30,13 @@ ChartJS.register(
 )
 
 export default {
-  name: 'RadarChart',
+  name: 'PreviousRadar',
   components: { Radar },
   props: {
+    result: {
+      type: Object,
+      required: true
+    },
   },
   data() {
     return {
@@ -56,6 +59,10 @@ export default {
           legend: {
             display: false,
           },
+        },
+        animation:{
+          duration: 1500,
+          easing: 'easeInOutCubic'
         },
         scales: {
           r: {
@@ -83,23 +90,23 @@ export default {
     }
   },
   watch: {
-    results: function() {
+    currentPath: function() {
       this.adjustData()
     }
   },
   computed: {
-    ...mapGetters(
-      'results', ['results']
-    ),
+    currentPath() {
+      return this.$route.path
+    },
     adjustData() {
-      this.adjustedScore = Math.trunc( ( this.results.score + 1 ) / 2 * 100 );
-      if ( this.results.magnitude < 1.14 ) {
-        this.adjustedMagnitude = Math.trunc( ( this.results.magnitude ) / 1.14 * 100 );
+      this.adjustedScore = Math.trunc( ( this.result.score + 1 ) / 2 * 100 );
+      if ( this.result.magnitude < 1.14 ) {
+        this.adjustedMagnitude = Math.trunc( ( this.result.magnitude ) / 1.14 * 100 );
       } else {
         this.adjustedMagnitude = 100;
       };
-      if ( this.results.troversion < 0.74 ) {
-        this.adjustedTroversion = Math.trunc( ( this.results.troversion ) / 0.74 * 100 );
+      if ( this.result.troversion < 0.74 ) {
+        this.adjustedTroversion = Math.trunc( ( this.result.troversion ) / 0.74 * 100 );
       } else {
         this.adjustedTroversion = 100;
       }

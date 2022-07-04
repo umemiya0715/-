@@ -24,7 +24,6 @@ export default {
   data() {
     return {
       title: "マイページ",
-      user: {},
     };
   },
   computed: {

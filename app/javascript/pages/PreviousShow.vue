@@ -11,6 +11,7 @@
         <div class="m-auto">
           <img :src="'../images/'  + result.dragon.image">
         </div>
+        <PreviousRadar :style="chartStyles" :result="result"/>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
           <div class="text-3xl m-4">{{ result.dragon.explanation }}</div>
@@ -36,9 +37,13 @@
 
 <script>
 import axios from 'axios';
+import PreviousRadar from '../components/PreviousRadar.vue'
 
 export default {
   name: "PreviousShow",
+  components: {
+    PreviousRadar
+  },
   data() {
     return {
       result : {},
@@ -51,6 +56,12 @@ export default {
     currentPath() {
       return this.$route.path
     },
+    chartStyles() {
+      return {
+        height: '450px',
+        display: 'flex',
+      }
+    }
   },
   watch: {
     currentPath: function() {
