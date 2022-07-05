@@ -15,5 +15,5 @@ Vue.component('ValidationProvider', ValidationProvider)
 
 extend('required', {
   ...required,
-  message: 'ツイッターのIDを入れてね'
+  message: 'TwitterのIDを入れてね'
 });

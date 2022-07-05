@@ -32,8 +32,8 @@
       </div>
     </div>
     <div class="m-16 justify-center">
-      <button class=" bg-red-500 hover:bg-red-700 font-bold p-4 text-2xl text-white rounded w-72 items-center">
-        <router-link to="/">トップページに戻る</router-link>
+      <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+        <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-4xl rounded w-70 px-8 py-8 inline-flex justify-center">トップページに戻る</router-link>
       </button>
     </div>
   </div>

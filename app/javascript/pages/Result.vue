@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <div class="grid grid-cols-12 gap-10 md:pt-20">
+    <div class="grid grid-cols-12 gap-10 md:pt-20 md:pb-10">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
         <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ results.target_account }}さんの心のドラゴンは…</div>
       </div>
@@ -8,7 +8,7 @@
         <div class="text-6xl font-bold">
           <h3>{{ results.dragon.name }}</h3>
         </div>
-        <div class="m-auto">
+        <div class="m-auto py-4">
           <img :src="dragon_image_src">
         </div>
         <ResultRadar :style="chartStyles"/>
@@ -27,13 +27,19 @@
         </div>
       </div>
     </div>
-    <div class="text-center p-4">
-      <button class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="twitterShare" >
-        <i class="px-2 ri-twitter-fill"></i>Twitterでシェアする
+    <div class="p-4 mx-auto">
+      <button class="bg-blue-300 hover:bg-blue-600 rounded p-1 w-72" @click="twitterShare" >
+        <div class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 rounded">
+          <i class="px-2 ri-twitter-fill"></i>Twitterでシェアする
+        </div>
       </button>
     </div>
-    <div class="text-center text-white p-8 text-2xl">
-      <router-link to="/">トップページに戻る</router-link>
+    <div class="p-4 pb-20 mx-auto">
+      <button class="bg-red-400 hover:bg-red-600 rounded p-1 w-72">
+        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">
+          <router-link to="/">トップページに戻る</router-link>
+        </div>
+      </button>
     </div>
   </div>
 </template>

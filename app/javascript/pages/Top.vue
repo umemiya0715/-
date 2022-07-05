@@ -9,21 +9,23 @@
           <div class="justify-center pb-16">
             <ValidationProvider v-slot="{ errors }" rules="required">
               <input type="text" v-model="targetAccount" class=" h-20 bg-gray-100 text-4xl p-2 rounded-lg border-4 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full" placeholder="idを入力">
-              <span class="block text-2xl text-white">{{ errors[0] }}</span>
+              <span class="block p-4 text-3xl text-white">{{ errors[0] }}</span>
             </ValidationProvider>
           </div>
         <div class="my-32 justify-center">
-          <button :disabled="invalid" v-show="!isLoading" @click="startAnalysis(targetAccount)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-8 px-8 text-4xl rounded w-64 inline-flex items-center justify-center">
-            診断する
+          <button :disabled="invalid" v-show="!isLoading" @click="startAnalysis(targetAccount)" class="bg-red-400 hover:bg-red-600 rounded p-1">
+            <p class="bg-red-500 hover:bg-red-700 text-white font-bold text-4xl rounded w-64 px-8 py-8 inline-flex justify-center">診断する</p>
           </button>
-          <button :disabled="invalid" v-show="isLoading" class="bg-red-500 hover:bg-red-700 text-white font-bold py-8 px-12 text-4xl rounded w-64 inline-flex justify-between">
-            <spinner :size="30" color="#ffffff" class=""></spinner>
-            <div class="text-center">診断中</div>
+          <button :disabled="invalid" v-show="isLoading" class="bg-red-400 hover:bg-red-600 rounded p-1">
+            <div class="bg-red-500 hover:bg-red-700 rounded w-64 px-10 py-8 inline-flex justify-between items-center">
+              <spinner :size="30" color="#ffffff"></spinner>
+              <p class="text-white font-bold text-4xl ">診断中‥</p>
+            </div>
           </button>
         </div>
         <div class="my-32 justify-center">
-          <button class=" bg-red-500 hover:bg-red-700 font-bold py-8 px-8 text-4xl text-white rounded w-64 items-center">
-          <router-link to="/help">使い方</router-link>
+          <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+            <router-link to="/help" class="bg-red-500 hover:bg-red-700 text-white font-bold text-4xl rounded w-64 px-8 py-8 inline-flex justify-center">使い方</router-link>
           </button>
         </div>
       </ValidationObserver>

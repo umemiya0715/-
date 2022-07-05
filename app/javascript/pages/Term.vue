@@ -1,9 +1,10 @@
 <template>
   <div class="text-center">
-  <div class="grid grid-cols-12 gap-10 md:pt-20">
-    <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-      <div class="text-5xl inline p-2 text-white font-bold md:text-4xl">
-      利用規約
+    <div class="grid grid-cols-12 gap-10 md:pt-10">
+      <div class="col-start-2 col-span-10 mt-20 mb-10">
+        <div class="text-5xl inline p-2 text-white font-bold md:text-4xl">
+          利用規約
+        </div>
       </div>
     </div>
     <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto">
@@ -75,11 +76,12 @@
       <p class="text-3xl text-left">本サービス提供者は，必要と判断した場合には，ユーザーに通知することなくいつでも本規約を変更することができるものとします。なお，本規約の変更後，本サービスの利用を開始した場合には，ユーザーは変更後の規約に同意したものとみなします。</p>
 
       <div class="text-3xl my-10 text-center">以上</div>
-      <div class="text-3xl my-10 container text-center term-font hover:opacity-50">
-        <router-link class="border-b-2 border-white" to="/">トップページに戻る</router-link>
+      <div class="m-16 justify-center">
+        <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+          <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-4xl rounded w-70 px-8 py-8 inline-flex justify-center">トップページに戻る</router-link>
+        </button>
       </div>
     </div>
-  </div>
   </div>
 </template>
 

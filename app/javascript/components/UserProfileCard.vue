@@ -11,16 +11,22 @@
     </div>
     <div class="text-2xl pt-4 border-t-2">次のボタンを押すとTwitterの最新プロフィールに更新されます</div>
     <div class="flex flex-row justify-center items-center my-4">
-      <button class=" bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded" @click="updateUserSettings">
-        <i class="ri-restart-line mx-2"></i>ユーザー情報を更新する
+      <button class="bg-blue-300 hover:bg-blue-600 rounded p-1" @click="updateUserSettings">
+        <div class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded">
+          <i class="ri-restart-line mx-2"></i>ユーザー情報を更新する
+        </div>
       </button>
     </div>
     <div class="flex flex-row justify-center items-center text-2xl pt-4 border-t-2">
-      <input type="checkbox" v-model="checkbox" class="mr-2">退会する場合は全ての情報が削除されます。
+      <input type="checkbox" v-model="checkbox" style="transform:scale(2.0);" class="mr-6">退会する場合は全ての情報が削除されます。
     </div>
     <div class="my-4">
-      <button v-if="checkbox" class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded" @click="logoutUser" :disabled="!checkbox" >退会する</button>
-      <button v-if="!checkbox" class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded cursor-not-allowed opacity-50" @click="logoutUser" :disabled="!checkbox" >退会する</button>
+      <button v-if="checkbox" class="bg-red-400 hover:bg-red-600 rounded p-1" @click="logoutUser" :disabled="!checkbox" >
+        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">退会する</div>
+      </button>
+      <button v-if="!checkbox" class="bg-red-400 hover:bg-red-600 rounded p-1 cursor-not-allowed opacity-50" @click="logoutUser" :disabled="!checkbox" >
+        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">退会する</div>
+      </button>
     </div>
   </div>
 </template>

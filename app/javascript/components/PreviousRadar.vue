@@ -90,8 +90,9 @@ export default {
     }
   },
   watch: {
-    currentPath: function() {
-      this.adjustData()
+    data: function() {
+      this.adjustData();
+      this.chartData();
     }
   },
   computed: {
