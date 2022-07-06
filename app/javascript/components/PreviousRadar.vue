@@ -37,21 +37,21 @@ export default {
       type: Object,
       required: true
     },
+    adjustedScore: {
+      type: Number,
+      required: true
+    },
+    adjustedMagnitude: {
+      type: Number,
+      required: true
+    },
+    adjustedTroversion: {
+      type: Number,
+      required: true
+    },
   },
   data() {
     return {
-      adjustedScore: {
-        type: Number,
-        required: true
-      },
-      adjustedMagnitude: {
-        type: Number,
-        required: true
-      },
-      adjustedTroversion: {
-        type: Number,
-        required: true
-      },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false,
@@ -89,10 +89,8 @@ export default {
       },
     }
   },
-  watch: {
-    currentPath: function() {
-      this.adjustData()
-    }
+  mounted: function(){
+    this.adjustData();
   },
   computed: {
     currentPath() {
@@ -117,7 +115,7 @@ export default {
         datasets: [
           {
             data: [ this.adjustedScore, this.adjustedMagnitude, this.adjustedTroversion ],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            backgroundColor: 'rgba(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             pointBackgroundColor: 'rgb(255, 99, 132)',
             pointBorderColor: '#fff',

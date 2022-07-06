@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class='w-full text-gray-100 bg-navGray py-2 fixed top-0'>
+    <nav class='w-full text-gray-100 bg-navGray py-2'>
       <div class='px-12 mx-auto items-center'>
         <div class="flex justify-between items-center">
           <router-link to="/" class='flex justify-center items-center'>

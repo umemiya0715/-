@@ -3,7 +3,7 @@
     <h1 class="text-6xl py-4 font-bold text-white">
       404 Not Found
     </h1>
-    <div class="mt-10 mb-10">
+    <div class="my-10">
       <div class="row-auto text-white">
         <div class="text-2xl sm:text-md md:text-4xl px-3 pt-2">
           <p>お探しのページが見つかりませんでした。</p>
@@ -16,8 +16,8 @@
       </div>
     </div>
     <div class="m-16 justify-center">
-      <button class="  bg-red-500 hover:bg-red-700 font-bold p-4 text-2xl text-white rounded w-72 items-center">
-      <router-link to="/">トップページに戻る</router-link>
+      <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+        <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center">トップページに戻る</router-link>
       </button>
     </div>
   </div>

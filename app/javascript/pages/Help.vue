@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center min-h-screen">
+  <div class="text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
       <div class="text-center text-black bg-white rounded col-start-2 col-span-10 p-4">
         <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
@@ -32,8 +32,8 @@
       </div>
     </div>
     <div class="m-16 justify-center">
-      <button class=" bg-red-500 hover:bg-red-700 font-bold p-4 text-2xl text-white rounded w-72 items-center">
-        <router-link to="/">トップページに戻る</router-link>
+      <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+        <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center">トップページに戻る</router-link>
       </button>
     </div>
   </div>

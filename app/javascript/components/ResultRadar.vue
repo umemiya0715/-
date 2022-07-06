@@ -84,10 +84,8 @@ export default {
       },
     }
   },
-  watch: {
-    results: function() {
-      this.adjustData()
-    }
+  mounted: function() {
+    this.adjustData()
   },
   computed: {
     ...mapGetters(

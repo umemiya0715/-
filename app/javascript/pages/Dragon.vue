@@ -5,7 +5,7 @@
         <div class="text-6xl font-bold border-b-8 border-white">
           <h3>{{ dragon.name }}</h3>
         </div>
-        <div class="m-auto">
+        <div class="m-auto py-4">
           <img :src="dragon_image_src">
         </div>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
@@ -23,8 +23,12 @@
         </div>
       </div>
     </div>
-    <div class="text-center px-4 pb-12">
-      <button class=" bg-red-500 hover:bg-red-700 font-bold py-4 px-8 text-2xl text-white rounded w-52 items-center">診断してみる</button>
+    <div class="p-4 pb-20 mx-auto">
+      <button class="bg-red-400 hover:bg-red-600 rounded p-1 w-72">
+        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">
+          <router-link to="/">診断してみる</router-link>
+        </div>
+      </button>
     </div>
   </div>
 </template>

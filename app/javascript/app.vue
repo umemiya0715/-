@@ -1,13 +1,13 @@
 <template>
-  <div class='d-flex flex-column min-h-screen bg-cover bg-fixed bg-center pt-24' :style="{ backgroundImage: 'url(' + image_src + ')' }">
-    <TheHeader class='mb-auto' />
+  <div class='d-flex flex-column bg-cover bg-fixed bg-center' :style="{ backgroundImage: 'url(' + image_src + ')' }">
+    <TheHeader class='mb-auto sticky top-0' />
       <transition>
         <TheFlash v-if="flash.message" />
       </transition>
       <transition mode="out-in">
         <router-view />
       </transition>
-    <TheFooter class='mt-auto' />
+    <TheFooter class='mt-auto relative bottom-0 md:sticky' />
   </div>
 </template>
 

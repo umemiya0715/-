@@ -1,9 +1,10 @@
 <template>
   <div class="text-center">
-  <div class="grid grid-cols-12 gap-10 md:pt-20">
-    <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-      <div class="text-5xl inline p-2 text-white font-bold md:text-4xl">
-      プライバシーポリシー
+    <div class="grid grid-cols-12 gap-10 md:pt-10">
+      <div class="col-start-2 col-span-10 mt-20 mb-10">
+        <div class="text-5xl inline p-2 text-white font-bold md:text-4xl">
+          プライバシーポリシー
+        </div>
       </div>
     </div>
     <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto">
@@ -15,14 +16,14 @@
         <li>外部サービスのプライバシー設定によりお客様が連携先に開示を認めた情報</li>
         <li>Cookie(クッキー)を用いて生成された識別情報</li>
         <li>OSが生成するID、端末の種類、端末識別子等のお客様が利用するOSや端末に関する情報</li>
-        <li>当社ウェブサイトの滞在時間、入力履歴、購買履歴等の当社ウェブサイトにおけるお客様の行動履歴</li>
-        <li>当社アプリの起動時間、入力履歴、購買履歴等の当社アプリの利用履歴</li>
+        <li>本ウェブサイトの滞在時間、入力履歴、購買履歴等の当社ウェブサイトにおけるお客様の行動履歴</li>
+        <li>本アプリの起動時間、入力履歴、購買履歴等の当社アプリの利用履歴</li>
       </ol>
 
       <div class="text-4xl font-bold mt-20 mb-10">第2条（情報を利用する目的）</div>
       <p class="text-3xl mb-5 text-left">本サービスは、ユーザーから取得した情報を以下の目的のために利用します。</p>
       <ol class="text-3xl ml-5 list-decimal text-left">
-        <li>当社サービスに関する登録の受付、お客様の本人確認、認証のため</li>
+        <li>本サービスに関する登録の受付、お客様の本人確認、認証のため</li>
         <li>お客様の当社サービスの利用履歴を管理するため</li>
         <li>ユーザーの行動履歴を分析し、本サービスの維持改善に役立てるため</li>
         <li>市場分析、マーケティングのため</li>
@@ -59,11 +60,12 @@
       <p class="text-3xl mb-5 text-left">お問い合わせの際は、管理者アカウント(@Umesho0415)へのメッセージにて承ります。</p>
 
       <div class="text-3xl my-10 text-center">以上</div>
-      <div class="text-3xl my-10 container text-center term-font  hover:opacity-50">
-        <router-link class="border-b-2 border-white" to="/">トップページに戻る</router-link>
+      <div class="m-16 justify-center">
+        <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+          <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center">トップページに戻る</router-link>
+        </button>
       </div>
     </div>
-  </div>
   </div>
 </template>
 
