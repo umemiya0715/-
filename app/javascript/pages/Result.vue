@@ -73,7 +73,7 @@ export default {
     },
     chartStyles() {
       return {
-        height: '450px',
+        height: '500px',
         display: 'flex',
       }
     }
