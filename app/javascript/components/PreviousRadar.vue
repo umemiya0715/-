@@ -37,21 +37,21 @@ export default {
       type: Object,
       required: true
     },
-    adjustedScore: {
-      type: Number,
-      required: true
-    },
-    adjustedMagnitude: {
-      type: Number,
-      required: true
-    },
-    adjustedTroversion: {
-      type: Number,
-      required: true
-    },
   },
   data() {
     return {
+      adjustedScore: {
+        type: Number,
+        required: true
+      },
+      adjustedMagnitude: {
+        type: Number,
+        required: true
+      },
+      adjustedTroversion: {
+        type: Number,
+        required: true
+      },
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false,
@@ -92,10 +92,7 @@ export default {
   mounted: function(){
     this.adjustData();
   },
-  computed: {
-    currentPath() {
-      return this.$route.path
-    },
+  methods: {
     adjustData() {
       this.adjustedScore = Math.trunc( ( this.result.score + 1 ) / 2 * 100 );
       if ( this.result.magnitude < 1.14 ) {
@@ -109,6 +106,8 @@ export default {
         this.adjustedTroversion = 100;
       }
     },
+  },
+  computed: {
     chartData() {
       return {
         labels: [ 'ポジティブ度', '感情の強さ', '活発度' ],

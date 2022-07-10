@@ -87,10 +87,7 @@ export default {
   mounted: function() {
     this.adjustData()
   },
-  computed: {
-    ...mapGetters(
-      'results', ['results']
-    ),
+  methods: {
     adjustData() {
       this.adjustedScore = Math.trunc( ( this.results.score + 1 ) / 2 * 100 );
       if ( this.results.magnitude < 1.14 ) {
@@ -104,6 +101,11 @@ export default {
         this.adjustedTroversion = 100;
       }
     },
+  },
+  computed: {
+    ...mapGetters(
+      'results', ['results']
+    ),
     chartData() {
       return {
         labels: [ 'ポジティブ度', '感情の強さ', '活発度' ],

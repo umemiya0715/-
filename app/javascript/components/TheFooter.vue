@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="text-white bg-navGray w-full py-4">
-      <div class='max-w-screen-xl mx-auto'>
+      <div class='max-w-screen-xl mx-auto p-4'>
         <ul class="max-w-screen-md mx-auto text-2xl font-light flex justify-center">
           <li class="my-2 px-4">
             <router-link
