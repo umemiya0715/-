@@ -12,6 +12,8 @@ class AuthenticationDashboard < Administrate::BaseDashboard
     id: Field::Number,
     provider: Field::String,
     uid: Field::String,
+    access_token: Field::String,
+    access_token_secret: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,6 +28,8 @@ class AuthenticationDashboard < Administrate::BaseDashboard
     id
     provider
     uid
+    access_token
+    access_token_secret
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -46,6 +50,8 @@ class AuthenticationDashboard < Administrate::BaseDashboard
     user
     provider
     uid
+    access_token
+    access_token_secret
   ].freeze
 
   # COLLECTION_FILTERS
