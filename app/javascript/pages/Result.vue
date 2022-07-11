@@ -2,7 +2,7 @@
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20 md:pb-10">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl" v-if="results">{{ results.target_account | shortenedName }}さんの心のドラゴンは…</div>
+        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl" v-if="results">{{ shortenedName }}さんの心のドラゴンは…</div>
       </div>
       <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="results">
         <div class="text-6xl font-bold">
@@ -58,11 +58,6 @@ export default {
       title: "あなたの心に潜むドラゴンは…"
     }
   },
-  filters: {
-    shortenedName: function(name){
-      return name.length > 8 ? name.substring(0,8) + '...' : name;
-    }
-  },
   methods: {
     twitterShare(){
       const url = `https://www.dragon-twitter-analysis.com/dragons/${this.results.dragon.id}`
@@ -73,6 +68,9 @@ export default {
     ...mapGetters(
       'results', ['results']
     ),
+    shortenedName(){
+      return this.results.target_account.length > 8 ? this.results.target_account.substring(0,8) + '...' : this.results.target_account;
+    },
     dragon_image_src() {
         return require("../../../public/images/" + this.results.dragon.image)
     },
