@@ -2,7 +2,7 @@
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20 md:pb-10">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ result.target_account }}さんの心に潜むドラゴンは…</div>
+        <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl" v-if="result">{{ shortenedName }}さんの心に潜むドラゴンは…</div>
       </div>
       <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="result">
         <div class="text-6xl font-bold">
@@ -48,12 +48,18 @@ export default {
   },
   data() {
     return {
-      result : {},
-    };
+      result: {
+        type: Object,
+        required: true,
+      }
+    }
   },
   computed: {
     dragon_image_src() {
         return require("../../../public/images/" + this.result.dragon.image)
+    },
+    shortenedName(){
+      return this.result.target_account.length > 8 ? this.result.target_account.substring(0,8) + '...' : this.result.target_account;
     },
     currentPath() {
       return this.$route.path

@@ -23,8 +23,6 @@ export default {
     TheFooter,
     TheFlash
   },
-  methods: {
-  },
   computed: {
     ...mapGetters(
       'flash',['flash']
