@@ -15,7 +15,7 @@
             </a>
             <button @click="isOpen = !isOpen">
               <img
-                :src="currentUser.image" class='object-cover border-2 rounded-full h-16 w-16'  v-if="currentUser"
+                :src="currentUser.image" class='border-2 rounded-full w-16 h-16'  v-if="currentUser"
               >
             </button>
           </div>
