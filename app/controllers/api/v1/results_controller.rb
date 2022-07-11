@@ -20,7 +20,7 @@ module Api
         target = client.user(target_id)
         tweets = client.user_timeline(target, count: 16, exclude_replies: true, include_rts: false)
         user = result_params['user_id']
-        analyzed_result = Result.analyzeResult(target, tweets, user)
+        analyzed_result = AnalyzeAccountService.new(target, tweets, user).call
         @result = Result.new(analyzed_result)
         if @result.user_id == 0 then
           render json: @result
