@@ -66,8 +66,9 @@ export default {
     },
     chartStyles() {
       return {
-        height: '500px',
-        display: 'flex',
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+        height: '510px',
       }
     }
   },
