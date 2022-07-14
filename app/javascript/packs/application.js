@@ -13,7 +13,6 @@ import App from '../app.vue'
 import router from '../router/router.js'
 import axios from '../plugins/axios.js'
 import store from '../store/index.js'
-import VueApexCharts from 'vue-apexcharts'
 import 'dayjs/locale/ja'
 import dayjs from 'dayjs'
 import '../css/tailwind.css'
@@ -26,9 +25,6 @@ Vue.prototype.$axios = axios
 
 dayjs.locale('ja')
 Vue.prototype.$dayjs = dayjs
-
-Vue.use(VueApexCharts)
-Vue.component('apexchart', VueApexCharts)
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
