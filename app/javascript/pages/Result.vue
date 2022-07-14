@@ -4,16 +4,14 @@
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
         <div class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl" v-if="results">{{ shortenedName }}さんの心のドラゴンは…</div>
       </div>
-      <div class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto" v-if="results">
+      <div class="text-center text-white col-start-2 col-span-10 pb-10 mx-auto" v-if="results">
         <div class="text-6xl font-bold">
           <h3>{{ results.dragon.name }}</h3>
         </div>
         <div class="m-auto py-4">
           <img :src="dragon_image_src">
         </div>
-        <div :style="chartStyles">
-          <ResultRadar />
-        </div>
+        <ResultRadar :style="chartStyles"/>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">性格</div>
           <div class="text-3xl m-4">{{ results.dragon.explanation }}</div>
@@ -74,14 +72,16 @@ export default {
       return this.results.target_account.length > 8 ? this.results.target_account.substring(0,8) + '...' : this.results.target_account;
     },
     dragon_image_src() {
-        return require("../../../public/images/" + this.results.dragon.image)
+      return require("../../../public/images/" + this.results.dragon.image)
     },
     chartStyles() {
       return {
-        display: 'flex',
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+        height: '510px',
       }
     }
-  },
+  }
 }
 </script>
 
