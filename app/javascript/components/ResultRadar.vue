@@ -1,38 +1,9 @@
-<template>
-  <radar
-    :chart-options="chartOptions"
-    :chart-data="chartData"
-    :adjustedScore="adjustedScore"
-    :adjustedMagnitude="adjustedMagnitude"
-    :adjustedTroversion="adjustedTroversion"
-  />
-</template>
-
 <script>
-import { Radar } from 'vue-chartjs/legacy'
+import { Radar } from 'vue-chartjs'
 import { mapGetters } from 'vuex'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  PointElement,
-  LineElement,
-  RadialLinearScale
-} from 'chart.js'
-
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  PointElement,
-  RadialLinearScale,
-  LineElement
-)
 
 export default {
-  name: 'ResultRadar',
-  components: { Radar },
+  extends: Radar,
   data() {
     return {
       adjustedScore: {
@@ -43,52 +14,66 @@ export default {
         type: Number,
         required: true
       },
-      adjustedTroversion: {
+      adjustedTroversion:{
         type: Number,
         required: true
       },
-      chartOptions: {
+    }
+  },
+  mounted(){
+    this.adjustData(),
+    this.renderChart(
+      {
+        labels: [ 'ポジティブ度', '感情の強さ', '活発度' ],
+        datasets: [
+          {
+            label: '診断結果',
+            data: [ this.adjustedScore, this.adjustedMagnitude, this.adjustedTroversion ],
+            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+            borderColor: 'rgb(255, 99, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)',
+          }
+        ]
+      },
+      {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
+        tooltips: {
+          // enabled: false,
+        },
+        legend: {
+          display: false,
         },
         animation:{
           duration: 1500,
           easing: 'easeInOutCubic'
         },
-        scales: {
-          r: {
-            ticks: {
-              display: false
-            },
-            suggestedMax: 100,
-            suggestedMin: 0,
-            grid: {
-              color: 'white',
-            },
-            angleLines: {
-              color: 'white',
-            },
-            pointLabels: {
-              color: 'white',
-              font: {
-                size: 25,
-                weight: 'bold',
-              }
-            }
-          }
+        scale: {
+          ticks: {
+            display: false,
+            max: 100,
+            min: 0,
+          },
+          gridLines: {
+            color: 'white',
+          },
+          angleLines: {
+            color: 'white',
+          },
+          pointLabels: {
+            fontSize: 20,
+            fontColor: '#ffffff',
+            fontStyle: 'bold',
+          },
         }
-      },
-    }
-  },
-  mounted: function() {
-    this.adjustData()
+      }
+    )
   },
   methods: {
-    adjustData() {
+     adjustData() {
       this.adjustedScore = Math.trunc( ( this.results.score + 1 ) / 2 * 100 );
       if ( this.results.magnitude < 1.14 ) {
         this.adjustedMagnitude = Math.trunc( ( this.results.magnitude ) / 1.14 * 100 );
@@ -99,29 +84,13 @@ export default {
         this.adjustedTroversion = Math.trunc( ( this.results.troversion ) / 0.74 * 100 );
       } else {
         this.adjustedTroversion = 100;
-      }
+      };
     },
   },
   computed: {
     ...mapGetters(
       'results', ['results']
     ),
-    chartData() {
-      return {
-        labels: [ 'ポジティブ度', '感情の強さ', '活発度' ],
-        datasets: [
-          {
-            data: [ this.adjustedScore, this.adjustedMagnitude, this.adjustedTroversion ],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgb(255, 99, 132)',
-            pointBackgroundColor: 'rgb(255, 99, 132)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(255, 99, 132)',
-          }
-        ]
-      }
-    }
   }
 }
 </script>
