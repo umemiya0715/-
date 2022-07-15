@@ -5,16 +5,27 @@
         <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
           ドラッターって何？
         </div>
-        <p class="text-3xl p-4 text-left">最近のTwitterの運用方法について振り返ることができるアプリです。</p>
+        <p class="text-3xl p-4 text-left">
+          最近のTwitterの運用方法について振り返ることができるアプリです。
+        </p>
       </div>
 
       <div class="text-center text-black bg-white rounded col-start-2 col-span-10 p-4">
         <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
           使い方
         </div>
-        <div v-for="(description, index) in descriptions" :key="index" class="flex">
-          <div class="text-3xl text-left p-4">{{ description.text }}</div>
-          <img :src="description.imgSrc" height="400px" width="300px" class="p-4">
+        <div
+          v-for="(description, index) in descriptions"
+          :key="index"
+          class="flex">
+          <div class="text-3xl text-left p-4">
+            {{ description.text }}
+          </div>
+          <img
+            :src="description.imgSrc"
+            height="400px"
+            width="300px"
+            class="p-4">
         </div>
       </div>
 

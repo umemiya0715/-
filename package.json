@@ -30,9 +30,13 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-plugin-vue": "^9.2.0",
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
+    "lint": "eslint --ext .js,.vue app/javascript",
+    "lint-fix": "eslint --fix --ext .js,.vue app/javascript",
     "dev-css": "tailwind build ./app/javascript/css/tailwind.css ./app/javascript/css/tailwindcss_dev.css"
   }
 }
