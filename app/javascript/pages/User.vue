@@ -2,10 +2,16 @@
   <div class="text-center min-h-screen">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
+        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">
+          {{ title }}
+        </div>
       </div>
       <div class="items-center col-start-2 col-span-10">
-        <UserProfileCard :user="currentUser" @update-Settings="updateUserSettings" @logout="deleteUser" />
+        <UserProfileCard
+          :user="currentUser"
+          @update-Settings="updateUserSettings"
+          @logout="deleteUser"
+        />
       </div>
     </div>
   </div>

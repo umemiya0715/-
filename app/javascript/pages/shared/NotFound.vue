@@ -17,7 +17,12 @@
     </div>
     <div class="m-16 justify-center">
       <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
-        <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center">トップページに戻る</router-link>
+        <router-link
+          to="/"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center"
+        >
+          トップページに戻る
+        </router-link>
       </button>
     </div>
   </div>
