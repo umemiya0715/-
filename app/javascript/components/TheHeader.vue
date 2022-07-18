@@ -37,7 +37,6 @@
         >
           <button
             class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-            @click="closeMenu"
           >
             <router-link :to="`/users/${currentUser.screen_name}`">
               マイページ
@@ -45,7 +44,6 @@
           </button>
           <button
             class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-            @click="closeMenu"
           >
             <router-link to="/previous">
               過去の診断結果
@@ -64,7 +62,6 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
 import { mapGetters　} from "vuex"
 
 export default {
@@ -80,6 +77,9 @@ export default {
     ...mapGetters(
       'users', ['currentUser' , 'isAuthenticatedUser']
     ),
+    currentPath() {
+      return this.$route.path
+    },
     logo_src() {
       return require("../../../public/images/topLogo.png")
     },
@@ -104,7 +104,12 @@ export default {
     closeMenu(){
       this.isOpen = false;
     },
-  }
+  },
+   watch: {
+    currentPath: function() {
+      this.closeMenu()
+    }
+  },
 }
 </script>
 
