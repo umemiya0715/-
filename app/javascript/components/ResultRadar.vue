@@ -20,6 +20,11 @@ export default {
       },
     }
   },
+  computed: {
+    ...mapGetters(
+      'results', ['results']
+    ),
+  },
   mounted(){
     this.adjustData(),
     this.renderChart(
@@ -87,11 +92,6 @@ export default {
       };
     },
   },
-  computed: {
-    ...mapGetters(
-      'results', ['results']
-    ),
-  }
 }
 </script>
 
