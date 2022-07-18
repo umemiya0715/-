@@ -78,7 +78,6 @@ import { mapGetters } from 'vuex'
 import ResultRadar from '../components/ResultRadar.vue'
 
 export default {
-  name: "Result",
   components: {
     ResultRadar
   },

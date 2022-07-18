@@ -23,7 +23,6 @@ import { mapGetters } from 'vuex'
 import UserProfileCard from '../components/UserProfileCard';
 
 export default {
-  name: "User",
   components: {
     UserProfileCard,
   },

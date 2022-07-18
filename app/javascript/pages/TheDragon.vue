@@ -57,7 +57,6 @@ import axios from 'axios';
 import { mapGetters } from 'vuex'
 
 export default {
-  name: "Dragon",
   data() {
     return {
       title: "あなたの心に潜むドラゴンは…",

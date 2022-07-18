@@ -154,7 +154,6 @@
 
 <script>
 export default {
-  name: "Term",
   data() {
     return {
     }

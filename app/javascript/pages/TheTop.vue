@@ -39,8 +39,8 @@
               </p>
             </button>
             <button
-              :v-show="isLoading"
-              disabled="invalid"
+              v-show="isLoading"
+              :disabled="invalid"
               class="bg-red-400 hover:bg-red-600 rounded p-1"
             >
               <div class="bg-red-500 hover:bg-red-700 rounded w-64 px-10 py-8 inline-flex justify-between items-center">
@@ -76,7 +76,6 @@ import { mapGetters } from 'vuex'
 import Spinner from 'vue-spinner-component/src/Spinner.vue';
 
 export default {
-  name: "Top",
   components: {
     Spinner
   },
