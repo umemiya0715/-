@@ -10,7 +10,6 @@
             <img
               :src="logo_src"
               width="120px"
-              @click="closeMenu"
             >
           </router-link>
           <div class="item">
@@ -21,7 +20,10 @@
             >
               Twitter認証によるユーザー登録
             </a>
-            <button @click="isOpen = !isOpen">
+            <button
+              v-click-outside="handleCloseHeaderMenu"
+              @click="openHeaderMenu"
+            >
               <img
                 v-if="currentUser"
                 :src="currentUser.image"
@@ -30,56 +32,36 @@
             </button>
           </div>
         </div>
-        <div
-          v-if="currentUser"
-          :class="isOpen ? 'flex' : 'hidden'"
-          class="flex-col mt-3 justify-between"
-        >
-          <button
-            class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-          >
-            <router-link :to="`/users/${currentUser.screen_name}`">
-              マイページ
-            </router-link>
-          </button>
-          <button
-            class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-          >
-            <router-link to="/previous">
-              過去の診断結果
-            </router-link>
-          </button>
-          <button
-            class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-            @click="logout"
-          >
-            ログアウト
-          </button>
-        </div>
+        <HeaderMenu
+          :is-visible-header-menu="isVisibleHeaderMenu"
+          @close-menu="handleCloseHeaderMenu"
+        />
       </div>
     </nav>
   </header>
 </template>
 
 <script>
+import HeaderMenu from "./HeaderMenu"
 import { mapGetters　} from "vuex"
+import ClickOutside from "vue-click-outside"
 
 export default {
-  name: 'TheHeader',
+  directives: {
+    ClickOutside
+  },
   components: {
+    HeaderMenu
   },
   data() {
     return {
-      isOpen: false,
+      isVisibleHeaderMenu: false,
     }
   },
   computed: {
     ...mapGetters(
       'users', ['currentUser' , 'isAuthenticatedUser']
     ),
-    currentPath() {
-      return this.$route.path
-    },
     logo_src() {
       return require("../../../public/images/topLogo.png")
     },
@@ -101,13 +83,11 @@ export default {
         console.log(err.response)
       }
     },
-    closeMenu(){
-      this.isOpen = false;
+    openHeaderMenu(){
+      this.isVisibleHeaderMenu = true;
     },
-  },
-   watch: {
-    currentPath: function() {
-      this.closeMenu()
+    handleCloseHeaderMenu() {
+      this.isVisibleHeaderMenu = false;
     }
   },
 }
