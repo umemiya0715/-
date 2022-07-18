@@ -2,19 +2,36 @@
   <div class="text-center min-h-screen">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">{{ title }}</div>
+        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">
+          {{ title }}
+        </div>
       </div>
       <div class="items-center col-start-2 col-span-10">
-        <div v-for="result in results" v-bind:key="result.id" class="w-full mx-auto bg-white hover:bg-gray-200 shadow-md rounded-md my-12">
+        <div
+          v-for="result in results"
+          :key="result.id"
+          class="w-full mx-auto bg-white hover:bg-gray-200 shadow-md rounded-md my-12"
+        >
           <router-link :to="`/previous/${result.id}`">
             <div class="sm:flex justify-left px-4 py-6">
               <div class="flex items-center">
-                <img class="h-24 w-24" :src="'../images/'  + result.dragon.image" alt="">
+                <img
+                  class="h-24 w-24"
+                  :src="'../images/' + result.dragon.image"
+                >
                 <div class="ml-4 text-left">
-                  <h3 class="text-3xl text-gray-800 font-medium">{{ result.target_account }}</h3>
-                  <h3 class="text-3xl text-gray-800 font-medium">{{ result.dragon.name }}</h3>
-                  <h3 class="text-3xl text-gray-800">{{ result.dragon.explanation }}</h3>
-                  <h3 class="text-2xl text-gray-400">診断を行った日-{{ format(result.created_at) }}</h3>
+                  <h3 class="text-3xl text-gray-800 font-medium">
+                    {{ result.target_account }}
+                  </h3>
+                  <h3 class="text-3xl text-gray-800 font-medium">
+                    {{ result.dragon.name }}
+                  </h3>
+                  <h3 class="text-3xl text-gray-800">
+                    {{ result.dragon.explanation }}
+                  </h3>
+                  <h3 class="text-2xl text-gray-400">
+                    診断を行った日-{{ format(result.created_at) }}
+                  </h3>
                 </div>
               </div>
             </div>

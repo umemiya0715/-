@@ -24,7 +24,7 @@
               href="https://twitter.com/Umesho0415"
               class="p-2 rounded text-white hover:bg-twitterBlue"
             >
-              <i class="ri-twitter-fill"></i>
+              <i class="ri-twitter-fill" />
             </a>
           </li>
         </ul>

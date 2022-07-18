@@ -47,8 +47,7 @@
                 <spinner
                   :size="30"
                   color="#ffffff"
-                >
-                </spinner>
+                />
                 <p class="text-white font-bold text-4xl ">
                   診断中‥
                 </p>

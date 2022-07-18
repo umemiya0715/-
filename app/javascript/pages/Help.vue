@@ -17,7 +17,8 @@
         <div
           v-for="(description, index) in descriptions"
           :key="index"
-          class="flex">
+          class="flex"
+        >
           <div class="text-3xl text-left p-4">
             {{ description.text }}
           </div>
@@ -25,12 +26,15 @@
             :src="description.imgSrc"
             height="400px"
             width="300px"
-            class="p-4">
+            class="p-4"
+          >
         </div>
       </div>
 
       <div class="text-center text-black bg-white rounded col-start-2 col-span-10 p-4">
-        <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">何でドラゴン？</div>
+        <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
+          何でドラゴン？
+        </div>
         <div class="text-3xl text-left p-4">
           <p>ドラゴン(竜・龍）は伝説上の生き物で、人間の想像力が生み出した存在です。</p>
           <p>西洋では悪や力の化身であり征服されるものとして、東洋では神や自然の象徴として畏怖される存在として、古来から人の歴史と共に歩んできました。</p>
@@ -44,7 +48,12 @@
     </div>
     <div class="m-16 justify-center">
       <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
-        <router-link to="/" class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center">トップページに戻る</router-link>
+        <router-link
+          to="/"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center"
+        >
+          トップページに戻る
+        </router-link>
       </button>
     </div>
   </div>

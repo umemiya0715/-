@@ -5,11 +5,13 @@
         <div class="flex justify-between items-center">
           <router-link
             to="/"
-            class="flex justify-center items-center">
+            class="flex justify-center items-center"
+          >
             <img
               :src="logo_src"
               width="120px"
-              @click="closeMenu">
+              @click="closeMenu"
+            >
           </router-link>
           <div class="item">
             <a
@@ -21,8 +23,8 @@
             </a>
             <button @click="isOpen = !isOpen">
               <img
-                :src="currentUser.image"
                 v-if="currentUser"
+                :src="currentUser.image"
                 class="border-2 rounded-full w-16 h-16"
               >
             </button>
@@ -30,24 +32,29 @@
         </div>
         <div
           v-if="currentUser"
-          :class="isOpen ? 'flex' : 'hidden'" class="flex-col mt-3 justify-between" >
+          :class="isOpen ? 'flex' : 'hidden'"
+          class="flex-col mt-3 justify-between"
+        >
           <button
             class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-            @click="closeMenu">
+            @click="closeMenu"
+          >
             <router-link :to="`/users/${currentUser.screen_name}`">
               マイページ
             </router-link>
           </button>
           <button
             class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-            @click="closeMenu">
+            @click="closeMenu"
+          >
             <router-link to="/previous">
               過去の診断結果
             </router-link>
           </button>
           <button
             class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
-            @click="logout">
+            @click="logout"
+          >
             ログアウト
           </button>
         </div>

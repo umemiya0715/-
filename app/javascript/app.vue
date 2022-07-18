@@ -1,7 +1,8 @@
 <template>
   <div
     class="d-flex flex-column bg-cover bg-fixed bg-center"
-    :style="{ backgroundImage: 'url(' + image_src + ')' }">
+    :style="{ backgroundImage: 'url(' + image_src + ')' }"
+  >
     <TheHeader class="mb-auto sticky top-0" />
     <transition>
       <TheFlash v-if="flash.message" />

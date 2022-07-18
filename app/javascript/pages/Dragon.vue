@@ -3,7 +3,8 @@
     <div class="grid grid-cols-12 gap-10 pt-20">
       <div
         v-if="dragon"
-        class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto">
+        class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto"
+      >
         <div class="text-6xl font-bold border-b-8 border-white">
           <h3>{{ dragon.name }}</h3>
         </div>
