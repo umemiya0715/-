@@ -3,7 +3,7 @@
     class="d-flex flex-column bg-cover bg-fixed bg-center"
     :style="{ backgroundImage: 'url(' + image_src + ')' }"
   >
-    <TheHeader class="mb-auto sticky top-0" />
+    <TheHeader class="mb-auto sticky top-0 z-10" />
     <transition>
       <TheFlash v-if="flash.message" />
     </transition>
