@@ -7,6 +7,7 @@
     >
       <button
         class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+        @click="closeHeaderMenu"
       >
         <router-link :to="`/users/${currentUser.screen_name}`">
           マイページ
@@ -14,6 +15,7 @@
       </button>
       <button
         class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+        @click="closeHeaderMenu"
       >
         <router-link to="/previous">
           過去の診断結果
