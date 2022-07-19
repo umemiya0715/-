@@ -21,8 +21,7 @@
               Twitter認証によるユーザー登録
             </a>
             <button
-              v-click-outside="handleCloseHeaderMenu"
-              @click="openHeaderMenu"
+              @click="isVisibleHeaderMenu = !isVisibleHeaderMenu"
             >
               <img
                 v-if="currentUser"
@@ -44,12 +43,8 @@
 <script>
 import HeaderMenu from "./HeaderMenu"
 import { mapGetters　} from "vuex"
-import ClickOutside from "vue-click-outside"
 
 export default {
-  directives: {
-    ClickOutside
-  },
   components: {
     HeaderMenu
   },
