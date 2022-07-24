@@ -38,7 +38,7 @@ module Api
       end
 
       def result_params
-        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion, :target_account)
+        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion, :target_account, :screen_name)
       end
 
     end
