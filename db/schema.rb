@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_11_082116) do
+ActiveRecord::Schema.define(version: 2022_07_24_072651) do
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2022_07_11_082116) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "target_account", null: false
+    t.string "screen_name", default: "", null: false
     t.index ["dragon_id"], name: "index_results_on_dragon_id"
     t.index ["user_id"], name: "index_results_on_user_id"
   end

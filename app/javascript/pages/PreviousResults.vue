@@ -6,9 +6,16 @@
           {{ title }}
         </div>
       </div>
+      <div class="col-start-2 col-span-10 mt-5 ">
+        <input
+          v-model="keyword"
+          class="h-12 bg-gray-100 text-2xl p-2 rounded-lg border-4 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full"
+          placeholder="検索したいワードを入力"
+        >
+      </div>
       <div class="items-center col-start-2 col-span-10">
         <div
-          v-for="result in results"
+          v-for="result in filteredResults"
           :key="result.id"
           class="w-full mx-auto bg-white hover:bg-gray-200 shadow-md rounded-md my-12"
         >
@@ -54,17 +61,17 @@ export default {
   data() {
     return {
       title: "過去の診断結果",
-      results: {}
+      results: {},
+      keyword: "",
     };
   },
   computed: {
     ...mapGetters(
       'users', ['currentUser']
     ),
-    dragon_image_src() {
-      const result = this.results[0]
-        return require("../../../public/images/"  + result.dragon.image)
-    },
+    filteredResults() {
+      return this.filterResults();
+    }
   },
   mounted() {
     this.fetchResults()
@@ -80,6 +87,16 @@ export default {
       let created_at = dayjs(date).format('YYYY-MM-DD');
       return created_at;
     },
+    filterResults() {
+      let filtered = [];
+      for (let i in this.results) {
+        let result = this.results[i];
+        if (result.target_account.includes(this.keyword) || result.dragon.name.includes(this.keyword) || result.screen_name.includes(this.keyword)) {
+          filtered.push(result);
+        }
+      }
+      return filtered;
+    }
   }
 }
 </script>

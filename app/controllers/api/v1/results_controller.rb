@@ -8,7 +8,9 @@ module Api
         render json: @results, include: [:dragon], status: 200
       end
 
-      def index
+      def last_result
+        @results = Result.includes(:dragon).where(screen_name: params[:id]).order(created_at: :desc).limit(2)
+        render json: @results, include: [:dragon], status: 200
       end
 
       def show
@@ -38,7 +40,7 @@ module Api
       end
 
       def result_params
-        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion, :target_account)
+        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion, :target_account, :screen_name)
       end
 
     end

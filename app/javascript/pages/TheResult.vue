@@ -90,8 +90,9 @@ export default {
     ...mapGetters(
       'results', ['results']
     ),
-    shortenedName(){
-      return this.results.target_account.length > 8 ? this.results.target_account.substring(0,8) + '...' : this.results.target_account;
+    shortenedName() {
+      let name = this.results.target_account;
+      return name.length > 8 ? name.substring(0,8) + '...' : name;
     },
     dragon_image_src() {
       return require("../../../public/images/" + this.results.dragon.image)

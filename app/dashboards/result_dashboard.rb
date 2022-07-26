@@ -17,6 +17,7 @@ class ResultDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     target_account: Field::String,
+    screen_name: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,6 +32,7 @@ class ResultDashboard < Administrate::BaseDashboard
     score
     magnitude
     troversion
+    screen_name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,6 +47,7 @@ class ResultDashboard < Administrate::BaseDashboard
     created_at
     updated_at
     target_account
+    screen_name
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -57,6 +60,7 @@ class ResultDashboard < Administrate::BaseDashboard
     magnitude
     troversion
     target_account
+    screen_name
   ].freeze
 
   # COLLECTION_FILTERS
