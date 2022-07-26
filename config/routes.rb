@@ -16,8 +16,9 @@ Rails.application.routes.draw do
       get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
       delete 'logout', to: 'user_sessions#destroy'
       resources :accounts, only: %i[index create show]
-      resources :results, only: %i[index create show] do
+      resources :results, only: %i[create show] do
         member do
+          get 'last_result'
           get 'previous_results'
         end
       end

@@ -69,10 +69,6 @@ export default {
     ...mapGetters(
       'users', ['currentUser']
     ),
-    dragon_image_src() {
-      const result = this.results[0]
-        return require("../../../public/images/"  + result.dragon.image)
-    },
     filteredResults() {
       return this.filterResults();
     }

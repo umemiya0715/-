@@ -3,7 +3,7 @@
     <div class="grid grid-cols-12 gap-10 md:pt-20">
       <div class="col-start-2 col-span-10 mt-20 md:mt-0">
         <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">
-          {{ title }}
+          マイページ
         </div>
       </div>
       <div class="items-center col-start-2 col-span-10">
@@ -12,6 +12,12 @@
           @update-Settings="updateUserSettings"
           @logout="deleteUser"
         />
+        <div v-show="results" class="mb-4">
+          <UserRadar
+            :style="chartStyles"
+            :results="results"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -21,15 +27,20 @@
 import axios from 'axios';
 import { mapGetters } from 'vuex'
 import UserProfileCard from '../components/UserProfileCard';
+import UserRadar from '../components/UserRadar.vue';
 
 export default {
   components: {
     UserProfileCard,
+    UserRadar,
   },
   data() {
     return {
-      title: "マイページ",
-    };
+      results: {
+        // type: Object,
+        // required: true,
+      }
+    }
   },
   computed: {
     ...mapGetters(
@@ -38,19 +49,26 @@ export default {
     currentPath() {
       return this.$route.path
     },
+    chartStyles() {
+      return {
+        'margin-left': 'auto',
+        'margin-right': 'auto',
+        height: '510px',
+      }
+    }
   },
   watch: {
     currentPath: function() {
-      this.fetchUser()
+      this.fetchResults()
     }
   },
   mounted() {
-    this.fetchUser()
+    this.fetchResults()
   },
   methods: {
-    async fetchUser() {
-     const res = await axios.get(`/api/v1/users/${this.$route.params.twitter_id}`)
-     this.user = res.data
+    async fetchResults() {
+     const res = await axios.get(`/api/v1/results/${this.$route.params.id}/last_result`)
+     this.results = res.data
     },
     async updateUserSettings() {
       await axios.patch("/api/v1/user_settings")

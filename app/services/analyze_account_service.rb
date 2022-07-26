@@ -27,7 +27,7 @@ class AnalyzeAccountService
     end
     user_id = @user
     target_account = @target.name
-    screen_name = '@' + @target.screen_name
+    screen_name = @target.screen_name
     score = ( resultScore.sum(0.0) / resultScore.size ).floor(2)
     magnitude = ( resultMagnitude.sum(0.0) / resultMagnitude.size ).floor(2)
     troversion = CalculateTroversionService.new(@target, @tweets).call
