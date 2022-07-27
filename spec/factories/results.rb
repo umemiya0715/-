@@ -6,5 +6,6 @@ FactoryBot.define do
     score { '0.5' }
     magnitude { '0.5' }
     troversion { '0.3' }
+    screen_name { 'leviathan723' }
   end
 end
