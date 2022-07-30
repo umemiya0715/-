@@ -10,6 +10,7 @@ module Api
 
       def last_result
         @results = Result.includes(:dragon).where(screen_name: params[:id]).order(created_at: :desc).limit(2)
+        # user_idだとログインユーザー以外を対象にした診断結果も検索対象となるため、screen_nameで絞り込み
         render json: @results, include: [:dragon], status: 200
       end
 
@@ -25,7 +26,7 @@ module Api
         analyzed_result = AnalyzeAccountService.new(target, tweets, user).call
         @result = Result.new(analyzed_result)
         if @result.user_id == 0 then
-          render json: @result
+          render json: @result, status: :ok
         elsif @result.save then
           render json: @result, status: :created
         else
