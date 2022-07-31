@@ -5,4 +5,9 @@ FactoryBot.define do
     screen_name { 'user_1' }
     role { 1 }
   end
+
+  trait :new do
+    name { 'bahamut' }
+    screen_name { 'bahamut0731' }
+  end
 end
