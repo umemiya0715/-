@@ -1,6 +1,6 @@
 module Api
   module V1
-    class UserSettingsController < ApplicationController
+    class UserSettingsController < Api::V1::BaseController
       before_action :require_login, only: [:update, :destroy]
 
       def update

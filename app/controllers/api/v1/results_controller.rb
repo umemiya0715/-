@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ResultsController < ApplicationController
+    class ResultsController < Api::V1::BaseController
       before_action :set_result, only: %i[show]
 
       def previous_results

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class UserSessionsController < ApplicationController
+    class UserSessionsController < Api::V1::BaseController
       before_action :require_login, only: :destroy
 
       def destroy
