@@ -37,7 +37,7 @@ module Api
       private
 
       def set_result
-        @result = Result.find_by(id: params[:id])
+        @result = Result.find(params[:id])
       end
 
       def result_params

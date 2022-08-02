@@ -4,7 +4,7 @@ module Api
       before_action :require_login, only: :destroy
 
       def show
-        user = User.find_by(twitter_id: params[:twitter_id])
+        user = User.find_by!(twitter_id: params[:twitter_id])
         render json: user
       end
 

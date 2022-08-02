@@ -6,6 +6,7 @@ class Api::V1::BaseController < ApplicationController
   rescue_from Twitter::Error::TooManyRequests, with: :rescue_limited_twitter_requests
   rescue_from Twitter::Error::Unauthorized,
               with: :rescue_not_found_authentication
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_not_found
   rescue_from Google::Cloud::ResourceExhaustedError, with: :rescue_exhausted_error
 
   def rescue_twitter_not_found
@@ -33,6 +34,15 @@ class Api::V1::BaseController < ApplicationController
       'messages' => ['再ログインをお試しください']
     }
     render json: { error: error_json }, status: :bad_request
+  end
+
+  def rescue_not_found
+    error_json = {
+      'code' => 404,
+      'title' => 'リソースが見つかりませんでした',
+      'messages' => ['データが見つかりませんでした。アドレスを確認してください']
+    }
+    render json: { error: error_json }, status: :not_found
   end
 
   def rescue_exhausted_error
