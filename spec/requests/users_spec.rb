@@ -28,11 +28,7 @@ RSpec.describe 'Users', type: :request do
           expect(updated_user.name).to eq 'Fafnir'
           expect(updated_user.screen_name).to eq 'Fafnir'
         end
-<<<<<<< Updated upstream
-        xit 'userのJSONを返す' do
-=======
-        fit 'userのJSONを返す' do
->>>>>>> Stashed changes
+        it 'userのJSONを返す' do
           updated_user = user.reload
           expect(JSON.parse(user_json)).to include({
             'name' => updated_user.name,

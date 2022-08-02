@@ -1,6 +1,6 @@
 module Api
   module V1
-    class OauthsController < ApplicationController
+    class OauthsController < Api::V1::BaseController
       def oauth
         login_at(auth_params[:provider])
       end

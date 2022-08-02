@@ -1,10 +1,10 @@
 module Api
   module V1
-    class UsersController < ApplicationController
+    class UsersController < Api::V1::BaseController
       before_action :require_login, only: :destroy
 
       def show
-        user = User.find_by(twitter_id: params[:twitter_id])
+        user = User.find_by!(twitter_id: params[:twitter_id])
         render json: user
       end
 
