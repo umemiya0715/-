@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto py-10 text-center min-h-screen">
+  <div class="container mx-auto py-64 text-center">
     <h1 class="text-6xl py-4 font-bold text-white">
       404 Not Found
     </h1>

@@ -10,7 +10,7 @@
     <transition mode="out-in">
       <router-view />
     </transition>
-    <TheFooter class="mt-auto relative bottom-0 md:sticky" />
+    <TheFooter class="mt-auto w-full bottom-0" />
   </div>
 </template>
 

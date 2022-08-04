@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <div class="grid grid-cols-12 gap-10 my-32 md:my-12">
+    <div class="grid grid-cols-12 gap-10 ">
       <div class="col-start-2 col-span-10 md:mt-0">
         <img
           :src="top_logo_src"
