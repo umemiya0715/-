@@ -9,7 +9,7 @@
           <h3>{{ dragon.name }}</h3>
         </div>
         <div class="m-auto py-4">
-          <img class="" :src="dragon_image_src">
+          <img :src="dragon_image_src">
         </div>
         <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
           <div class="text-3xl inline font-bold border-b-2 border-white">

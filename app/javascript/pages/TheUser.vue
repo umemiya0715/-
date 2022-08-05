@@ -1,7 +1,7 @@
 <template>
-  <div class="text-center min-h-screen">
-    <div class="grid grid-cols-12 gap-10 md:pt-20">
-      <div class="col-start-2 col-span-10 mt-20 md:mt-0">
+  <div class="text-center">
+    <div class="grid grid-cols-12 gap-10 pt-10 pb-32">
+      <div class="col-start-2 col-span-10 my-10">
         <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">
           マイページ
         </div>
@@ -12,7 +12,10 @@
           @update-Settings="updateUserSettings"
           @logout="deleteUser"
         />
-        <div v-show="results" class="mb-4">
+        <div
+          v-show="results"
+          class="mt-24 mb-16"
+        >
           <UserRadar
             :style="chartStyles"
             :results="results"
