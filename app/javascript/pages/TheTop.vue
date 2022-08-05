@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
-    <div class="grid grid-cols-12 gap-10 ">
-      <div class="col-start-2 col-span-10 md:mt-0">
+    <div class="grid grid-cols-12 gap-10">
+      <div class="col-start-2 col-span-10 pt-8">
         <img
           :src="top_logo_src"
           height="1600px"
@@ -9,7 +9,7 @@
           class="inline"
         >
       </div>
-      <div class="col-start-2 col-span-10 px-10 py-20">
+      <div class="col-start-2 col-span-10 px-10 py-16">
         <ValidationObserver v-slot="{ invalid }">
           <div class="justify-center pb-16">
             <ValidationProvider

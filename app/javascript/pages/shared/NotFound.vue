@@ -1,21 +1,25 @@
 <template>
-  <div class="container mx-auto py-64 text-center">
-    <h1 class="text-6xl py-4 font-bold text-white">
-      404 Not Found
-    </h1>
-    <div class="my-10">
-      <div class="row-auto text-white">
-        <div class="text-2xl sm:text-md md:text-4xl px-3 pt-2">
-          <p>お探しのページが見つかりませんでした。</p>
-          <p>
-            一時的にアクセスができない状況にあるか
-            <br>移動もしくは削除された可能性があります。
-          </p>
-          <p>URLにお間違いがないか再度ご確認ください。</p>
-        </div>
+  <div class="text-center">
+    <div class="grid grid-cols-12 gap-10 my-32 md:my-12">
+      <div class="col-start-2 col-span-10 text-6xl font-bold text-white my-16">
+        404 Not Found
+      </div>
+      <div class="col-start-2 col-span-10 row-auto text-white text-3xl text-left my-16 sm:text-md md:text-4xl">
+        <p class="my-4">お探しのページが見つかりませんでした。</p>
+        <p class="my-4">一時的にアクセスができない状況にあるか</p>
+        <p class="my-4">移動もしくは削除された可能性があります。</p>
+        <p class="mt-4 mb-6">URLにお間違いがないか再度ご確認ください。</p>
+      </div>
+      <div class="col-start-2 col-span-10 my-12">
+        <img
+          :src="top_logo_src"
+          height="1600px"
+          width="1000px"
+          class="inline"
+        >
       </div>
     </div>
-    <div class="m-16 justify-center">
+    <div class="my-16 justify-center">
       <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
         <router-link
           to="/"
@@ -30,6 +34,11 @@
 
 <script>
 export default {
+  computed: {
+    top_logo_src() {
+      return require("../../../../public/images/topLogo.png")
+    }
+  },
   mounted() {
     document.title = "ページが見つかりません - ドラッター";
   },
