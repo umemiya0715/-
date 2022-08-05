@@ -12,7 +12,10 @@
           @update-Settings="updateUserSettings"
           @logout="deleteUser"
         />
-        <div v-show="results" class="mt-24 mb-16">
+        <div
+          v-show="results"
+          class="mt-24 mb-16"
+        >
           <UserRadar
             :style="chartStyles"
             :results="results"

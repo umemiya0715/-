@@ -5,10 +5,18 @@
         404 Not Found
       </div>
       <div class="col-start-2 col-span-10 row-auto text-white text-3xl text-left my-16 sm:text-md md:text-4xl">
-        <p class="my-4">お探しのページが見つかりませんでした。</p>
-        <p class="my-4">一時的にアクセスができない状況にあるか</p>
-        <p class="my-4">移動もしくは削除された可能性があります。</p>
-        <p class="mt-4 mb-6">URLにお間違いがないか再度ご確認ください。</p>
+        <p class="my-4">
+          お探しのページが見つかりませんでした。
+        </p>
+        <p class="my-4">
+          一時的にアクセスができない状況にあるか
+        </p>
+        <p class="my-4">
+          移動もしくは削除された可能性があります。
+        </p>
+        <p class="mt-4 mb-6">
+          URLにお間違いがないか再度ご確認ください。
+        </p>
       </div>
       <div class="col-start-2 col-span-10 my-12">
         <img
