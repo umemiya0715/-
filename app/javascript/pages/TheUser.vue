@@ -70,8 +70,13 @@ export default {
   },
   methods: {
     async fetchResults() {
-     const res = await axios.get(`/api/v1/results/${this.$route.params.id}/last_result`)
-     this.results = res.data
+     await axios.get(`/api/v1/results/${this.$route.params.id}/last_result`)
+       .then(res => {
+        this.results = res.data
+       })
+       .catch(err => {
+        console.log(err.response)
+       })
     },
     async updateUserSettings() {
       await axios.patch("/api/v1/user_settings")
