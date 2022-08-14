@@ -153,7 +153,7 @@ export default {
       'dragons', ['dragons']
     ),
     ...mapGetters(
-      'users', ['currentUser' , 'isAuthenticatedUser']
+      'users', ['currentUser']
     ),
     top_logo_src() {
       return require("../../../public/images/topLogo.png")

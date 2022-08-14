@@ -55,9 +55,6 @@ import { mapGetters } from 'vuex'
 import dayjs from 'dayjs';
 
 export default {
-  name: "PreviousResults",
-  components: {
-  },
   data() {
     return {
       title: "過去の診断結果",

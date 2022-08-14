@@ -65,7 +65,6 @@
 
 <script>
 export default {
-  name: "UserProfileCard",
   props: {
     user: {
       type: Object,

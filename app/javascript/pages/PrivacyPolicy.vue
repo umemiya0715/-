@@ -118,7 +118,6 @@
 
 <script>
 export default {
-  name: "PrivacyPolicy",
   data() {
     return {
     }

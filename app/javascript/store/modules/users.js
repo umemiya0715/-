@@ -6,7 +6,6 @@ const state = {
 
 const getters = {
   currentUser: state => state.currentUser,
-  isAuthenticatedUser: state => !!state.currentUser
 }
 
 const mutations = {
@@ -22,20 +21,10 @@ const actions = {
         commit("setCurrentUser", res.data)
     })
   },
-  async updateCurrentUser({ commit }){
-    await axios.patch("/v1/user_settings")
-    .then(res => {
-      commit("setCurrentUser", res.data, { root: true})
-    })
-  },
   async logoutUser({ commit }) {
     await axios.delete("../../api/v1/logout")
     commit("setCurrentUser", null)
   },
-  async deleteCurrentUser({ commit }) {
-    await axios.delete("/v1/user_settings")
-    commit("setCurrentUser", null)
-  }
 }
 
 export default {

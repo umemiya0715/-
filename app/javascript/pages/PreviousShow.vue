@@ -73,7 +73,6 @@ import axios from 'axios';
 import PreviousRadar from '../components/PreviousRadar.vue'
 
 export default {
-  name: "PreviousShow",
   components: {
     PreviousRadar
   },
