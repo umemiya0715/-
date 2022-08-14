@@ -5,6 +5,8 @@
     <%= csp_meta_tag %>
     <%= display_meta_tags(default_meta_tags)%>
     <%= favicon_link_tag('/favicon.ico') %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
