@@ -8,9 +8,6 @@ module Api
         render json: dragon
       end
 
-      def index
-      end
-
       private
 
       def set_dragon
