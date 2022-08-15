@@ -12,11 +12,6 @@ module Api
         render json: current_user
       end
 
-      def edit; end
-
-      def update; end
-
-      def destroy; end
     end
   end
 end
