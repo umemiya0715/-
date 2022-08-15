@@ -27,9 +27,11 @@
               </span>
             </ValidationProvider>
           </div>
-          <SpinnerModal
-            :is-visible-spinner-modal="isVisibleSpinnerModal"
-          />
+          <transition name="spinner">
+            <SpinnerModal
+              :is-visible-spinner-modal="isVisibleSpinnerModal"
+            />
+          </transition>
           <div
             v-show="currentUser === null"
             class="my-32 justify-center"
@@ -79,6 +81,7 @@
             </button>
           </div>
         </ValidationObserver>
+        <TwitterLink />
       </div>
     </div>
   </div>
@@ -88,10 +91,12 @@
 import axios from 'axios'
 import { mapGetters } from 'vuex'
 import SpinnerModal from '../components/SpinnerModal.vue';
+import TwitterLink from '../components/TwitterLink.vue';
 
 export default {
   components: {
-    SpinnerModal
+    SpinnerModal,
+    TwitterLink,
   },
   data() {
     return {

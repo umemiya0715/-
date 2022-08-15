@@ -1,10 +1,9 @@
 <template>
   <div
-    v-show="isVisibleSpinnerModal"
+    v-if="isVisibleSpinnerModal"
     class="relative z-10"
   >
-    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
-    </div>
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
     <div class="fixed z-10 inset-0 overflow-y-auto">
       <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
         <div class="relative rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
