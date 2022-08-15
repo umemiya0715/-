@@ -4,7 +4,7 @@
     :style="{ backgroundImage: 'url(' + image_src + ')' }"
   >
     <TheHeader class="mb-auto sticky top-0 z-10" />
-    <transition>
+    <transition name="fade">
       <TheFlash v-if="flash.message" />
     </transition>
     <transition mode="out-in">

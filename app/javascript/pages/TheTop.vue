@@ -27,12 +27,16 @@
               </span>
             </ValidationProvider>
           </div>
+          <transition name="spinner">
+            <SpinnerModal
+              :is-visible-spinner-modal="isVisibleSpinnerModal"
+            />
+          </transition>
           <div
             v-show="currentUser === null"
             class="my-32 justify-center"
           >
             <button
-              v-show="!isLoading"
               :disabled="invalid"
               class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
               @click="startAnalysis(targetAccount)"
@@ -41,28 +45,12 @@
                 診断する
               </p>
             </button>
-            <button
-              v-show="isLoading"
-              :disabled="invalid"
-              class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
-            >
-              <div class="bg-red-500 hover:bg-red-700 rounded px-12 h-28 justify-between items-center flex">
-                <spinner
-                  :size="30"
-                  color="#ffffff"
-                />
-                <p class="text-white font-bold text-4xl ">
-                  診断中‥
-                </p>
-              </div>
-            </button>
           </div>
           <div
             v-show="currentUser !== null"
             class="my-32 flex justify-between"
           >
             <button
-              v-show="!isLoading"
               :disabled="invalid"
               class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
               @click="startAnalysis(targetAccount)"
@@ -72,43 +60,12 @@
               </p>
             </button>
             <button
-              v-show="isLoading"
-              :disabled="invalid"
-              class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
-            >
-              <div class="bg-red-500 hover:bg-red-700 rounded h-28 px-12 justify-between items-center flex">
-                <spinner
-                  :size="30"
-                  color="#ffffff"
-                />
-                <p class="text-white font-bold text-4xl ">
-                  診断中‥
-                </p>
-              </div>
-            </button>
-            <button
-              v-show="!isLoading"
               class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
               @click="analyzeMyself"
             >
               <p class="bg-red-500 hover:bg-red-700 text-white font-bold text-3xl rounded h-28 justify-center items-center flex">
                 自分のアカウント<br>で診断する
               </p>
-            </button>
-            <button
-              v-show="isLoading"
-              :disabled="invalid"
-              class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
-            >
-              <div class="bg-red-500 hover:bg-red-700 rounded h-28 px-12 justify-between items-center flex">
-                <spinner
-                  :size="30"
-                  color="#ffffff"
-                />
-                <p class="text-white font-bold text-4xl ">
-                  診断中‥
-                </p>
-              </div>
             </button>
           </div>
           <div class="my-32 justify-center">
@@ -124,6 +81,7 @@
             </button>
           </div>
         </ValidationObserver>
+        <TwitterLink />
       </div>
     </div>
   </div>
@@ -132,17 +90,19 @@
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex'
-import Spinner from 'vue-spinner-component/src/Spinner.vue';
+import SpinnerModal from '../components/SpinnerModal.vue';
+import TwitterLink from '../components/TwitterLink.vue';
 
 export default {
   components: {
-    Spinner
+    SpinnerModal,
+    TwitterLink,
   },
   data() {
     return {
       targetAccount: "",
-      isLoading: false,
       user_id: "",
+      isVisibleSpinnerModal: false,
     }
   },
   computed: {
@@ -169,19 +129,19 @@ export default {
     async startAnalysis() {
       const target_account = this.targetAccount
       const user_id = (this.currentUser !== null) ? this.currentUser.id : 0
-      this.isLoading = true
+      this.isVisibleSpinnerModal = true
       await axios.post('/api/v1/results', {
         target_account: target_account,
         user_id: user_id
       })
         .then(res => {
           this.$store.commit("results/setResult", res.data),
-          this.isLoading = false,
+          this.isVisibleSpinnerModal = false,
           this.$router.push('/result')
         })
         .catch(error => {
           console.log(error.response)
-          this.isLoading = false
+          this.isVisibleSpinnerModal = false
           this.$store.dispatch('flash/fetchFlash', {
             type: 'alert',
             message: error.response.data.error.title
@@ -191,28 +151,39 @@ export default {
     async analyzeMyself() {
       const target_account = this.currentUser.screen_name
       const user_id = (this.currentUser !== null) ? this.currentUser.id : 0
-      this.isLoading = true
+      this.isVisibleSpinnerModal = true
       await axios.post('/api/v1/results', {
         target_account: target_account,
         user_id: user_id
       })
         .then(res => {
           this.$store.commit("results/setResult", res.data),
-          this.isLoading = false,
+          this.isVisibleSpinnerModal = false,
           this.$router.push('/result')
         })
         .catch(error => {
           console.log(error.response)
-          this.isLoading = false
+          this.isVisibleSpinnerModal = false
           this.$store.dispatch('flash/fetchFlash', {
             type: 'alert',
             message: error.response.data.error.title
           })
         })
     },
+    openSpinnerModal() {
+      this.isVisibleSpinnerModal = true;
+    },
   },
 }
 </script>
 
 <style scoped>
+.spinner-enter-active,
+.spinner-fade-leave-active {
+    transition: opacity .3s ease;
+}
+.spinner-fade-enter,
+.spinner-fade-leave-to {
+    opacity: 0;
+}
 </style>
