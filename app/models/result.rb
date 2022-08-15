@@ -1,5 +1,5 @@
 class Result < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
   belongs_to :dragon
 
   validates :user_id, presence: true
