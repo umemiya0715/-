@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'has_many :results' do
-      is_expected.to have_many(:results)
+      is_expected.to have_many(:results).dependent(:destroy)
     end
   end
 

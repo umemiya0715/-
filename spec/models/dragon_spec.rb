@@ -18,8 +18,12 @@ RSpec.describe Dragon, type: :model do
       is_expected.to validate_presence_of(:personality)
     end
 
-    it 'personality: advice' do
+    it 'advice: presence' do
       is_expected.to validate_presence_of(:advice)
+    end
+
+    it 'affinity: presence' do
+      is_expected.to validate_presence_of(:affinity)
     end
   end
 end

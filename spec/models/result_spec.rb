@@ -12,6 +12,10 @@ RSpec.describe Result, type: :model do
       is_expected.to validate_presence_of(:target_account)
     end
 
+    it 'screen_name: presence' do
+      is_expected.to validate_presence_of(:screen_name)
+    end
+
     it 'score: presence' do
       is_expected.to validate_presence_of(:score)
     end
