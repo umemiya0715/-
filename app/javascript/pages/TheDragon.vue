@@ -3,46 +3,46 @@
     <div class="grid grid-cols-12 gap-10 pt-20">
       <div
         v-if="dragon"
-        class="text-center text-white col-start-2 col-span-10 px-10 pb-10 mx-auto"
+        class="col-span-10 col-start-2 mx-auto px-10 pb-10 text-center text-white"
       >
-        <div class="text-6xl font-bold border-b-8 border-white">
+        <div class="border-b-8 border-white text-6xl font-bold">
           <h3>{{ dragon.name }}</h3>
         </div>
         <div class="m-auto py-4">
           <img :src="dragon_image_src">
         </div>
-        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
-          <div class="text-3xl inline font-bold border-b-2 border-white">
+        <div class="m-4 mx-4 rounded-md border-4 border-white p-4 font-bold">
+          <div class="inline border-b-2 border-white text-3xl font-bold">
             性格
           </div>
-          <div class="text-3xl m-4">
+          <div class="m-4 text-3xl">
             {{ dragon.explanation }}
           </div>
-          <div class="text-2xl m-4 text-left">
+          <div class="m-4 text-left text-2xl">
             {{ dragon.personality }}
           </div>
         </div>
-        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
-          <div class="text-3xl inline font-bold border-b-2 border-white">
+        <div class="m-4 mx-4 rounded-md border-4 border-white p-4 font-bold">
+          <div class="inline border-b-2 border-white text-3xl font-bold">
             アドバイス
           </div>
-          <div class="text-2xl m-4 text-left">
+          <div class="m-4 text-left text-2xl">
             {{ dragon.advice }}
           </div>
         </div>
-        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
-          <div class="text-3xl inline font-bold border-b-2 border-white">
+        <div class="m-4 mx-4 rounded-md border-4 border-white p-4 font-bold">
+          <div class="inline border-b-2 border-white text-3xl font-bold">
             相性のいいドラゴン
           </div>
-          <div class="text-2xl m-4 text-left">
+          <div class="m-4 text-left text-2xl">
             {{ dragon.affinity }}
           </div>
         </div>
       </div>
     </div>
-    <div class="p-4 pb-20 mx-auto">
-      <button class="bg-red-400 hover:bg-red-600 rounded p-1 w-72">
-        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">
+    <div class="mx-auto p-4 pb-20">
+      <button class="w-72 rounded bg-red-400 p-1 hover:bg-red-600">
+        <div class="rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700">
           <router-link to="/">
             診断してみる
           </router-link>

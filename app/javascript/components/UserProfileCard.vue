@@ -1,13 +1,13 @@
 <template>
-  <div class="w-full mx-auto bg-white shadow-md rounded-md px-6 py-4 my-12">
-    <div class="sm:flex justify-left py-4">
+  <div class="mx-auto my-12 w-full rounded-md bg-white px-6 py-4 shadow-md">
+    <div class="py-4 sm:flex">
       <div class="flex items-center">
         <img
           class="h-20 w-20 rounded-full"
           :src="user.image"
         >
         <div class="ml-4 text-left">
-          <h3 class="text-3xl text-gray-800 font-medium">
+          <h3 class="text-3xl font-medium text-gray-800">
             {{ user.name }}
           </h3>
           <h3 class="text-3xl text-gray-600">
@@ -16,20 +16,20 @@
         </div>
       </div>
     </div>
-    <div class="text-2xl pt-4 border-t-2">
+    <div class="border-t-2 pt-4 text-2xl">
       次のボタンを押すとTwitterの最新プロフィールに更新されます
     </div>
-    <div class="flex flex-row justify-center items-center my-4">
+    <div class="my-4 flex flex-row items-center justify-center">
       <button
-        class="bg-blue-300 hover:bg-blue-600 rounded p-1"
+        class="rounded bg-blue-300 p-1 hover:bg-blue-600"
         @click="updateUserSettings"
       >
-        <div class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 px-4 rounded">
+        <div class="bg-twitterBlue rounded p-4 text-2xl font-bold text-white hover:bg-blue-700">
           <i class="ri-restart-line mx-2" />ユーザー情報を更新する
         </div>
       </button>
     </div>
-    <div class="flex flex-row justify-center items-center text-2xl pt-4 border-t-2">
+    <div class="flex flex-row items-center justify-center border-t-2 pt-4 text-2xl">
       <input
         v-model="checkbox"
         type="checkbox"
@@ -41,21 +41,21 @@
     <div class="my-4">
       <button
         v-if="checkbox"
-        class="bg-red-400 hover:bg-red-600 rounded p-1"
+        class="rounded bg-red-400 p-1 hover:bg-red-600"
         :disabled="!checkbox"
         @click="logoutUser"
       >
-        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">
+        <div class="rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700">
           退会する
         </div>
       </button>
       <button
         v-if="!checkbox"
-        class="bg-red-400 hover:bg-red-600 rounded p-1 cursor-not-allowed opacity-50"
+        class="cursor-not-allowed rounded bg-red-400 p-1 opacity-50 hover:bg-red-600"
         :disabled="!checkbox"
         @click="logoutUser"
       >
-        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">
+        <div class="rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700">
           退会する
         </div>
       </button>

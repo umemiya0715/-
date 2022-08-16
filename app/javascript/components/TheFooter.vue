@@ -1,12 +1,12 @@
 <template>
   <footer>
-    <div class="text-white bg-navGray w-full py-4">
-      <div class="max-w-screen-xl mx-auto p-4">
-        <ul class="max-w-screen-md mx-auto text-2xl font-light flex justify-center">
+    <div class="bg-navGray w-full py-4 text-white">
+      <div class="mx-auto max-w-screen-xl p-4">
+        <ul class="mx-auto flex max-w-screen-md justify-center text-2xl font-light">
           <li class="my-2 px-4">
             <router-link
               to="/term"
-              class="p-2 lg:px-4 md:mx-2 text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+              class="rounded border border-transparent p-2 text-center transition-colors duration-300 hover:bg-red-100 hover:text-red-700 md:mx-2 lg:px-4"
             >
               利用規約
             </router-link>
@@ -14,7 +14,7 @@
           <li class="my-2 px-4">
             <router-link
               to="/privacypolicy"
-              class="p-2 lg:px-4 md:mx-2 text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+              class="rounded border border-transparent p-2 text-center transition-colors duration-300 hover:bg-red-100 hover:text-red-700 md:mx-2 lg:px-4"
             >
               プライバシーポリシー
             </router-link>
@@ -22,21 +22,13 @@
           <li class="my-2 px-4">
             <a
               href="https://twitter.com/Umesho0415"
-              class="p-2 rounded text-white hover:bg-twitterBlue"
+              class="hover:bg-twitterBlue rounded p-2 text-white"
             >
               お問い合わせ
             </a>
           </li>
-          <!-- <li class="my-2 px-4">
-            <a
-              href="https://twitter.com"
-              class="p-2 rounded text-white hover:bg-twitterBlue"
-            >
-              <i class="ri-twitter-fill" />
-            </a>
-          </li> -->
         </ul>
-        <div class="text-center text-xl p-2 font-light flex items-center justify-center">
+        <div class="flex items-center justify-center p-2 text-center text-xl font-light">
           ©2022 Dratter
         </div>
       </div>

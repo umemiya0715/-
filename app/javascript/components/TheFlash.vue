@@ -2,13 +2,13 @@
   <div>
     <div
       v-if="flash.type == 'info'"
-      class="bg-green-100 border border-green-400 text-green-700 text-xl px-4 py-3 rounded fixed top-24 w-full"
+      class="fixed top-24 w-full rounded border border-green-400 bg-green-100 px-4 py-3 text-xl text-green-700"
     >
       {{ flash.message }}
     </div>
     <div
       v-if="flash.type == 'alert'"
-      class="bg-red-100 border border-red-400 text-red-700 text-xl px-4 py-3 rounded fixed top-24 w-full"
+      class="fixed top-24 w-full rounded border border-red-400 bg-red-100 px-4 py-3 text-xl text-red-700"
     >
       {{ flash.message }}
     </div>

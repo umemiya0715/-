@@ -3,10 +3,10 @@
     <div
       v-if="currentUser"
       v-show="isVisibleHeaderMenu"
-      class="flex flex-col mt-3 justify-between"
+      class="mt-3 flex flex-col justify-between"
     >
       <button
-        class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+        class="rounded border border-transparent p-2 text-center text-2xl transition-colors duration-300 hover:bg-red-100 hover:text-red-700 lg:px-4"
         @click="closeHeaderMenu"
       >
         <router-link :to="`/users/${currentUser.screen_name}`">
@@ -14,7 +14,7 @@
         </router-link>
       </button>
       <button
-        class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+        class="rounded border border-transparent p-2 text-center text-2xl transition-colors duration-300 hover:bg-red-100 hover:text-red-700 lg:px-4"
         @click="closeHeaderMenu"
       >
         <router-link to="/previous">
@@ -22,7 +22,7 @@
         </router-link>
       </button>
       <button
-        class="p-2 lg:px-4 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+        class="rounded border border-transparent p-2 text-center text-2xl transition-colors duration-300 hover:bg-red-100 hover:text-red-700 lg:px-4"
         @click="logout"
       >
         ログアウト
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters　} from "vuex"
+import { mapGetters } from "vuex"
 
 export default {
   props: {

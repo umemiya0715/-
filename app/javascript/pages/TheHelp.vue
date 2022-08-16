@@ -1,17 +1,17 @@
 <template>
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
-      <div class="text-center text-black bg-white rounded col-start-2 col-span-10 p-4">
-        <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
+      <div class="col-span-10 col-start-2 rounded bg-white p-4 text-center text-black">
+        <div class="border-twitterBlue mt-4 mb-10 inline-block border-b-8 p-2 text-4xl font-bold">
           ドラッターって何？
         </div>
-        <p class="text-3xl p-4 text-left">
+        <p class="p-4 text-left text-3xl">
           最近のTwitterの運用方法について振り返ることができるアプリです。
         </p>
       </div>
 
-      <div class="text-center text-black bg-white rounded col-start-2 col-span-10 p-4">
-        <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
+      <div class="col-span-10 col-start-2 rounded bg-white p-4 text-center text-black">
+        <div class="border-twitterBlue mt-4 mb-10 inline-block border-b-8 p-2 text-4xl font-bold">
           使い方
         </div>
         <div
@@ -19,7 +19,7 @@
           :key="index"
           class="flex"
         >
-          <div class="text-3xl text-left p-4">
+          <div class="p-4 text-left text-3xl">
             {{ description.text }}
           </div>
           <img
@@ -31,11 +31,11 @@
         </div>
       </div>
 
-      <div class="text-center text-black bg-white rounded col-start-2 col-span-10 p-4">
-        <div class="text-4xl inline-block p-2 font-bold border-b-8 border-twitterBlue mt-4 mb-10">
+      <div class="col-span-10 col-start-2 rounded bg-white p-4 text-center text-black">
+        <div class="border-twitterBlue mt-4 mb-10 inline-block border-b-8 p-2 text-4xl font-bold">
           何でドラゴン？
         </div>
-        <div class="text-3xl text-left p-4">
+        <div class="p-4 text-left text-3xl">
           <p>ドラゴン(竜・龍）は伝説上の生き物で、人間の想像力が生み出した存在です。</p>
           <p>西洋では悪や力の化身であり征服されるものとして、東洋では神や自然の象徴として畏怖される存在として、古来から人の歴史と共に歩んできました。</p>
           <p>今現在でも様々なファンタジー小説やゲームなどに登場し、花形として人気のあるキャラクターです。</p>
@@ -47,10 +47,10 @@
       </div>
     </div>
     <div class="m-16 justify-center">
-      <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+      <button class=" rounded bg-red-400 p-1 hover:bg-red-600">
         <router-link
           to="/"
-          class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center"
+          class="inline-flex justify-center rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700"
         >
           トップページに戻る
         </router-link>

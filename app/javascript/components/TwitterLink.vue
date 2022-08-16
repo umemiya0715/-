@@ -1,6 +1,6 @@
 <template>
-  <div class="fixed z-10 bottom-8 right-8 overflow-y-auto">
-    <div class="rounded-full w-16 h-16 bg-twitterBlue  hover:bg-blue-700 flex justify-center items-center text-white">
+  <div class="fixed bottom-8 right-8 z-10 overflow-y-auto">
+    <div class="bg-twitterBlue flex h-16 w-16  items-center justify-center rounded-full text-white hover:bg-blue-700">
       <a
         href="https://twitter.com"
         target="_blank"

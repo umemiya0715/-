@@ -1,22 +1,22 @@
 <template>
   <header>
-    <nav class="w-full text-gray-100 bg-navGray py-2">
-      <div class="px-12 mx-auto items-center">
-        <div class="flex justify-between items-center">
+    <nav class="bg-navGray w-full py-2 text-gray-100">
+      <div class="mx-auto items-center px-12">
+        <div class="flex items-center justify-between">
           <router-link
             to="/"
-            class="flex justify-center items-center"
+            class="flex items-center justify-center"
           >
             <img
               :src="logo_src"
               width="120px"
             >
           </router-link>
-          <div class="item">
+          <div>
             <a
               v-if="!currentUser"
               href="/api/v1/oauth/twitter"
-              class="px-2 lg:px-4 md:mx-2 text-2xl text-center border border-transparent rounded hover:bg-red-100 hover:text-red-700 transition-colors duration-300"
+              class="rounded border border-transparent px-2 text-center text-2xl transition-colors duration-300 hover:bg-red-100 hover:text-red-700 md:mx-2 lg:px-4"
             >
               Twitter認証によるユーザー登録
             </a>
@@ -26,7 +26,7 @@
               <img
                 v-if="currentUser"
                 :src="currentUser.image"
-                class="border-2 rounded-full w-16 h-16"
+                class="h-16 w-16 rounded-full border-2"
               >
             </button>
           </div>
