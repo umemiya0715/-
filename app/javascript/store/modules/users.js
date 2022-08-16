@@ -16,11 +16,18 @@ const mutations = {
 }
 
 const actions = {
-  getCurrentUser({ commit }) {
+  getCurrentUser({ commit, state }) {
+    const { currentUser } = state
+    if (currentUser) {
+      return currentUser
+    }
     axios.get("/api/v1/users/me")
       .then(res => {
         commit("setCurrentUser", res.data)
-    })
+      })
+      .catch(err => {
+        return null
+      })
   },
   async updateCurrentUser({ commit }){
     await axios.patch("/v1/user_settings")
