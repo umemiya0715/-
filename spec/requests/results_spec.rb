@@ -6,7 +6,7 @@ RSpec.describe 'Results', type: :request do
     let!(:red_dragon) { create(:dragon, :red) }
     before do
       login_as(user)
-      create_list(:result, 5, user_id: 23, dragon_id: 1 )
+      create_list(:result, 5, user_id: 23, dragon_id: 1)
       get "/api/v1/results/#{user.id}/previous_results"
     end
     it '200 OKを返す' do
@@ -18,14 +18,14 @@ RSpec.describe 'Results', type: :request do
   end
 
   describe 'GET /api/v1/results/:id/last_result' do
-    let(:user) { create(:user, screen_name: 'Quetzalcoatl') }
+    let(:user) { create(:user, id: 23, screen_name: 'Quetzalcoatl') }
     let!(:red_dragon) { create(:dragon, :red) }
     before do
       login_as(user)
-      create_list(:result, 5, screen_name: 'Quetzalcoatl', dragon_id: 1 )
+      create_list(:result, 5, user_id: 23, dragon_id: 1, screen_name: 'Quetzalcoatl')
       get "/api/v1/results/#{user.screen_name}/last_result"
     end
-    it '200　OKを返す' do
+    it '200 OKを返す' do
       expect(response.status).to eq 200
     end
     it '最新の診断結果とその一つ前の診断結果を返す' do
@@ -34,8 +34,9 @@ RSpec.describe 'Results', type: :request do
   end
 
   describe 'GET /api/v1/results/:id' do
+    let!(:user) { create(:user, id: 23) }
     let!(:red_dragon) { create(:dragon, :red) }
-    let!(:result) { create(:result, id: 666, dragon_id: 1) }
+    let!(:result) { create(:result, id: 666, user_id: 23, dragon_id: 1) }
     before do
       get "/api/v1/results/#{result.id}"
     end
