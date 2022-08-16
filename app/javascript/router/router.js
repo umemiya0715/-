@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import VueGtag from 'vue-gtag';
 
+import store from '../store';
 import Top from '../pages/TheTop.vue';
 import Help from '../pages/TheHelp.vue';
 import Term from '../pages/TheTerm.vue';
@@ -52,16 +53,19 @@ const router = new Router({
       path: "/users/:id",
       component: User,
       name: "User",
+      meta: { requiredLogin: true }
     },
     {
       path: "/previous",
       component: PreviousResults,
       name: "PreviousResults",
+      meta: { requiredLogin: true }
     },
     {
       path: "/previous/:id",
       component: PreviousShow,
       name: "PreviousShow",
+      meta: { requiredLogin: true }
     },
     {
       name: "NotFound",
@@ -73,6 +77,19 @@ const router = new Router({
   scrollBehavior(to, from, savedPosition){
     return { x: 0, y: 0}
   },
+})
+
+router.beforeEach((to, _from, next) => {
+  store.dispatch("users/getCurrentUser").then(currentUser => {
+    if (to.matched.some(record => record.meta.requiredLogin) && !currentUser) {
+      store.dispatch("flash/fetchFlash", {
+        type: "alert",
+        message: "ログインしてください"
+      })
+      return next({ name: "Top" })
+    }
+    return next()
+  })
 })
 
 Vue.use(
@@ -88,4 +105,5 @@ router.afterEach((to, from) => {
   if (location.origin.includes('https://www.dragon-twitter-analysis.com'))
   gtag('config', 'G-KGY5NNL00D', { 'page_path': to.path });
 })
+
 export default router
