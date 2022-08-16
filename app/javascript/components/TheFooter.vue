@@ -27,14 +27,14 @@
               お問い合わせ
             </a>
           </li>
-          <li class="my-2 px-4">
+          <!-- <li class="my-2 px-4">
             <a
               href="https://twitter.com"
               class="p-2 rounded text-white hover:bg-twitterBlue"
             >
               <i class="ri-twitter-fill" />
             </a>
-          </li>
+          </li> -->
         </ul>
         <div class="text-center text-xl p-2 font-light flex items-center justify-center">
           ©2022 Dratter

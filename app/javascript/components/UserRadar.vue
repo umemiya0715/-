@@ -91,20 +91,19 @@ export default {
   },
   watch: {
     results: function() {
-      this.adjustData(),
+      this.adjustLatestData(),
+      this.adjustFormerData(),
       this.renderChart(this.chartData, this.chartOptions)
     }
   },
-  // mounted(){
-  //   this.adjustData(),
-  //   this.renderChart(this.chartData, this.chartOptions)
-  // },
   methods: {
-    adjustData() {
+    adjustLatestData() {
       let latestScore = this.adjustScore(this.results[0].score)
       let latestMagnitude = this.adjustMagnitude(this.results[0].magnitude)
       let latestTroversion = this.adjustTroversion(this.results[0].troversion)
       this.latestResult = [ latestScore, latestMagnitude, latestTroversion ];
+    },
+    adjustFormerData(){
       let formerScore = this.adjustScore(this.results[1].score)
       let formerMagnitude = this.adjustMagnitude(this.results[1].magnitude)
       let formerTroversion = this.adjustTroversion(this.results[1].troversion)
