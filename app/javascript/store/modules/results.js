@@ -25,9 +25,6 @@ const actions = {
       })
       .catch(err => {
         return err.response.status
-        // switch (err.response.status) {
-        //   case 500:
-        // }
       });
   },
 }

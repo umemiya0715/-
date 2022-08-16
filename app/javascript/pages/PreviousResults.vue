@@ -1,36 +1,36 @@
 <template>
-  <div class="text-center min-h-screen">
+  <div class="min-h-screen text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20">
-      <div class="col-start-2 col-span-10 mt-20 md:mt-0">
-        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">
+      <div class="col-span-10 col-start-2 mt-20 md:mt-0">
+        <div class="inline border-b-8 border-white p-2 text-3xl font-bold text-white md:text-4xl">
           {{ title }}
         </div>
       </div>
-      <div class="col-start-2 col-span-10 mt-5 ">
+      <div class="col-span-10 col-start-2 mt-5 ">
         <input
           v-model="keyword"
-          class="h-12 bg-gray-100 text-2xl p-2 rounded-lg border-4 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full"
+          class="h-12 w-full rounded-lg border-4 border-indigo-500 bg-gray-100 p-2 text-2xl shadow-md focus:border-indigo-600 focus:outline-none"
           placeholder="検索したいワードを入力"
         >
       </div>
-      <div class="items-center col-start-2 col-span-10">
+      <div class="col-span-10 col-start-2 items-center">
         <div
           v-for="result in filteredResults"
           :key="result.id"
-          class="w-full mx-auto bg-white hover:bg-gray-200 shadow-md rounded-md my-12"
+          class="mx-auto my-12 w-full rounded-md bg-white shadow-md hover:bg-gray-200"
         >
           <router-link :to="`/previous/${result.id}`">
-            <div class="sm:flex justify-left px-4 py-6">
+            <div class="px-4 py-6 sm:flex">
               <div class="flex items-center">
                 <img
                   class="h-24 w-24"
                   :src="'../images/' + result.dragon.image"
                 >
                 <div class="ml-4 text-left">
-                  <h3 class="text-3xl text-gray-800 font-medium">
+                  <h3 class="text-3xl font-medium text-gray-800">
                     {{ result.target_account }}
                   </h3>
-                  <h3 class="text-3xl text-gray-800 font-medium">
+                  <h3 class="text-3xl font-medium text-gray-800">
                     {{ result.dragon.name }}
                   </h3>
                   <h3 class="text-3xl text-gray-800">
@@ -55,9 +55,6 @@ import { mapGetters } from 'vuex'
 import dayjs from 'dayjs';
 
 export default {
-  name: "PreviousResults",
-  components: {
-  },
   data() {
     return {
       title: "過去の診断結果",

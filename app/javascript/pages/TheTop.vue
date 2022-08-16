@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10">
-      <div class="col-start-2 col-span-10 pt-8">
+      <div class="col-span-10 col-start-2 pt-8">
         <img
           :src="top_logo_src"
           height="1600px"
@@ -9,7 +9,7 @@
           class="inline"
         >
       </div>
-      <div class="col-start-2 col-span-10 px-10 py-16">
+      <div class="col-span-10 col-start-2 px-10 py-16">
         <ValidationObserver v-slot="{ invalid }">
           <div class="justify-center pb-16">
             <ValidationProvider
@@ -19,7 +19,7 @@
               <input
                 v-model="targetAccount"
                 type="text"
-                class=" h-20 bg-gray-100 text-4xl p-2 rounded-lg border-4 border-indigo-500 shadow-md focus:outline-none focus:border-indigo-600 w-full"
+                class=" h-20 w-full rounded-lg border-4 border-indigo-500 bg-gray-100 p-2 text-4xl shadow-md focus:border-indigo-600 focus:outline-none"
                 placeholder="idを入力"
               >
               <span class="block p-4 text-3xl text-white">
@@ -38,10 +38,10 @@
           >
             <button
               :disabled="invalid"
-              class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
+              class="w-72 rounded bg-red-400 p-1 hover:bg-red-600"
               @click="startAnalysis(targetAccount)"
             >
-              <p class="bg-red-500 hover:bg-red-700 text-white font-bold text-4xl rounded h-28 justify-center items-center flex">
+              <p class="flex h-28 items-center justify-center rounded bg-red-500 text-4xl font-bold text-white hover:bg-red-700">
                 診断する
               </p>
             </button>
@@ -52,28 +52,28 @@
           >
             <button
               :disabled="invalid"
-              class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
+              class="w-72 rounded bg-red-400 p-1 hover:bg-red-600"
               @click="startAnalysis(targetAccount)"
             >
-              <p class="bg-red-500 hover:bg-red-700 text-white font-bold text-3xl rounded h-28 justify-center items-center flex">
+              <p class="flex h-28 items-center justify-center rounded bg-red-500 text-3xl font-bold text-white hover:bg-red-700">
                 IDを入力して<br>診断する
               </p>
             </button>
             <button
-              class="bg-red-400 hover:bg-red-600 rounded p-1 w-72"
+              class="w-72 rounded bg-red-400 p-1 hover:bg-red-600"
               @click="analyzeMyself"
             >
-              <p class="bg-red-500 hover:bg-red-700 text-white font-bold text-3xl rounded h-28 justify-center items-center flex">
+              <p class="flex h-28 items-center justify-center rounded bg-red-500 text-3xl font-bold text-white hover:bg-red-700">
                 自分のアカウント<br>で診断する
               </p>
             </button>
           </div>
           <div class="my-32 justify-center">
-            <button class=" bg-red-400 hover:bg-red-600 rounded p-1 w-72">
-              <div class="bg-red-500 hover:bg-red-700 rounded h-28 justify-center items-center flex">
+            <button class=" w-72 rounded bg-red-400 p-1 hover:bg-red-600">
+              <div class="flex h-28 items-center justify-center rounded bg-red-500 hover:bg-red-700">
                 <router-link
                   to="/help"
-                  class=" text-white font-bold text-4xl"
+                  class=" text-4xl font-bold text-white"
                 >
                   使い方
                 </router-link>
@@ -113,7 +113,7 @@ export default {
       'dragons', ['dragons']
     ),
     ...mapGetters(
-      'users', ['currentUser' , 'isAuthenticatedUser']
+      'users', ['currentUser']
     ),
     top_logo_src() {
       return require("../../../public/images/topLogo.png")

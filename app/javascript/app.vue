@@ -1,16 +1,16 @@
 <template>
   <div
-    class="d-flex flex-column bg-cover bg-fixed bg-center"
+    class="bg-cover bg-fixed bg-center"
     :style="{ backgroundImage: 'url(' + image_src + ')' }"
   >
-    <TheHeader class="mb-auto sticky top-0 z-10" />
+    <TheHeader class="sticky top-0 z-10 mb-auto" />
     <transition name="fade">
       <TheFlash v-if="flash.message" />
     </transition>
     <transition mode="out-in">
       <router-view />
     </transition>
-    <TheFooter class="mt-auto w-full bottom-0" />
+    <TheFooter class="bottom-0 mt-auto w-full" />
   </div>
 </template>
 

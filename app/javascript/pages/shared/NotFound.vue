@@ -1,10 +1,10 @@
 <template>
   <div class="text-center">
-    <div class="grid grid-cols-12 gap-10 my-32 md:my-12">
-      <div class="col-start-2 col-span-10 text-6xl font-bold text-white my-16">
+    <div class="my-32 grid grid-cols-12 gap-10 md:my-12">
+      <div class="col-span-10 col-start-2 my-16 text-6xl font-bold text-white">
         404 Not Found
       </div>
-      <div class="col-start-2 col-span-10 row-auto text-white text-3xl text-left my-16 sm:text-md md:text-4xl">
+      <div class="col-span-10 col-start-2 row-auto my-16 text-left text-3xl text-white md:text-4xl">
         <p class="my-4">
           お探しのページが見つかりませんでした。
         </p>
@@ -18,7 +18,7 @@
           URLにお間違いがないか再度ご確認ください。
         </p>
       </div>
-      <div class="col-start-2 col-span-10 my-12">
+      <div class="col-span-10 col-start-2 my-12">
         <img
           :src="top_logo_src"
           height="1600px"
@@ -28,10 +28,10 @@
       </div>
     </div>
     <div class="my-16 justify-center">
-      <button class=" bg-red-400 hover:bg-red-600 rounded p-1">
+      <button class=" rounded bg-red-400 p-1 hover:bg-red-600">
         <router-link
           to="/"
-          class="bg-red-500 hover:bg-red-700 text-white font-bold text-2xl rounded w-70 p-4 inline-flex justify-center"
+          class="inline-flex justify-center rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700"
         >
           トップページに戻る
         </router-link>

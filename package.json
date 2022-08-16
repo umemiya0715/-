@@ -33,6 +33,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "eslint": "^8.19.0",
+    "eslint-plugin-tailwindcss": "^3.6.0",
     "eslint-plugin-vue": "^9.2.0",
     "webpack-dev-server": "^3"
   },

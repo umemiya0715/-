@@ -1,17 +1,17 @@
 <template>
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10 md:pt-20 md:pb-10">
-      <div class="col-start-2 col-span-10 mt-20 md:mt-0">
+      <div class="col-span-10 col-start-2 mt-20 md:mt-0">
         <div
           v-if="results"
-          class="text-2xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl"
+          class="inline border-b-8 border-white p-2 text-2xl font-bold text-white md:text-4xl"
         >
           {{ shortenedName }}さんの心のドラゴンは…
         </div>
       </div>
       <div
         v-if="results"
-        class="text-center text-white col-start-2 col-span-10 pb-10 mx-auto"
+        class="col-span-10 col-start-2 mx-auto pb-10 text-center text-white"
       >
         <div class="text-6xl font-bold">
           <h3>{{ results.dragon.name }}</h3>
@@ -20,48 +20,48 @@
           <img :src="dragon_image_src">
         </div>
         <ResultRadar :style="chartStyles" />
-        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
-          <div class="text-3xl inline font-bold border-b-2 border-white">
+        <div class="m-4 mx-4 rounded-md border-4 border-white p-4 font-bold">
+          <div class="inline border-b-2 border-white text-3xl font-bold">
             性格
           </div>
-          <div class="text-3xl m-4">
+          <div class="m-4 text-3xl">
             {{ results.dragon.explanation }}
           </div>
-          <div class="text-2xl m-4 text-left">
+          <div class="m-4 text-left text-2xl">
             {{ results.dragon.personality }}
           </div>
         </div>
-        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
-          <div class="text-3xl inline font-bold border-b-2 border-white">
+        <div class="m-4 mx-4 rounded-md border-4 border-white p-4 font-bold">
+          <div class="inline border-b-2 border-white text-3xl font-bold">
             アドバイス
           </div>
-          <div class="text-2xl m-4 text-left">
+          <div class="m-4 text-left text-2xl">
             {{ results.dragon.advice }}
           </div>
         </div>
-        <div class="p-4 m-4 border-4 border-white rounded-md font-bold mx-4">
-          <div class="text-3xl inline font-bold border-b-2 border-white">
+        <div class="m-4 mx-4 rounded-md border-4 border-white p-4 font-bold">
+          <div class="inline border-b-2 border-white text-3xl font-bold">
             相性のいいドラゴン
           </div>
-          <div class="text-2xl m-4 text-left">
+          <div class="m-4 text-left text-2xl">
             {{ results.dragon.affinity }}
           </div>
         </div>
       </div>
     </div>
-    <div class="p-4 mx-auto">
+    <div class="mx-auto p-4">
       <button
-        class="bg-blue-300 hover:bg-blue-600 rounded p-1 w-72"
+        class="w-72 rounded bg-blue-300 p-1 hover:bg-blue-600"
         @click="twitterShare"
       >
-        <div class="bg-twitterBlue hover:bg-blue-700 text-white text-2xl font-bold py-4 rounded">
-          <i class="px-2 ri-twitter-fill" />Twitterでシェアする
+        <div class="bg-twitterBlue rounded py-4 text-2xl font-bold text-white hover:bg-blue-700">
+          <i class="ri-twitter-fill px-2" />Twitterでシェアする
         </div>
       </button>
     </div>
-    <div class="p-4 pb-20 mx-auto">
-      <button class="bg-red-400 hover:bg-red-600 rounded p-1 w-72">
-        <div class="bg-red-500 hover:bg-red-700 text-white text-2xl font-bold p-4 rounded">
+    <div class="mx-auto p-4 pb-20">
+      <button class="w-72 rounded bg-red-400 p-1 hover:bg-red-600">
+        <div class="rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700">
           <router-link
             to="/"
           >

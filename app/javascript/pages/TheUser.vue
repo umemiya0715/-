@@ -1,12 +1,12 @@
 <template>
   <div class="text-center">
     <div class="grid grid-cols-12 gap-10 pt-10 pb-32">
-      <div class="col-start-2 col-span-10 my-10">
-        <div class="text-3xl inline p-2 text-white font-bold border-b-8 border-white md:text-4xl">
+      <div class="col-span-10 col-start-2 my-10">
+        <div class="inline border-b-8 border-white p-2 text-3xl font-bold text-white md:text-4xl">
           マイページ
         </div>
       </div>
-      <div class="items-center col-start-2 col-span-10">
+      <div class="col-span-10 col-start-2 items-center">
         <UserProfileCard
           :user="currentUser"
           @update-Settings="updateUserSettings"
