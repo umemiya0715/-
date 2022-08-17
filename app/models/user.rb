@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id          :bigint           not null, primary key
+#  image       :string(255)
+#  name        :string(255)      not null
+#  role        :integer          default("general"), not null
+#  screen_name :string(255)      not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  twitter_id  :string(255)      not null
+#
+# Indexes
+#
+#  index_users_on_twitter_id  (twitter_id) UNIQUE
+#
 class User < ApplicationRecord
   before_save :modify_avatar_url
   authenticates_with_sorcery!
