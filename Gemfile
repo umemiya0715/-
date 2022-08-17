@@ -24,10 +24,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -38,9 +39,12 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'annotate'
 end
 
 group :test do
   gem 'capybara'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
+  gem 'vcr', require: false
 end
