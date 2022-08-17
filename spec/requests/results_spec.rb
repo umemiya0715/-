@@ -64,11 +64,10 @@ RSpec.describe 'Results', type: :request do
     end
     context 'ログイン中' do
       before { login_as(user) }
-      xit '201 Createdを返す' do
+      it '201 Createdを返す' do
         post '/api/v1/results', params: {
           result: { target_account: '@Umesho0415', user_id: user.id }
         }
-        byebug
         expect(response.status).to eq 201
       end
     end

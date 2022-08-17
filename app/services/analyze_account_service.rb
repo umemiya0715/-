@@ -1,5 +1,4 @@
 class AnalyzeAccountService
-
   def initialize(target, tweets, user)
     @target = target
     @tweets = tweets
@@ -7,40 +6,40 @@ class AnalyzeAccountService
   end
 
   def call
-    require "google/cloud/language"
+    require 'google/cloud/language'
     client = Google::Cloud::Language.language_service do |config|
       if Rails.env.production?
         config.credentials = JSON.parse(ENV.fetch('GOOGLE_CREDENTIALS'))
       else
-        config.credentials = "/Users/umemiyashouta/Downloads/dragon-twitter-analysis.json"
+        config.credentials = '/Users/umemiyashouta/Downloads/dragon-twitter-analysis.json'
       end
     end
-    resultScore = []
-    resultMagnitude = []
+    result_score = []
+    result_magnitude = []
     @tweets.each do |tweet|
-      improvedTweet = tweet.text.gsub(/#.*$|[ 　]+|\n|http.*:\/\/t.co\/\w*$/,"")
-      document = { type: :PLAIN_TEXT, content: improvedTweet }
-      response = client.analyze_sentiment(document: document)
+      improved_tweet = tweet.text.gsub(/#.*$|[ 　]+|\n|http.*:\/\/t.co\/\w*$/, '')
+      document = { type: :PLAIN_TEXT, content: improved_tweet }
+      response = client.analyze_sentiment(document:)
       sentiment = response.document_sentiment
-      resultScore.push(sentiment.score)
-      resultMagnitude.push(sentiment.magnitude)
+      result_score.push(sentiment.score)
+      result_magnitude.push(sentiment.magnitude)
     end
     user_id = @user
     target_account = @target.name
     screen_name = @target.screen_name
-    score = ( resultScore.sum(0.0) / resultScore.size ).floor(2)
-    magnitude = ( resultMagnitude.sum(0.0) / resultMagnitude.size ).floor(2)
+    score = (result_score.sum(0.0) / result_score.size).floor(2)
+    magnitude = (result_magnitude.sum(0.0) / result_magnitude.size).floor(2)
     troversion = CalculateTroversionService.new(@target, @tweets).call
     dragon_id = JudgeDragonService.new(score, magnitude, troversion).call
 
     {
-      user_id: user_id,
-      dragon_id: dragon_id,
-      target_account: target_account,
-      screen_name: screen_name,
-      score: score,
-      magnitude: magnitude,
-      troversion: troversion,
+      user_id:,
+      dragon_id:,
+      target_account:,
+      screen_name:,
+      score:,
+      magnitude:,
+      troversion:
     }
   end
 end

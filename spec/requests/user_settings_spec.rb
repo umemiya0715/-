@@ -7,7 +7,7 @@ RSpec.describe 'UserSettings', type: :request do
     context '正常系' do
       let(:user) { create(:user, :new) }
       before { patch '/api/v1/user_settings' }
-      xit '200 OKを返す' do
+      it '200 OKを返す' do
         expect(response.status).to eq 200
       end
       it 'userのデータが更新される' do
@@ -15,7 +15,7 @@ RSpec.describe 'UserSettings', type: :request do
         expect(updated_user.name).to eq 'bahamut'
         expect(updated_user.screen_name).to eq 'bahamut0731'
       end
-      xit 'userのJSONを返す' do
+      it 'userのJSONを返す' do
         updated_user = user.reload
         expect(json).to eq({
           'id' => updated_user.id,

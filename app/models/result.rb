@@ -9,5 +9,4 @@ class Result < ApplicationRecord
   validates :troversion, presence: true
   validates :target_account, presence: true
   validates :screen_name, presence: true
-
 end

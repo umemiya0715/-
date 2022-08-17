@@ -1,21 +1,20 @@
 module Api
   module V1
     class ResultsController < Api::V1::BaseController
-      before_action :set_result, only: %i[show]
-
       def previous_results
         @results = Result.includes(:dragon).where(user_id: params[:id]).order(created_at: :desc)
-        render json: @results, include: [:dragon], status: 200
+        render json: @results, include: [:dragon], status: :ok
       end
 
       def last_result
         @results = Result.includes(:dragon).where(screen_name: params[:id]).order(created_at: :desc).limit(2)
         # user_idだとログインユーザー以外を対象にした診断結果も検索対象となるため、screen_nameで絞り込み
-        render json: @results, include: [:dragon], status: 200
+        render json: @results, include: [:dragon], status: :ok
       end
 
       def show
-        render json: @result, include: [:dragon], status: 200
+        @result = Result.find(params[:id])
+        render json: @result, include: [:dragon], status: :ok
       end
 
       def create
@@ -25,9 +24,9 @@ module Api
         user = result_params['user_id']
         analyzed_result = AnalyzeAccountService.new(target, tweets, user).call
         @result = Result.new(analyzed_result)
-        if @result.user_id == 0 then
+        if @result.user_id.zero?
           render json: @result, status: :ok
-        elsif @result.save then
+        elsif @result.save
           render json: @result, status: :created
         else
           render json: @result, status: :bad_request
@@ -36,14 +35,10 @@ module Api
 
       private
 
-      def set_result
-        @result = Result.find(params[:id])
-      end
-
       def result_params
-        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion, :target_account, :screen_name)
+        params.require(:result).permit(:user_id, :dragon_id, :score, :magnitude, :troversion,
+                                       :target_account, :screen_name)
       end
-
     end
   end
 end
