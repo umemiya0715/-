@@ -47,4 +47,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'webdrivers'
   gem 'vcr', require: false
+  gem 'webmock', require: false
 end

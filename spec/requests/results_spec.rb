@@ -62,11 +62,11 @@ RSpec.describe 'Results', type: :request do
     before do
       create_list(:dragon, 8)
     end
-    context 'ログイン中' do
+    context 'ログイン中', vcr: { cassette_name: 'results' } do
       before { login_as(user) }
-      it '201 Createdを返す' do
+      xit '201 Createdを返す' do
         post '/api/v1/results', params: {
-          result: { target_account: '@Umesho0415', user_id: user.id }
+          result: { target_account: '@Umesho0415', user_id: 1 }
         }
         expect(response.status).to eq 201
       end
