@@ -1,51 +1,50 @@
 class CalculateTroversionService
-
   def initialize(target, tweets)
     @target = target
     @tweets = tweets
   end
 
   def call
-    resultFavorites = []
-    resultRetweets = []
+    result_favorites = []
+    result_retweets = []
     @tweets.each do |tweet|
-      resultFavorites.push(tweet.favorite_count)
-      resultRetweets.push(tweet.retweet_count)
+      result_favorites.push(tweet.favorite_count)
+      result_retweets.push(tweet.retweet_count)
     end
-    replyCounts = 16 - @tweets.count
+    reply_counts = 16 - @tweets.count
     # ツイート頻度
-    firstTweetDifference = (Time.now - @tweets.last.created_at) / ( 60 * 60 * 24)
-    tweetFrequency = @tweets.count / firstTweetDifference.floor(2)
-    if tweetFrequency <= 3
-      userFrequency = tweetFrequency / 3 * 0.2
-    elsif
-      userFrequency = 0.2
+    first_tweet_difference = (Time.current - @tweets.last.created_at) / (60 * 60 * 24)
+    tweet_frequency = @tweets.count / first_tweet_difference.floor(2)
+    if tweet_frequency <= 3
+      user_frequency = tweet_frequency / 3 * 0.2
+    else
+      user_frequency = 0.2
     end
     # リプライ数
-    if replyCounts < 8
-      replyRate = replyCounts * 2 / 16 * 0.2
-    elsif
-      replyRate = 0.2
+    if reply_counts < 8
+      reply_rate = reply_counts * 2 / 16 * 0.2
+    else
+      reply_rate = 0.2
     end
     # いいね数
-    averageFavorites = resultFavorites.sum(0.0) / resultFavorites.size
-    if averageFavorites <= ( @target.followers_count * 0.05 )
-      userFavorites = averageFavorites / ( @target.followers_count * 0.05 ) * 0.2
-    elsif
-      userFavorites = 0.2
+    average_favorites = result_favorites.sum(0.0) / result_favorites.size
+    if average_favorites <= (@target.followers_count * 0.05)
+      user_favorites = average_favorites / (@target.followers_count * 0.05) * 0.2
+    else
+      user_favorites = 0.2
     end
     # フォロワー数
     if @target.followers_count <= 1000
-      userFollowers = @target.followers_count / 1000 * 0.2
-    elsif
-      userFollowers = 0.2
+      user_followers = @target.followers_count / 1000 * 0.2
+    else
+      user_followers = 0.2
     end
     # リツイート数
-    if resultRetweets.max <= 100
-      userRetweets = resultRetweets.max / 100 * 0.2
-    elsif
-      userRetweets = 0.2
+    if result_retweets.max <= 100
+      user_retweets = result_retweets.max / 100 * 0.2
+    else
+      user_retweets = 0.2
     end
-    troversion = ( userFrequency + replyRate + userFavorites + userFollowers + userRetweets ).floor(2)
+    troversion = (user_frequency + reply_rate + user_favorites + user_followers + user_retweets).floor(2)
   end
 end

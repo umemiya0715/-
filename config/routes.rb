@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :authentications
-      resources :results
-      resources :dragons
-      resources :users
+    resources :authentications
+    resources :results
+    resources :dragons
+    resources :users
 
-      root to: "authentications#index"
-    end
+    root to: 'authentications#index'
+  end
   root to: 'home#index'
 
   namespace :api, format: 'json' do

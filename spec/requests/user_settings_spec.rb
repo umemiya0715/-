@@ -2,28 +2,28 @@ require 'rails_helper'
 
 RSpec.describe 'UserSettings', type: :request do
   describe 'PATCH /api/v1/user_settings' do
-    let(:user) { create(:user, screen_name: 'Umesho0415') }
+    let(:user) { create(:user) }
     before { login_as(user) }
-    context '正常系' do
-      let(:user) { create(:user, :new) }
+    context '正常系', vcr: { cassette_name: 'user_settings' } do
+      let(:user) { create(:user, screen_name: 'Umesho0415') }
       before { patch '/api/v1/user_settings' }
-      xit '200 OKを返す' do
+      it '200 OKを返す' do
         expect(response.status).to eq 200
       end
       it 'userのデータが更新される' do
         updated_user = user.reload
-        expect(updated_user.name).to eq 'bahamut'
-        expect(updated_user.screen_name).to eq 'bahamut0731'
+        expect(updated_user.name).to eq 'Umesho'
+        expect(updated_user.screen_name).to eq 'Umesho0415'
       end
-      xit 'userのJSONを返す' do
+      it 'userのJSONを返す' do
         updated_user = user.reload
-        expect(json).to eq({
+        expect(json).to include({
           'id' => updated_user.id,
           'name' => updated_user.name,
           'screen_name' => updated_user.screen_name,
           'twitter_id' => updated_user.twitter_id,
           'image' => updated_user.image,
-          'role' => updated_user.role,
+          'role' => updated_user.role
         })
       end
     end

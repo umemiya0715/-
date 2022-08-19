@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -17,7 +17,7 @@ class UserDashboard < Administrate::BaseDashboard
     role: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    screen_name: Field::String,
+    screen_name: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES

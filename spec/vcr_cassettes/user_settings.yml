@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=Umesho0415
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - TwitterRubyGem/7.0.0
+      Authorization:
+      - OAuth oauth_consumer_key="<API KEY>", oauth_nonce="d90597b05fba92d62b6830919fbe7162",
+        oauth_signature="J1eX%2B6B5hvZw%2FUVVRwi5SXRevWU%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1660745750", oauth_token="<ACCESS TOKEN>", oauth_version="1.0"
+      Connection:
+      - close
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Aug 2022 14:15:50 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_m
+      Status:
+      - 200 OK
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Set-Cookie:
+      - guest_id=v1%3A166074575046177363; Max-Age=63072000; Expires=Fri, 16 Aug 2024
+        14:15:50 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None
+      - guest_id_ads=v1%3A166074575046177363; Max-Age=63072000; Expires=Fri, 16 Aug
+        2024 14:15:50 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None
+      - guest_id_marketing=v1%3A166074575046177363; Max-Age=63072000; Expires=Fri,
+        16 Aug 2024 14:15:50 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None
+      - lang=ja; Path=/
+      - personalization_id="v1_SYIYUIxTcLjcouoVvS0u1g=="; Max-Age=63072000; Expires=Fri,
+        16 Aug 2024 14:15:50 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None
+      Content-Type:
+      - application/json;charset=utf-8
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Last-Modified:
+      - Wed, 17 Aug 2022 14:15:50 GMT
+      X-Transaction:
+      - 531fcafa16ee4916
+      Content-Length:
+      - '2891'
+      X-Access-Level:
+      - read-write-directmessages
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Rate-Limit-Limit:
+      - '900'
+      X-Rate-Limit-Reset:
+      - '1660746650'
+      Content-Disposition:
+      - attachment; filename=json.json
+      X-Content-Type-Options:
+      - nosniff
+      X-Rate-Limit-Remaining:
+      - '899'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Response-Time:
+      - '139'
+      X-Connection-Hash:
+      - 1e8518d9fec0098ce3b39513eb2d4bbd2d4414e74d56ca7db0006c3487535246
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":1321128806829076485,"id_str":"1321128806829076485","name":"Umesho","screen_name":"Umesho0415","location":"","profile_location":null,"description":"RUNTEQ\u5352\u696d\u751f(12\u671f)\/\u5de5\u5b66\u9662\u5352\/Twitter\u30a2\u30ab\u30a6\u30f3\u30c8\u306e\u5229\u7528\u72b6\u6cc1\u3092\ud83d\udc09\u304c\u8a3a\u65ad\u3057\u3066\u304f\u308c\u308b\u30a2\u30d7\u30ea\u3092\u4f5c\u308a\u307e\u3057\u305f\u2193","url":"https:\/\/t.co\/er0X4Kx2BM","entities":{"url":{"urls":[{"url":"https:\/\/t.co\/er0X4Kx2BM","expanded_url":"http:\/\/dragon-twitter-analysis.com","display_url":"dragon-twitter-analysis.com","indices":[0,23]}]},"description":{"urls":[]}},"protected":false,"followers_count":179,"friends_count":163,"listed_count":3,"created_at":"Tue
+        Oct 27 16:38:05 +0000 2020","favourites_count":511,"utc_offset":null,"time_zone":null,"geo_enabled":false,"verified":false,"statuses_count":333,"lang":null,"status":{"created_at":"Wed
+        Aug 17 12:45:44 +0000 2022","id":1559884180515090434,"id_str":"1559884180515090434","text":"\u30ab\u30eb\u30c8\u6620\u753b\u7e1b\u308a\n\u30a8\u30c9\u30fb\u30a6\u30c3\u30c9\u306f\u9055\u3046\u6c17\u3082\u3059\u308b\u3051\u3069\nhttps:\/\/t.co\/xD3U5eIJZu","truncated":false,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[{"url":"https:\/\/t.co\/xD3U5eIJZu","expanded_url":"https:\/\/www.five-movies.net\/posts\/182abd58204e8","display_url":"five-movies.net\/posts\/182abd58\u2026","indices":[24,47]}]},"source":"\u003ca
+        href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter
+        for iPhone\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"is_quote_status":false,"retweet_count":0,"favorite_count":4,"favorited":false,"retweeted":false,"possibly_sensitive":false,"lang":"ja"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"F5F8FA","profile_background_image_url":null,"profile_background_image_url_https":null,"profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/1461357110735040512\/cZi4lSdD_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/1461357110735040512\/cZi4lSdD_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/1321128806829076485\/1618494582","profile_link_color":"1DA1F2","profile_sidebar_border_color":"C0DEED","profile_sidebar_fill_color":"DDEEF6","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":true,"default_profile":true,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"translator_type":"none","withheld_in_countries":[],"suspended":false,"needs_phone_verification":false}'
+  recorded_at: Wed, 17 Aug 2022 14:15:50 GMT
+recorded_with: VCR 6.1.0

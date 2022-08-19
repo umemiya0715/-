@@ -1,13 +1,23 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
 AllCops:
   Exclude:
+  - 'tmp/**/*'
   - 'vendor/**/*'
   - 'db/**/*'
   - 'bin/**/*'
   - 'spec/**/*'
   - 'node_modules/**/*'
   DisplayCopNames: true
+
+# gemfileの順番チェック
+Bundler/OrderedGems:
+  Enabled: false
 
 # ブロックの開始後に複数行のdo endブロックに改行があるかどうかをチェック
 Layout/MultilineBlockLayout:
@@ -38,6 +48,14 @@ Metrics/ClassLength:
 # 循環的複雑度(メソッドを通る直線的に独立したパスの数)
 Metrics/CyclomaticComplexity:
   Max: 30
+
+# 一行の長さは120字まで。コメントは制限しない
+Metrics/LineLength:
+  Max: 120
+  IgnoredPatterns: ["^ *# "]
+  Exclude:
+    - "db/migrate/*.rb"
+    - "config/**/*"
 
 # メソッドの行数
 Metrics/MethodLength:
@@ -70,14 +88,22 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+# each_key, value, transform_keys, valueを使用する
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
 # if式が1行で収まるかチェック
 Style/IfUnlessModifier:
   Enabled: false
 
-# whileやuntilが指定文字数以内に1行で収まっているか
-Style/WhileUntilModifier:
+# %i[]か[:~]かのチェック
+Style/SymbolArray:
   Enabled: false
 
-# gemfileの順番チェック
-Bundler/OrderedGems:
+# whileやuntilが指定文字数以内に1行で収まっているか
+Style/WhileUntilModifier:
   Enabled: false

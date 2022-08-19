@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class DragonDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -17,7 +17,7 @@ class DragonDashboard < Administrate::BaseDashboard
     advice: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    affinity: Field::String,
+    affinity: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES

@@ -6,7 +6,7 @@ RSpec.describe 'Results', type: :request do
     let!(:red_dragon) { create(:dragon, :red) }
     before do
       login_as(user)
-      create_list(:result, 5, user_id: 23, dragon_id: 1 )
+      create_list(:result, 5, user_id: 23, dragon_id: 1)
       get "/api/v1/results/#{user.id}/previous_results"
     end
     it '200 OKを返す' do
@@ -18,14 +18,14 @@ RSpec.describe 'Results', type: :request do
   end
 
   describe 'GET /api/v1/results/:id/last_result' do
-    let(:user) { create(:user, screen_name: 'Quetzalcoatl') }
+    let(:user) { create(:user, id: 23, screen_name: 'Quetzalcoatl') }
     let!(:red_dragon) { create(:dragon, :red) }
     before do
       login_as(user)
-      create_list(:result, 5, screen_name: 'Quetzalcoatl', dragon_id: 1 )
+      create_list(:result, 5, user_id: 23, dragon_id: 1, screen_name: 'Quetzalcoatl')
       get "/api/v1/results/#{user.screen_name}/last_result"
     end
-    it '200　OKを返す' do
+    it '200 OKを返す' do
       expect(response.status).to eq 200
     end
     it '最新の診断結果とその一つ前の診断結果を返す' do
@@ -34,8 +34,9 @@ RSpec.describe 'Results', type: :request do
   end
 
   describe 'GET /api/v1/results/:id' do
+    let!(:user) { create(:user, id: 23) }
     let!(:red_dragon) { create(:dragon, :red) }
-    let!(:result) { create(:result, id: 666, dragon_id: 1) }
+    let!(:result) { create(:result, id: 666, user_id: 23, dragon_id: 1) }
     before do
       get "/api/v1/results/#{result.id}"
     end
@@ -58,16 +59,22 @@ RSpec.describe 'Results', type: :request do
 
   describe 'POST /api/v1/results' do
     let(:user) { create(:user, id: 1) }
-    before do
-      create_list(:dragon, 8)
-    end
-    context 'ログイン中' do
-      before { login_as(user) }
-      xit '201 Createdを返す' do
+    let!(:dragon) { create(:dragon, id: 1) }
+    let!(:dragon) { create(:dragon, id: 2) }
+    let!(:dragon) { create(:dragon, id: 3) }
+    let!(:dragon) { create(:dragon, id: 4) }
+    let!(:dragon) { create(:dragon, id: 5) }
+    let!(:dragon) { create(:dragon, id: 6) }
+    let!(:dragon) { create(:dragon, id: 7) }
+    let!(:dragon) { create(:dragon, id: 8) }
+    context 'ログイン中', vcr: { cassette_name: 'results' } do
+      before do
+        login_as(user)
+      end
+      it '201 Createdを返す' do
         post '/api/v1/results', params: {
-          result: { target_account: '@Umesho0415', user_id: user.id }
+          result: { target_account: '@Umesho0415', user_id: 1 }
         }
-        byebug
         expect(response.status).to eq 201
       end
     end

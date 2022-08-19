@@ -1,5 +1,4 @@
 class JudgeDragonService
-
   def initialize(score, magnitude, troversion)
     @score = score
     @magnitude = magnitude
@@ -7,22 +6,22 @@ class JudgeDragonService
   end
 
   def call
-    if @score >= 0.13 and @magnitude >= 0.57 and @troversion >= 0.37
-      dragonId = 1
-    elsif @score >= 0.13 and @magnitude >= 0.57 and @troversion < 0.37
-      dragonId = 2
-    elsif @score >= 0.13 and @magnitude < 0.57 and @troversion >= 0.37
-      dragonId = 3
-    elsif @score >= 0.13 and @magnitude < 0.57 and @troversion < 0.37
-      dragonId = 4
-    elsif @score < 0.13 and @magnitude >= 0.57 and @troversion >= 0.37
-      dragonId = 5
-    elsif @score < 0.13 and @magnitude >= 0.57 and @troversion < 0.37
-      dragonId = 6
-    elsif @score < 0.13 and @magnitude < 0.57 and @troversion >= 0.37
-      dragonId = 7
-    elsif @score < 0.13 and @magnitude < 0.57 and @troversion < 0.37
-      dragonId = 8
+    if @score >= 0.13 && @magnitude >= 0.57 && @troversion >= 0.37
+      dragon_id = 1
+    elsif @score >= 0.13 && @magnitude >= 0.57 && @troversion < 0.37
+      dragon_id = 2
+    elsif @score >= 0.13 && @magnitude < 0.57 && @troversion >= 0.37
+      dragon_id = 3
+    elsif @score >= 0.13 && @magnitude < 0.57 && @troversion < 0.37
+      dragon_id = 4
+    elsif @score < 0.13 && @magnitude >= 0.57 && @troversion >= 0.37
+      dragon_id = 5
+    elsif @score < 0.13 && @magnitude >= 0.57 && @troversion < 0.37
+      dragon_id = 6
+    elsif @score < 0.13 && @magnitude < 0.57 && @troversion >= 0.37
+      dragon_id = 7
+    elsif @score < 0.13 && @magnitude < 0.57 && @troversion < 0.37
+      dragon_id = 8
     end
   end
 end

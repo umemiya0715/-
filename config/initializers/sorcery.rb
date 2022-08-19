@@ -119,10 +119,10 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.secret = Rails.application.credentials.twitter[:consumer_secret]
   config.twitter.callback_url = Settings.sorcery[:callback_url]
   config.twitter.user_info_mapping = {
-    twitter_id: "id",
-    screen_name: "screen_name",
-    name: "name",
-    image: "profile_image_url_https"
+    twitter_id: 'id',
+    screen_name: 'screen_name',
+    name: 'name',
+    image: 'profile_image_url_https'
   }
   #
   # config.facebook.key = ""
@@ -230,7 +230,6 @@ Rails.application.config.sorcery.configure do |config|
   # config.line.scope = "profile"
   # config.line.bot_prompt = "normal"
   # config.line.user_info_mapping = {name: 'displayName'}
-
 
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2
@@ -568,5 +567,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "User"
+  config.user_class = 'User'
 end
