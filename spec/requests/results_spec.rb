@@ -59,12 +59,19 @@ RSpec.describe 'Results', type: :request do
 
   describe 'POST /api/v1/results' do
     let(:user) { create(:user, id: 1) }
-    before do
-      create_list(:dragon, 8)
-    end
+    let!(:dragon) { create(:dragon, id: 1) }
+    let!(:dragon) { create(:dragon, id: 2) }
+    let!(:dragon) { create(:dragon, id: 3) }
+    let!(:dragon) { create(:dragon, id: 4) }
+    let!(:dragon) { create(:dragon, id: 5) }
+    let!(:dragon) { create(:dragon, id: 6) }
+    let!(:dragon) { create(:dragon, id: 7) }
+    let!(:dragon) { create(:dragon, id: 8) }
     context 'ログイン中', vcr: { cassette_name: 'results' } do
-      before { login_as(user) }
-      xit '201 Createdを返す' do
+      before do
+        login_as(user)
+      end
+      it '201 Createdを返す' do
         post '/api/v1/results', params: {
           result: { target_account: '@Umesho0415', user_id: 1 }
         }

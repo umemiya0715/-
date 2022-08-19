@@ -26,7 +26,7 @@ module Api
         @result = Result.new(analyzed_result)
         if @result.user_id.zero?
           render json: @result, status: :ok
-        elsif @result.save
+        elsif @result.save!
           render json: @result, status: :created
         else
           render json: @result, status: :bad_request
