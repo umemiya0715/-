@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   has_one :authentication, dependent: :destroy
   has_many :results, dependent: :destroy
+  has_one: :levels, dependent: :destroy
 
   accepts_nested_attributes_for :authentication
 

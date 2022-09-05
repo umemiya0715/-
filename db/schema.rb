@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_07_073519) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_135329) do
   create_table "authentications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "provider", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_07_073519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "affinity", null: false
+  end
+
+  create_table "levels", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "current_level", default: 1, null: false
+    t.integer "experience", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_levels_on_user_id"
   end
 
   create_table "results", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
