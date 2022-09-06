@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :results
     resources :dragons
     resources :users
+    resources :levels
 
     root to: 'authentications#index'
   end
