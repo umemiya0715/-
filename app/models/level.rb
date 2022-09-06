@@ -19,5 +19,6 @@ class Level < ApplicationRecord
 
   validates :user_id, presence: true
   validates :current_level, presence: true
+  validates :setting_level, presence: true
   validates :experience, presence: true
 end

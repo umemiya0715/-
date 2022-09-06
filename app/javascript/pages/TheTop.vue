@@ -115,8 +115,23 @@ export default {
     ...mapGetters(
       'users', ['currentUser']
     ),
+    ...mapGetters(
+      'levels', ['levels']
+    ),
     top_logo_src() {
       return require("../../../public/images/topLogo.png")
+    },
+    currentUserId() {
+      if (this.currentUser !== null)
+      return this.currentUser.id
+    }
+  },
+  watch: {
+    currentUserId: function() {
+      axios.get(`/api/v1/levels/${this.currentUser.id}`)
+      .then(res => {
+        this.$store.commit('levels/setLevel', res.data)
+      })
     }
   },
   mounted() {
