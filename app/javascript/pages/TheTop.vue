@@ -121,26 +121,28 @@ export default {
     top_logo_src() {
       return require("../../../public/images/topLogo.png")
     },
-    currentUserId() {
-      if (this.currentUser !== null)
-      return this.currentUser.id
+    currentPath() {
+      return this.$route.path
     }
   },
   watch: {
-    currentUserId: function() {
-      axios.get(`/api/v1/levels/${this.currentUser.id}`)
-      .then(res => {
-        this.$store.commit('levels/setLevel', res.data)
-      })
+    // currentUserId: function() {
+    //   axios.get(`/api/v1/levels/${this.currentUser.id}`)
+    //   .then(res => {
+    //     this.$store.commit('levels/setLevel', res.data)
+    //   })
+    // }
+    currentPath: function() {
+      this.fetchCurrentUser()
     }
   },
   mounted() {
-    axios.get("/api/v1/users/me")
-    .then(res => {
-      this.$store.commit('users/setCurrentUser', res.data)
-    })
+    this.fetchCurrentUser()
   },
   methods: {
+    fetchCurrentUser() {
+      this.$store.dispatch("users/getCurrentUser", this.currentUser)
+    },
     async startAnalysis() {
       const target_account = this.targetAccount
       const user_id = (this.currentUser !== null) ? this.currentUser.id : 0

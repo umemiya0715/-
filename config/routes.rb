@@ -29,7 +29,7 @@ Rails.application.routes.draw do
         end
       end
       resource :user_settings, only: %i[update destroy]
-      resources :levels, only: %i[create show update]
+      resources :levels, only: %i[show update]
     end
   end
 

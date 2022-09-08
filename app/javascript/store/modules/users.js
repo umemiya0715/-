@@ -20,7 +20,7 @@ const actions = {
     if (currentUser) {
       return currentUser
     }
-    axios.get("/api/v1/users/me")
+    axios.get("/v1/users/me")
       .then(res => {
         commit("setCurrentUser", res.data)
       })
