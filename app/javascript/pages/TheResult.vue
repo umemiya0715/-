@@ -88,7 +88,13 @@ export default {
   },
   computed: {
     ...mapGetters(
+      'users', ['currentUser']
+    ),
+    ...mapGetters(
       'results', ['results']
+    ),
+    ...mapGetters(
+      'levels', ['levels']
     ),
     shortenedName() {
       let name = this.results.target_account;
@@ -103,9 +109,23 @@ export default {
         'margin-right': 'auto',
         height: '510px',
       }
+    },
+    currentPath() {
+      return this.$route.path
     }
   },
+  watch: {
+    currentPath: function() {
+      this.levelUp()
+    }
+  },
+  mounted() {
+    this.levelUp()
+  },
   methods: {
+    levelUp() {
+      this.$store.dispatch('levels/levelUp', this.currentUser.id)
+    },
     twitterShare(){
       const url = `https://www.dragon-twitter-analysis.com/dragons/${this.results.dragon.id}`
       window.open(`https://twitter.com/share?text=${this.results.target_account}さんの心の中のドラゴンは${this.results.dragon.name}でした！%0a%23ドラッター%20%23Dratter%0a&url=${url}`, '_blank')

@@ -55,7 +55,10 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'users', ['currentUser' , 'isAuthenticatedUser']
+      'users', ['currentUser']
+    ),
+    ...mapGetters(
+      'levels', ['levels']
     ),
     logo_src() {
       return require("../../../public/images/topLogo.png")
@@ -65,19 +68,6 @@ export default {
     }
   },
   methods: {
-    async logout() {
-      await this.$store.dispatch('users/logoutUser')
-      try {
-        this.$router.push('/'),
-        this.$store.dispatch('flash/fetchFlash', {
-          type: 'alert',
-          message: 'ログアウトしました。'
-        })
-      }
-      catch (err) {
-        console.log(err.response)
-      }
-    },
     openHeaderMenu(){
       this.isVisibleHeaderMenu = true;
     },

@@ -43,7 +43,10 @@ export default {
   },
   computed: {
     ...mapGetters(
-      'users', ['currentUser' , 'isAuthenticatedUser']
+      'users', ['currentUser']
+    ),
+    ...mapGetters(
+      'levels', ['levels']
     ),
     currentPath() {
       return this.$route.path
@@ -57,6 +60,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('users/logoutUser')
+      await this.$store.dispatch('levels/initializeLevel')
       try {
         this.$router.push('/'),
         this.$store.dispatch('flash/fetchFlash', {

@@ -133,15 +133,16 @@ export default {
     //   })
     // }
     currentPath: function() {
-      this.fetchCurrentUser()
+      this.fetchUserAndLevel()
     }
   },
   mounted() {
-    this.fetchCurrentUser()
+    this.fetchUserAndLevel()
   },
   methods: {
-    fetchCurrentUser() {
+    fetchUserAndLevel() {
       this.$store.dispatch("users/getCurrentUser", this.currentUser)
+      this.$store.dispatch("levels/fetchLevel", this.currentUser.id)
     },
     async startAnalysis() {
       const target_account = this.targetAccount
