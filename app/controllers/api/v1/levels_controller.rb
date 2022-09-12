@@ -8,6 +8,15 @@ module Api
 
       def update
         level = Level.find_by!(user_id: params[:id])
+        setting_level = level_params['setting_level'].gsub(/レベル/, "").to_i
+        if level.current_level >= setting_level
+          level.update(setting_level: setting_level)
+        end
+        render json: level
+      end
+
+      def levelup
+        level = Level.find_by!(user_id: params[:id])
         if level.updated_at.to_date.before? Date.today
           level.experience += 1
         end

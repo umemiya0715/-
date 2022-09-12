@@ -23,7 +23,15 @@ const actions = {
     .catch(err => console.log(err.response));
   },
   levelUp ({ commit }, id) {
-    axios.patch(`/v1/levels/${id}`)
+    axios.get(`/v1/levels/${id}/levelup`)
+    .then(res => {
+      commit('setLevel', res.data)
+    })
+  },
+  updateLevel({ commit }, setLevel) {
+    axios.patch(`/v1/levels/${setLevel.id}`, {
+      setting_level: setLevel.level
+    })
     .then(res => {
       commit('setLevel', res.data)
     })

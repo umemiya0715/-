@@ -119,19 +119,17 @@ export default {
       'levels', ['levels']
     ),
     top_logo_src() {
-      return require("../../../public/images/topLogo.png")
+      if (this.currentUser) {
+        return require("../../../public/images/logo-level"+ this.levels.setting_level + ".png")
+      } else {
+        return require("../../../public/images/topLogo.png")
+      }
     },
     currentPath() {
-      return this.$route.path
+      return this.currentUser
     }
   },
   watch: {
-    // currentUserId: function() {
-    //   axios.get(`/api/v1/levels/${this.currentUser.id}`)
-    //   .then(res => {
-    //     this.$store.commit('levels/setLevel', res.data)
-    //   })
-    // }
     currentPath: function() {
       this.fetchUserAndLevel()
     }

@@ -29,7 +29,11 @@ Rails.application.routes.draw do
         end
       end
       resource :user_settings, only: %i[update destroy]
-      resources :levels, only: %i[show update]
+      resources :levels, only: %i[show update] do
+        member do
+          get 'levelup'
+        end
+      end
     end
   end
 
