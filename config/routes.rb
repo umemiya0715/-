@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :results
     resources :dragons
     resources :users
+    resources :levels
 
     root to: 'authentications#index'
   end
@@ -28,6 +29,11 @@ Rails.application.routes.draw do
         end
       end
       resource :user_settings, only: %i[update destroy]
+      resources :levels, only: %i[show update] do
+        member do
+          get 'levelup'
+        end
+      end
     end
   end
 

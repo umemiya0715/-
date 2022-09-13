@@ -115,17 +115,33 @@ export default {
     ...mapGetters(
       'users', ['currentUser']
     ),
+    ...mapGetters(
+      'levels', ['levels']
+    ),
     top_logo_src() {
-      return require("../../../public/images/topLogo.png")
+      if (this.levels) {
+        return require("../../../public/images/logo-level"+ this.levels.setting_level + ".png")
+      } else {
+        return require("../../../public/images/topLogo.png")
+      }
+    },
+    userCheck() {
+      return this.currentUser
+    }
+  },
+  watch: {
+    userCheck: function() {
+      this.fetchUserAndLevel()
     }
   },
   mounted() {
-    axios.get("/api/v1/users/me")
-    .then(res => {
-      this.$store.commit('users/setCurrentUser', res.data)
-    })
+    this.fetchUserAndLevel()
   },
   methods: {
+    fetchUserAndLevel() {
+      this.$store.dispatch("users/getCurrentUser", this.currentUser)
+      this.$store.dispatch("levels/fetchLevel", this.currentUser.id)
+    },
     async startAnalysis() {
       const target_account = this.targetAccount
       const user_id = (this.currentUser !== null) ? this.currentUser.id : 0

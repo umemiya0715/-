@@ -11,7 +11,7 @@ class AnalyzeAccountService
       if Rails.env.production?
         config.credentials = JSON.parse(ENV.fetch('GOOGLE_CREDENTIALS'))
       else
-        config.credentials = '/Users/umemiyashouta/Downloads/dragon-twitter-analysis.json'
+        config.credentials = '/Users/umemiyashouta/Documents/workplace/emotion-dragon/gcs_credentials.json'
       end
     end
     result_score = []

@@ -7,6 +7,7 @@ import results from './modules/results'
 import dragons from './modules/dragons'
 import users from './modules/users'
 import flash from './modules/flash'
+import levels from './modules/levels'
 
 Vue.use(Vuex)
 
@@ -15,7 +16,8 @@ export default new Vuex.Store({
     results,
     dragons,
     users,
-    flash
+    flash,
+    levels
   },
   plugins: [
     createPersistedState({

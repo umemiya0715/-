@@ -59,6 +59,13 @@
         </div>
       </button>
     </div>
+    <transition name="spinner">
+      <LevelupModal
+        :level="levels"
+        :is-visible-levelup-modal="isVisibleLevelupModal"
+        @close-modal="closeLevelupModal"
+      />
+    </transition>
     <div class="mx-auto p-4 pb-20">
       <button class="w-72 rounded bg-red-400 p-1 hover:bg-red-600">
         <div class="rounded bg-red-500 p-4 text-2xl font-bold text-white hover:bg-red-700">
@@ -76,19 +83,28 @@
 <script>
 import { mapGetters } from 'vuex'
 import ResultRadar from '../components/ResultRadar.vue'
+import LevelupModal from '../components/LevelupModal.vue'
 
 export default {
   components: {
-    ResultRadar
+    ResultRadar,
+    LevelupModal
   },
   data() {
     return {
-      title: "あなたの心に潜むドラゴンは…"
+      title: "あなたの心に潜むドラゴンは…",
+      isVisibleLevelupModal: false
     }
   },
   computed: {
     ...mapGetters(
+      'users', ['currentUser']
+    ),
+    ...mapGetters(
       'results', ['results']
+    ),
+    ...mapGetters(
+      'levels', ['levels']
     ),
     shortenedName() {
       let name = this.results.target_account;
@@ -103,12 +119,38 @@ export default {
         'margin-right': 'auto',
         height: '510px',
       }
+    },
+    currentPath() {
+      return this.$route.path
+    },
+    currentLevel() {
+      return this.levels.current_level
     }
   },
+  watch: {
+    currentPath: function() {
+      this.levelUp()
+    },
+    currentLevel: function(){
+      this.openLevelupModal()
+    }
+  },
+  mounted() {
+    this.levelUp()
+  },
   methods: {
+    levelUp() {
+      this.$store.dispatch('levels/levelUp', this.currentUser.id)
+    },
     twitterShare(){
       const url = `https://www.dragon-twitter-analysis.com/dragons/${this.results.dragon.id}`
       window.open(`https://twitter.com/share?text=${this.results.target_account}さんの心の中のドラゴンは${this.results.dragon.name}でした！%0a%23ドラッター%20%23Dratter%0a&url=${url}`, '_blank')
+    },
+    openLevelupModal() {
+      this.isVisibleLevelupModal = true;
+    },
+    closeLevelupModal() {
+      this.isVisibleLevelupModal = false;
     }
   },
 }

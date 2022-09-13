@@ -1,11 +1,11 @@
 <template>
   <div class="mx-auto my-12 w-full rounded-md bg-white px-6 py-4 shadow-md">
     <div class="py-4 sm:flex">
-      <div class="flex items-center">
-        <img
-          class="h-20 w-20 rounded-full"
-          :src="user.image"
-        >
+      <img
+        class="h-20 w-20 rounded-full"
+        :src="user.image"
+      >
+      <div class="w-full flex flex-row items-center justify-between">
         <div class="ml-4 text-left">
           <h3 class="text-3xl font-medium text-gray-800">
             {{ user.name }}
@@ -14,10 +14,39 @@
             @{{ user.screen_name }}
           </h3>
         </div>
+        <div class="text-left">
+          <h3 class="text-3xl font-medium text-gray-800">
+            Lv. {{ currentLevel }}<br>
+            次のレベルまで {{ nextLevel }}
+          </h3>
+        </div>
       </div>
     </div>
     <div class="border-t-2 pt-4 text-2xl">
-      次のボタンを押すとTwitterの最新プロフィールに更新されます
+      現在のレベルに応じてトップページに表示される画像を変更できます。
+    </div>
+    <div class="my-4 flex flex-row items-center justify-center">
+      <select
+        v-model="selectLevel.level"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-blue-500 focus:border-blue-500 w-80 p-2.5 mx-4"
+      >
+        <option disabled value="">設定したいレベルを選択</option>
+        <option>レベル1</option>
+        <option v-if="level.current_level >= 2">レベル2</option>
+        <option v-if="level.current_level >= 3">レベル3</option>
+        <option v-if="level.current_level >= 4">レベル4</option>
+      </select>
+      <button
+        class="rounded bg-blue-300 p-1 hover:bg-blue-600"
+        @click="updateLevel"
+      >
+        <div class="bg-twitterBlue rounded p-4 text-2xl font-bold text-white hover:bg-blue-700">
+          変更する
+        </div>
+      </button>
+    </div>
+    <div class="border-t-2 pt-4 text-2xl">
+      次のボタンを押すとTwitterの最新プロフィールに更新されます。
     </div>
     <div class="my-4 flex flex-row items-center justify-center">
       <button
@@ -70,13 +99,37 @@ export default {
       type: Object,
       required: true
     },
+    level: {
+      type: Object,
+      required: true
+    }
   },
   data() {
     return {
-      checkbox: false
+      checkbox: false,
+      selectLevel: {
+        id: this.level.user_id,
+        level: ''
+      }
     }
   },
   computed: {
+    currentLevel() {
+      if (this.level.current_level < 4) {
+        return this.level.current_level
+      } else {
+        return 'MAX'
+      }
+    },
+    nextLevel() {
+      if (this.level.current_level < 4) {
+        const next = [0, 3, 7, 14]
+        let exp = next[this.level.current_level]
+        return exp - this.level.experience
+      } else {
+        return '-'
+      }
+    }
   },
   methods: {
     updateUserSettings() {
@@ -84,6 +137,9 @@ export default {
     },
     logoutUser() {
       this.$emit("logout")
+    },
+    updateLevel() {
+      this.$emit("update-level", this.selectLevel)
     }
   }
 }

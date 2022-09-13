@@ -9,8 +9,10 @@
       <div class="col-span-10 col-start-2 items-center">
         <UserProfileCard
           :user="currentUser"
+          :level="levels"
           @update-Settings="updateUserSettings"
           @logout="deleteUser"
+          @update-level="updateSettingLevel"
         />
         <div
           v-show="results"
@@ -48,6 +50,9 @@ export default {
   computed: {
     ...mapGetters(
       'users', ['currentUser']
+    ),
+    ...mapGetters(
+      'levels', ['levels']
     ),
     currentPath() {
       return this.$route.path
@@ -93,7 +98,7 @@ export default {
       .then(
         this.$router.push('/'),
         this.$store.commit("users/setCurrentUser", null),
-        this.$store.dispatch('flash/fetchFlash', {
+        this.$store.dispatch("flash/fetchFlash", {
           type: 'alert',
           message: '退会しました。'
       }))
@@ -101,6 +106,18 @@ export default {
         console.log(err.response)
       })
     },
+    updateSettingLevel(selectLevel) {
+      axios.patch(`/api/v1/levels/${selectLevel.id}`, {
+        setting_level: selectLevel.level
+      })
+      .then(res => {
+        this.$store.commit("levels/setLevel", res.data)
+        this.$store.dispatch('flash/fetchFlash', {
+          type: 'info',
+          message: 'トップ画像を変更しました。'
+        })
+      })
+    }
   }
 }
 </script>
