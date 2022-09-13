@@ -27,6 +27,9 @@ const actions = {
         return err.response.status
       });
   },
+  initializeResult({ commit }) {
+    commit('setResult', null)
+  }
 }
 
 export default {

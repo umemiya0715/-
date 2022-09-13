@@ -22,6 +22,9 @@ const actions = {
     })
     .catch(err => console.log(err.response));
   },
+  initializeDragon({ commit }) {
+    commit('setDragon', null)
+  }
 }
 
 export default {
