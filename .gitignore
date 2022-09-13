@@ -53,13 +53,3 @@ yarn-debug.log*
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
-
-public/images/logo-level1.png
-public/images/logo-level2.png
-public/images/logo-level3.png
-public/images/logo-level4.png
-
-public/images/logo-dragon1.png
-public/images/logo-dragon2.png
-public/images/logo-dragon3.png
-public/images/logo-dragon4.png
