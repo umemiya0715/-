@@ -112,6 +112,10 @@ export default {
       })
       .then(res => {
         this.$store.commit("levels/setLevel", res.data)
+        this.$store.dispatch('flash/fetchFlash', {
+          type: 'info',
+          message: 'レベルを変更しました。'
+        })
       })
     }
   }
