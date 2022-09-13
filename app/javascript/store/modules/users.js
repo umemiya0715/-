@@ -33,7 +33,7 @@ const actions = {
     commit("setCurrentUser", null)
   },
   initializeUser({ commit }) {
-    commit('setLevel', null)
+    commit('setCurrentUser', null)
   }
 }
 
