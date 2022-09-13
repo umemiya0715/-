@@ -139,6 +139,8 @@ export default {
   },
   methods: {
     fetchUserAndLevel() {
+      this.$store.dispatch('users/logoutUser')
+      this.$store.dispatch('levels/initializeLevel')
       this.$store.dispatch("users/getCurrentUser", this.currentUser)
       this.$store.dispatch("levels/fetchLevel", this.currentUser.id)
     },
