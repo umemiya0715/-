@@ -56,8 +56,8 @@ export default ({
   },
   computed: {
     dragon_image_src() {
-      // return require("../../../public/images/logo-dragon"+ this.level.current_level + ".png")
-      return require("../../../public/images/logo-dragon3.png")
+      return require("../../../public/images/logo-dragon"+ this.level.current_level + ".png")
+      // return require("../../../public/images/logo-dragon3.png")
     },
     displayLevel() {
       if(this.level.current_level == 4) {

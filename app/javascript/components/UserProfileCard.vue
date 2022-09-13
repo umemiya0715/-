@@ -1,17 +1,23 @@
 <template>
   <div class="mx-auto my-12 w-full rounded-md bg-white px-6 py-4 shadow-md">
     <div class="py-4 sm:flex">
-      <div class="flex items-center">
-        <img
-          class="h-20 w-20 rounded-full"
-          :src="user.image"
-        >
+      <img
+        class="h-20 w-20 rounded-full"
+        :src="user.image"
+      >
+      <div class="w-full flex flex-row items-center justify-between">
         <div class="ml-4 text-left">
           <h3 class="text-3xl font-medium text-gray-800">
             {{ user.name }}
           </h3>
           <h3 class="text-3xl text-gray-600">
             @{{ user.screen_name }}
+          </h3>
+        </div>
+        <div class="text-left">
+          <h3 class="text-3xl font-medium text-gray-800">
+            Lv. {{ currentLevel }}<br>
+            次のレベルまで {{ nextLevel }}
           </h3>
         </div>
       </div>
@@ -104,6 +110,24 @@ export default {
       selectLevel: {
         id: this.level.user_id,
         level: ''
+      }
+    }
+  },
+  computed: {
+    currentLevel() {
+      if (this.level.current_level < 4) {
+        return this.level.current_level
+      } else {
+        return 'MAX'
+      }
+    },
+    nextLevel() {
+      if (this.level.current_level < 4) {
+        const next = [0, 3, 7, 14]
+        let exp = next[this.level.current_level]
+        return exp - this.level.experience
+      } else {
+        return '-'
       }
     }
   },

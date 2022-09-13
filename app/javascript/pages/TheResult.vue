@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       title: "あなたの心に潜むドラゴンは…",
-      isVisibleLevelupModal: true
+      isVisibleLevelupModal: false
     }
   },
   computed: {

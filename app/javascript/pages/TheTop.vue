@@ -119,18 +119,18 @@ export default {
       'levels', ['levels']
     ),
     top_logo_src() {
-      if (this.currentUser) {
+      if (this.levels) {
         return require("../../../public/images/logo-level"+ this.levels.setting_level + ".png")
       } else {
         return require("../../../public/images/topLogo.png")
       }
     },
-    currentPath() {
+    userCheck() {
       return this.currentUser
     }
   },
   watch: {
-    currentPath: function() {
+    userCheck: function() {
       this.fetchUserAndLevel()
     }
   },
