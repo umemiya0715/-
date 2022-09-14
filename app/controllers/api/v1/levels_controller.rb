@@ -16,7 +16,8 @@ module Api
       end
 
       def levelup
-        if @level.updated_at.to_date.before? Date.today
+        if @level.leveluped_at.nil? || (@level.leveluped_at.to_date.before? Date.today)
+          @level.leveluped_at = Date.today
           @level.experience += 1
         end
         former_level = @level.current_level

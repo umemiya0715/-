@@ -5,6 +5,7 @@
 #  id            :bigint           not null, primary key
 #  current_level :integer          default(1), not null
 #  experience    :integer          default(0), not null
+#  leveluped_at  :datetime
 #  setting_level :integer          default(1), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
