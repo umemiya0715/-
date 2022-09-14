@@ -15,6 +15,7 @@ class LevelDashboard < Administrate::BaseDashboard
     experience: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    leveluped_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,6 +29,7 @@ class LevelDashboard < Administrate::BaseDashboard
     current_level
     setting_level
     experience
+    leveluped_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,6 +42,7 @@ class LevelDashboard < Administrate::BaseDashboard
     experience
     created_at
     updated_at
+    leveluped_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -50,6 +53,7 @@ class LevelDashboard < Administrate::BaseDashboard
     current_level
     setting_level
     experience
+    leveluped_at
   ].freeze
 
   # COLLECTION_FILTERS
