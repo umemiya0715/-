@@ -18,5 +18,18 @@
 require 'rails_helper'
 
 RSpec.describe Level, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it 'current_level: presence' do
+      is_expected.to validate_presence_of(:current_level)
+    end
+
+    it 'experience: presence' do
+      is_expected.to validate_presence_of(:experience)
+    end
+
+    it 'setting_level: presence' do
+      is_expected.to validate_presence_of(:setting_level)
+    end
+
+  end
 end

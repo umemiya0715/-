@@ -139,7 +139,7 @@ export default {
   },
   methods: {
     fetchUserAndLevel() {
-     this.$store.dispatch("users/getCurrentUser", this.currentUser)
+      this.$store.dispatch("users/getCurrentUser", this.currentUser)
       this.$store.dispatch("levels/fetchLevel", this.currentUser.id)
     },
     async startAnalysis() {

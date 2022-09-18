@@ -17,6 +17,8 @@
 #
 FactoryBot.define do
   factory :level do
-    
+    current_level { 1 }
+    experience { 0 }
+    setting_level { 1 }
   end
 end
