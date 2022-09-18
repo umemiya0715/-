@@ -1,7 +1,7 @@
 import axios from '../../plugins/axios.js';
 
 const state = {
-  levels: []
+  levels: ""
 }
 
 const getters = {
@@ -17,10 +17,12 @@ const mutations = {
 const actions = {
   fetchLevel ({ commit }, id) {
     axios.get(`/v1/levels/${id}`)
-    .then(res => {
-      commit('setLevel', res.data)
-    })
-    .catch(err => console.log(err.response));
+      .then(res => {
+        commit('setLevel', res.data)
+      })
+      .catch(err => {
+        return null
+      });
   },
   levelUp ({ commit }, id) {
     axios.get(`/v1/levels/${id}/levelup`)

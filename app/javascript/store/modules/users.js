@@ -1,7 +1,7 @@
 import axios from '../../plugins/axios.js';
 
 const state = {
-  currentUser: []
+  currentUser: ""
 }
 
 const getters = {

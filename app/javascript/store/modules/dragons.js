@@ -1,7 +1,7 @@
 import axios from '../../plugins/axios.js';
 
 const state = {
-  dragons: []
+  dragons: ""
 }
 
 const getters = {
