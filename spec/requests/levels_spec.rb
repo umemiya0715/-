@@ -60,7 +60,7 @@ RSpec.describe 'Levels', type: :request do
       before do
         get "/api/v1/levels/#{user.id}/levelup"
       end
-      it 'experienceとlevelは増えない' do
+      it '既に診断していたらexperienceとlevelは増えない' do
         expect(json).to include({
           'id' => level.id,
           'user_id' => level.user_id,

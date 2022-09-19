@@ -14,12 +14,12 @@
 #
 FactoryBot.define do
   factory :dragon do
-    sequence(:name, 'dragon_1')
+    sequence(:name) { |n| "dragon_#{n}" }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public/images/yellowDragon.png'), 'image/png') }
-    sequence(:explanation, 'explanation_1')
-    sequence(:personality, 'personality_1')
-    sequence(:advice, 'advice_1')
-    sequence(:affinity, 'affinity_1')
+    sequence(:explanation) { |n| "explanation_#{n}" }
+    sequence(:personality) { |n| "personality_#{n}" }
+    sequence(:advice) { |n| "advice_#{n}" }
+    sequence(:affinity) { |n| "affinity_#{n}" }
   end
 
   trait :red do
