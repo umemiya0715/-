@@ -19,6 +19,7 @@ gem 'sorcery'
 gem 'config'
 gem 'active_model_serializers'
 gem 'administrate'
+gem 'seed-fu'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do

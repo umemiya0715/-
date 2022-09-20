@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Results', type: :request do
   describe 'GET /api/v1/results/:id/previous_results' do
     let(:user) { create(:user, id: 23) }
-    let!(:red_dragon) { create(:dragon, :red) }
     before do
       login_as(user)
       create_list(:result, 5, user_id: 23, dragon_id: 1)
@@ -19,7 +18,6 @@ RSpec.describe 'Results', type: :request do
 
   describe 'GET /api/v1/results/:id/last_result' do
     let(:user) { create(:user, id: 23, screen_name: 'Quetzalcoatl') }
-    let!(:red_dragon) { create(:dragon, :red) }
     before do
       login_as(user)
       create_list(:result, 5, user_id: 23, dragon_id: 1, screen_name: 'Quetzalcoatl')
@@ -35,7 +33,6 @@ RSpec.describe 'Results', type: :request do
 
   describe 'GET /api/v1/results/:id' do
     let!(:user) { create(:user, id: 23) }
-    let!(:red_dragon) { create(:dragon, :red) }
     let!(:result) { create(:result, id: 666, user_id: 23, dragon_id: 1) }
     before do
       get "/api/v1/results/#{result.id}"
@@ -59,14 +56,6 @@ RSpec.describe 'Results', type: :request do
 
   describe 'POST /api/v1/results' do
     let(:user) { create(:user, id: 1) }
-    let!(:dragon) { create(:dragon, id: 1) }
-    let!(:dragon) { create(:dragon, id: 2) }
-    let!(:dragon) { create(:dragon, id: 3) }
-    let!(:dragon) { create(:dragon, id: 4) }
-    let!(:dragon) { create(:dragon, id: 5) }
-    let!(:dragon) { create(:dragon, id: 6) }
-    let!(:dragon) { create(:dragon, id: 7) }
-    let!(:dragon) { create(:dragon, id: 8) }
     context 'ログイン中', vcr: { cassette_name: 'results' } do
       before do
         login_as(user)

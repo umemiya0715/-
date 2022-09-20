@@ -27,12 +27,16 @@ RSpec.describe User, type: :model do
   end
 
   describe 'associations' do
-    it 'has_one :authentications, destroy' do
+    it 'has_one :authentication, destroy' do
       is_expected.to have_one(:authentication).dependent(:destroy)
     end
 
     it 'has_many :results' do
       is_expected.to have_many(:results).dependent(:destroy)
+    end
+
+    it 'has_one :level, destroy' do
+      is_expected.to have_one(:level).dependent(:destroy)
     end
   end
 
