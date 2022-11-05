@@ -16,26 +16,12 @@ module Api
       end
 
       def levelup
-        if @level.leveluped_at.nil? || (@level.leveluped_at.to_date.before? Date.today)
-          @level.leveluped_at = Date.today
-          @level.experience += 1
-        end
-        former_level = @level.current_level
-        case @level.experience
-        when 0 .. 2
-          @level.current_level = 1
-        when 3 .. 6
-          @level.current_level = 2
-        when 7 .. 13
-          @level.current_level = 3
+        LevelupService.new(@level).call
+        if @level.save!
+          render json: @level, status: :ok
         else
-          @level.current_level = 4
+          render json: @level, status: :bad_request
         end
-        if former_level != @level.current_level
-          @level.setting_level = @level.current_level
-        end
-        @level.save!
-        render json: @level
       end
 
       private
