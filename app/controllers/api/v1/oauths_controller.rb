@@ -32,10 +32,7 @@ module Api
         user_from_provider = build_from(provider)
         user = User.find_or_initialize_by(twitter_id: user_from_provider.twitter_id)
         user = user_from_provider if user.new_record?
-        user.build_authentication(uid: @user_hash[:uid],
-                                  provider:,
-                                  access_token: access_token.token,
-                                  access_token_secret: access_token.secret)
+        user.build_authentication(uid: @user_hash[:uid], provider:, access_token: access_token.token, access_token_secret: access_token.secret)
         user.save!
         reset_session
         auto_login(@user)
