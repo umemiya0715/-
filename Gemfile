@@ -12,13 +12,21 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# TwitterのAPI
 gem 'twitter'
+# 感情分析のAPI
 gem 'google-cloud-language'
+# SEO対策
 gem 'meta-tags'
+# ログイン機能
 gem 'sorcery'
+# コールバックの定数管理
 gem 'config'
+# JSONの加工
 gem 'active_model_serializers'
+# 管理画面
 gem 'administrate'
+# 初期データ(テスト用)
 gem 'seed-fu'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -39,14 +47,18 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
+  # N+1問題検知
   gem 'bullet'
+  # モデルのスキーマ情報
   gem 'annotate'
 end
 
 group :test do
   gem 'capybara'
+  # modelスペック用
   gem 'shoulda-matchers'
   gem 'webdrivers'
+  # APIテスト用
   gem 'vcr', require: false
   gem 'webmock', require: false
 end
